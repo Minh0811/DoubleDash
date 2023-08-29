@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct DoubleDashApp: App {
+    let gameLogic = GameLogic()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MenuView().environmentObject(gameLogic)
         }
     }
 }

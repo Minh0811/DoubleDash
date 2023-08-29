@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */; };
-		F78BFD652A9DFF86002DA3F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD642A9DFF86002DA3F5 /* ContentView.swift */; };
 		F78BFD672A9DFF89002DA3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */; };
 		F78BFD6A2A9DFF89002DA3F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD692A9DFF89002DA3F5 /* Preview Assets.xcassets */; };
-		F78BFD742A9DFF8A002DA3F5 /* DoubleDashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD732A9DFF8A002DA3F5 /* DoubleDashTests.swift */; };
-		F78BFD7E2A9DFF8A002DA3F5 /* DoubleDashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD7D2A9DFF8A002DA3F5 /* DoubleDashUITests.swift */; };
-		F78BFD802A9DFF8A002DA3F5 /* DoubleDashUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD7F2A9DFF8A002DA3F5 /* DoubleDashUITestsLaunchTests.swift */; };
+		F78BFD912A9E00B5002DA3F5 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD902A9E00B5002DA3F5 /* GameLogic.swift */; };
+		F78BFD932A9E00CA002DA3F5 /* BlockMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD922A9E00CA002DA3F5 /* BlockMatrix.swift */; };
+		F78BFD962A9E00E2002DA3F5 /* IdentifiedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD952A9E00E2002DA3F5 /* IdentifiedBlock.swift */; };
+		F78BFD982A9E00F6002DA3F5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD972A9E00F6002DA3F5 /* GameView.swift */; };
+		F78BFD9A2A9E0116002DA3F5 /* BlockGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD992A9E0116002DA3F5 /* BlockGridView.swift */; };
+		F78BFD9F2A9E0136002DA3F5 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD9E2A9E0136002DA3F5 /* BlockView.swift */; };
+		F78BFDA12A9E01E2002DA3F5 /* FunctionalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDA02A9E01E2002DA3F5 /* FunctionalUtils.swift */; };
+		F78BFDA32A9E01F5002DA3F5 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDA22A9E01F5002DA3F5 /* SwiftUIExtensions.swift */; };
+		F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDA62A9E0A54002DA3F5 /* BlockColorScheme.swift */; };
+		F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */; };
+		F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +43,21 @@
 /* Begin PBXFileReference section */
 		F78BFD5F2A9DFF86002DA3F5 /* DoubleDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashApp.swift; sourceTree = "<group>"; };
-		F78BFD642A9DFF86002DA3F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F78BFD692A9DFF89002DA3F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F78BFD6F2A9DFF8A002DA3F5 /* DoubleDashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleDashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F78BFD732A9DFF8A002DA3F5 /* DoubleDashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashTests.swift; sourceTree = "<group>"; };
 		F78BFD792A9DFF8A002DA3F5 /* DoubleDashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleDashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F78BFD7D2A9DFF8A002DA3F5 /* DoubleDashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashUITests.swift; sourceTree = "<group>"; };
-		F78BFD7F2A9DFF8A002DA3F5 /* DoubleDashUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F78BFD902A9E00B5002DA3F5 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
+		F78BFD922A9E00CA002DA3F5 /* BlockMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockMatrix.swift; sourceTree = "<group>"; };
+		F78BFD952A9E00E2002DA3F5 /* IdentifiedBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiedBlock.swift; sourceTree = "<group>"; };
+		F78BFD972A9E00F6002DA3F5 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		F78BFD992A9E0116002DA3F5 /* BlockGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockGridView.swift; sourceTree = "<group>"; };
+		F78BFD9E2A9E0136002DA3F5 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
+		F78BFDA02A9E01E2002DA3F5 /* FunctionalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalUtils.swift; sourceTree = "<group>"; };
+		F78BFDA22A9E01F5002DA3F5 /* SwiftUIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIExtensions.swift; sourceTree = "<group>"; };
+		F78BFDA62A9E0A54002DA3F5 /* BlockColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockColorScheme.swift; sourceTree = "<group>"; };
+		F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				F78BFD612A9DFF86002DA3F5 /* DoubleDash */,
-				F78BFD722A9DFF8A002DA3F5 /* DoubleDashTests */,
-				F78BFD7C2A9DFF8A002DA3F5 /* DoubleDashUITests */,
 				F78BFD602A9DFF86002DA3F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,7 +107,10 @@
 			isa = PBXGroup;
 			children = (
 				F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */,
-				F78BFD642A9DFF86002DA3F5 /* ContentView.swift */,
+				F78BFDA42A9E087B002DA3F5 /* Utils */,
+				F78BFDA52A9E0896002DA3F5 /* ColorSchemes */,
+				F78BFD8D2A9E0065002DA3F5 /* Views */,
+				F78BFD8C2A9E0055002DA3F5 /* Models */,
 				F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */,
 				F78BFD682A9DFF89002DA3F5 /* Preview Content */,
 			);
@@ -110,21 +125,59 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		F78BFD722A9DFF8A002DA3F5 /* DoubleDashTests */ = {
+		F78BFD8C2A9E0055002DA3F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F78BFD732A9DFF8A002DA3F5 /* DoubleDashTests.swift */,
+				F78BFD952A9E00E2002DA3F5 /* IdentifiedBlock.swift */,
+				F78BFD922A9E00CA002DA3F5 /* BlockMatrix.swift */,
+				F78BFD902A9E00B5002DA3F5 /* GameLogic.swift */,
 			);
-			path = DoubleDashTests;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		F78BFD7C2A9DFF8A002DA3F5 /* DoubleDashUITests */ = {
+		F78BFD8D2A9E0065002DA3F5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F78BFD7D2A9DFF8A002DA3F5 /* DoubleDashUITests.swift */,
-				F78BFD7F2A9DFF8A002DA3F5 /* DoubleDashUITestsLaunchTests.swift */,
+				F78BFDA82A9E0A72002DA3F5 /* MenuView */,
+				F78BFDA92A9E0A7C002DA3F5 /* GameView */,
 			);
-			path = DoubleDashUITests;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F78BFDA42A9E087B002DA3F5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F78BFDA02A9E01E2002DA3F5 /* FunctionalUtils.swift */,
+				F78BFDA22A9E01F5002DA3F5 /* SwiftUIExtensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F78BFDA52A9E0896002DA3F5 /* ColorSchemes */ = {
+			isa = PBXGroup;
+			children = (
+				F78BFDA62A9E0A54002DA3F5 /* BlockColorScheme.swift */,
+			);
+			path = ColorSchemes;
+			sourceTree = "<group>";
+		};
+		F78BFDA82A9E0A72002DA3F5 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */,
+				F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		F78BFDA92A9E0A7C002DA3F5 /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				F78BFD9E2A9E0136002DA3F5 /* BlockView.swift */,
+				F78BFD992A9E0116002DA3F5 /* BlockGridView.swift */,
+				F78BFD972A9E00F6002DA3F5 /* GameView.swift */,
+			);
+			path = GameView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +310,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78BFD652A9DFF86002DA3F5 /* ContentView.swift in Sources */,
+				F78BFDA32A9E01F5002DA3F5 /* SwiftUIExtensions.swift in Sources */,
+				F78BFD9A2A9E0116002DA3F5 /* BlockGridView.swift in Sources */,
+				F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */,
+				F78BFD962A9E00E2002DA3F5 /* IdentifiedBlock.swift in Sources */,
+				F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */,
+				F78BFD912A9E00B5002DA3F5 /* GameLogic.swift in Sources */,
 				F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */,
+				F78BFDA12A9E01E2002DA3F5 /* FunctionalUtils.swift in Sources */,
+				F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */,
+				F78BFD9F2A9E0136002DA3F5 /* BlockView.swift in Sources */,
+				F78BFD932A9E00CA002DA3F5 /* BlockMatrix.swift in Sources */,
+				F78BFD982A9E00F6002DA3F5 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +329,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78BFD742A9DFF8A002DA3F5 /* DoubleDashTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78BFD7E2A9DFF8A002DA3F5 /* DoubleDashUITests.swift in Sources */,
-				F78BFD802A9DFF8A002DA3F5 /* DoubleDashUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
