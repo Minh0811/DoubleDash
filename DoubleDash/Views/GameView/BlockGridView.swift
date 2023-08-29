@@ -65,25 +65,30 @@ struct BlockGridView : View {
     
     let matrix: Self.MatrixType
     let blockEnterEdge: Edge
+    let deviceSize: CGFloat
     
     // New values for the grid's frame
     var currentLevel: Int {
             return gameLogic.currentLevel
         }
+    //base width of iphone 14 = 390
+    let baseWidth: CGFloat = 390
+    
+    var scalingFactor: CGFloat {
+        return deviceSize / baseWidth
+    }
     
     var blockSettings: (dimension: CGFloat, gap: CGFloat) {
+        
             switch currentLevel {
-                //4x4
             case 1:
-                return (60, 12)
-                //5x5
+                return (60 * scalingFactor, 12 * scalingFactor)
             case 2:
-                return (55, 12)
-                //6x6
+                return (55 * scalingFactor, 12 * scalingFactor)
             case 3:
-                return (50, 7)
+                return (50 * scalingFactor, 7 * scalingFactor)
             default:
-                return (40, 12)  // Default values
+                return (40 * scalingFactor, 12 * scalingFactor)  // Default values
             }
         }
         
@@ -182,7 +187,7 @@ struct BlockGridView_Previews : PreviewProvider {
     }
     
     static var previews: some View {
-        BlockGridView(matrix: matrix, blockEnterEdge: .top)
+        BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: 390)
             .environmentObject(GameLogic())
             .previewLayout(.sizeThatFits)
     }

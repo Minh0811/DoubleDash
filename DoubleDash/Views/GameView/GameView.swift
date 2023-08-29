@@ -116,13 +116,14 @@ struct GameView : View {
                         Text("Score: \(self.gameLogic.score)")
                             .font(.title)
                             .padding()
+                        Text("Width: \(proxy.size.width)")
                         Text("Current Level: \(gameLogic.currentLevel)")
                                   .font(.title2)
                                   .padding()
                     }
                     ZStack(alignment: .center) {
                         BlockGridView(matrix: self.gameLogic.blockMatrix,
-                                      blockEnterEdge: .from(self.gameLogic.lastGestureDirection))
+                                      blockEnterEdge: .from(self.gameLogic.lastGestureDirection), deviceSize: proxy.size.width)
                     }
                     .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
                 }
