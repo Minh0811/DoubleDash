@@ -12,7 +12,7 @@ import Combine
 final class GameLogic : ObservableObject {
     @Published var score: Int = 0
 
-    @Published public var currentLevel: Int = 1
+    @Published public var currentLevel: Int = 3
 
     var boardSize: Int {
         switch currentLevel {

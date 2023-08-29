@@ -124,7 +124,8 @@ struct BlockGridView : View {
             y: CGFloat(index.1) * (blockDimension + gap) + blockDimension / 2 + gap
         )
         
-        let blockView = block.map(BlockView.init) ?? BlockView.emptyBlockView()
+        let blockView = block.map { BlockView(block: $0, scalingFactor: scalingFactor) } ?? BlockView.emptyBlockView()
+
         
         return blockView
             .frame(width: blockDimension, height: blockDimension, alignment: .center)
@@ -175,18 +176,21 @@ struct BlockGridView_Previews : PreviewProvider {
     
     static var matrix: BlockGridView.MatrixType {
         var _matrix = BlockGridView.MatrixType(size: gameLogic.boardSize)
-        _matrix.place(IdentifiedBlock(id: 1, number: 2), to: (2, 0))
-        _matrix.place(IdentifiedBlock(id: 2, number: 2), to: (3, 0))
-        _matrix.place(IdentifiedBlock(id: 3, number: 8), to: (1, 1))
-        _matrix.place(IdentifiedBlock(id: 4, number: 4), to: (2, 1))
-        _matrix.place(IdentifiedBlock(id: 5, number: 512), to: (3, 3))
-        _matrix.place(IdentifiedBlock(id: 6, number: 1024), to: (2, 3))
-        _matrix.place(IdentifiedBlock(id: 7, number: 16), to: (0, 3))
-        _matrix.place(IdentifiedBlock(id: 8, number: 8), to: (1, 3))
+        _matrix.place(IdentifiedBlock(id: 1, number: 2), to: (0, 0))
+        _matrix.place(IdentifiedBlock(id: 2, number: 4), to: (1, 0))
+        _matrix.place(IdentifiedBlock(id: 3, number: 8), to: (2, 0))
+        _matrix.place(IdentifiedBlock(id: 4, number: 16), to: (3, 0))
+        _matrix.place(IdentifiedBlock(id: 5, number: 32), to: (0, 1))
+        _matrix.place(IdentifiedBlock(id: 6, number: 64), to: (1, 1))
+        _matrix.place(IdentifiedBlock(id: 7, number: 128), to: (2, 1))
+        _matrix.place(IdentifiedBlock(id: 8, number: 2097152), to: (3, 1))
+
         return _matrix
     }
     
     static var previews: some View {
+        //ipad = 834
+        //ip14 = 390
         BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: 390)
             .environmentObject(GameLogic())
             .previewLayout(.sizeThatFits)

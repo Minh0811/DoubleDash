@@ -11,17 +11,21 @@ struct BlockView: View {
     
     fileprivate let blockNumber : Int?
     fileprivate let uniqueTextIdentifier: String?
-    
+    fileprivate let scalingFactor: CGFloat
+
     // MARK: - Initializers
-    init(block: IdentifiedBlock) {
+    init(block: IdentifiedBlock, scalingFactor: CGFloat) {
         self.blockNumber = block.number
         self.uniqueTextIdentifier = "\(block.id):\(block.number)"
+        self.scalingFactor = scalingFactor
     }
 
-    fileprivate init() {
+    fileprivate init(scalingFactor: CGFloat = 1.0) {
         self.blockNumber = nil
         self.uniqueTextIdentifier = ""
+        self.scalingFactor = scalingFactor
     }
+
     
     // MARK: - Computed Properties
     fileprivate var formattedNumber: String {
@@ -35,13 +39,16 @@ struct BlockView: View {
         let textLength = formattedNumber.count
         switch textLength {
         case 0...2:
-            return 32
+            return 32 * scalingFactor
         case 3:
-            return 18
+            return 18 * scalingFactor
+        case 4...6:
+            return 12 * scalingFactor
         default:
-            return 12
+            return 10 * scalingFactor
         }
     }
+
 
     fileprivate var blockColors: (Color, Color) {
         // Return default color for blocks without a number.
@@ -80,6 +87,6 @@ struct BlockView: View {
     // MARK: - Previews
 struct BlockView_Previews: PreviewProvider {
     static var previews: some View {
-        BlockView(block: IdentifiedBlock(id: 3, number: 2))
+        BlockView(block: IdentifiedBlock(id: 3, number: 2), scalingFactor: 1)
     }
 }

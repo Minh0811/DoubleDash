@@ -30,6 +30,26 @@ public let BlockColorScheme: [(Color, Color)] = [
     (Color(red:0.91, green:0.75, blue:0.24, opacity:1.00), Color.white),
     // 2048
     (Color(red:0.91, green:0.74, blue:0.18, opacity:1.00), Color.white),
+    //4096
+    (Color(red:0.47, green:0.51, blue:0.55, opacity:1.00), Color.white),
+    //8192
+    (Color(red:0.25, green:0.87, blue:0.81, opacity:1.00), Color.white),
+    //16384
+    (Color(red:0.58, green:0.29, blue:0, opacity:1.00), Color.white),
+    //32768
+    (Color(red:1, green:0, blue:1, opacity:1.00), Color.white),
+    //65536
+    (Color(red:0, green:1, blue:1, opacity:1.00), Color.black),
+    //131072
+    (Color(red:0, green:0.51, blue:0, opacity:1.00), Color.white),
+    //262144
+    (Color(red:1, green:0.64, blue:0, opacity:1.00), Color.white),
+    //524288
+    (Color(red:0.6, green:0.79, blue:0.05, opacity:1.00), Color.white),
+    //1048576
+    (Color(red:0.15, green:0.15, blue:0.36, opacity:1.00), Color.white),
+    //2097152
+    (Color(red:1, green:0.75, blue:0.79, opacity:1.00), Color.white),
 ]
 
 public let DefaultBlockColorScheme: (Color, Color) =
