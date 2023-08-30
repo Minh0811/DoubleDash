@@ -33,6 +33,7 @@ struct GameView : View {
     
     @EnvironmentObject var gameLogic: GameLogic
     
+    
     fileprivate struct LayoutTraits {
         let bannerOffset: CGSize
         let showsBanner: Bool
@@ -183,7 +184,7 @@ extension GameView{
                                 .foregroundColor(.white)
                                 .font(.system(size: 40))
                         }
-                        .padding(.top, 10)
+                        //.padding(.top, 10)
                         
                     })
                 }

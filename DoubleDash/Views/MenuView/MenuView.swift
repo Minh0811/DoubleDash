@@ -38,7 +38,7 @@ extension MenuView {
                 .padding()
 
             NavigationLink(
-                destination: GameView().environmentObject(gameLogic),
+                destination: RegistrationView().environmentObject(gameLogic),
                 label: {
                     Text("Game")
                         .font(.title)
@@ -55,16 +55,18 @@ extension MenuView {
 //                    gameLogic.newGame()
 //                }
             
-            Button(action: {
-                
-            }) {
-                Text("Leader Board")
-                    .font(.title)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
+            NavigationLink(
+                destination: LeaderBoardView(),
+                label: {
+                    Text("Leader Board")
+                        .font(.title)
+                        .padding()
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                    
+                }
+            )
             
             Button(action: {
                 

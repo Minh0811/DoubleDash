@@ -41,9 +41,15 @@ struct DifficultySelectionView: View {
     // MARK: - Body
     var body: some View {
         ZStack{
-            customBackButton
-            difficultyButtons
-                .padding()
+            //Background
+            BackgroundColorScheme.ignoresSafeArea()
+            
+            //Content
+            ZStack{
+                customBackButton
+                difficultyButtons
+                    .padding()
+            }
         }
     }
 }

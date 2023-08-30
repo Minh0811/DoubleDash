@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E372A9F6859009E1F9F /* RegistrationView.swift */; };
+		F7804E3B2A9F6911009E1F9F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3A2A9F6911009E1F9F /* Player.swift */; };
+		F7804E3E2A9F6951009E1F9F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3D2A9F6951009E1F9F /* DataModel.swift */; };
+		F7804E412A9F735F009E1F9F /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */; };
+		F7804E442A9F98E4009E1F9F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E432A9F98E4009E1F9F /* Extensions.swift */; };
 		F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */; };
 		F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */; };
 		F78BFD672A9DFF89002DA3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */; };
@@ -42,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7804E372A9F6859009E1F9F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		F7804E3A2A9F6911009E1F9F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F7804E3D2A9F6951009E1F9F /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
+		F7804E432A9F98E4009E1F9F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorScheme.swift; sourceTree = "<group>"; };
 		F78BFD5F2A9DFF86002DA3F5 /* DoubleDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashApp.swift; sourceTree = "<group>"; };
@@ -87,6 +97,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7804E362A9F6800009E1F9F /* RegistrationView */ = {
+			isa = PBXGroup;
+			children = (
+				F7804E372A9F6859009E1F9F /* RegistrationView.swift */,
+			);
+			path = RegistrationView;
+			sourceTree = "<group>";
+		};
+		F7804E392A9F68FF009E1F9F /* PlayerModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7804E3A2A9F6911009E1F9F /* Player.swift */,
+				F7804E3D2A9F6951009E1F9F /* DataModel.swift */,
+			);
+			path = PlayerModel;
+			sourceTree = "<group>";
+		};
+		F7804E3C2A9F6924009E1F9F /* GameModel */ = {
+			isa = PBXGroup;
+			children = (
+				F78BFD952A9E00E2002DA3F5 /* IdentifiedBlock.swift */,
+				F78BFD922A9E00CA002DA3F5 /* BlockMatrix.swift */,
+				F78BFD902A9E00B5002DA3F5 /* GameLogic.swift */,
+			);
+			path = GameModel;
+			sourceTree = "<group>";
+		};
+		F7804E3F2A9F7335009E1F9F /* LeaderBoardView */ = {
+			isa = PBXGroup;
+			children = (
+				F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */,
+			);
+			path = LeaderBoardView;
+			sourceTree = "<group>";
+		};
+		F7804E422A9F98CF009E1F9F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F7804E432A9F98E4009E1F9F /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F78BFD562A9DFF86002DA3F5 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */,
+				F7804E422A9F98CF009E1F9F /* Extensions */,
 				F78BFDA42A9E087B002DA3F5 /* Utils */,
 				F78BFDA52A9E0896002DA3F5 /* ColorSchemes */,
 				F78BFD8D2A9E0065002DA3F5 /* Views */,
@@ -130,9 +184,8 @@
 		F78BFD8C2A9E0055002DA3F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F78BFD952A9E00E2002DA3F5 /* IdentifiedBlock.swift */,
-				F78BFD922A9E00CA002DA3F5 /* BlockMatrix.swift */,
-				F78BFD902A9E00B5002DA3F5 /* GameLogic.swift */,
+				F7804E3C2A9F6924009E1F9F /* GameModel */,
+				F7804E392A9F68FF009E1F9F /* PlayerModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				F78BFDA82A9E0A72002DA3F5 /* MenuView */,
+				F7804E362A9F6800009E1F9F /* RegistrationView */,
+				F7804E3F2A9F7335009E1F9F /* LeaderBoardView */,
 				F78BFDA92A9E0A7C002DA3F5 /* GameView */,
 			);
 			path = Views;
@@ -314,9 +369,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F78BFDA32A9E01F5002DA3F5 /* SwiftUIExtensions.swift in Sources */,
+				F7804E442A9F98E4009E1F9F /* Extensions.swift in Sources */,
 				F78BFD9A2A9E0116002DA3F5 /* BlockGridView.swift in Sources */,
 				F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */,
+				F7804E412A9F735F009E1F9F /* LeaderBoardView.swift in Sources */,
+				F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */,
 				F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */,
+				F7804E3E2A9F6951009E1F9F /* DataModel.swift in Sources */,
 				F78BFD962A9E00E2002DA3F5 /* IdentifiedBlock.swift in Sources */,
 				F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */,
 				F78BFD912A9E00B5002DA3F5 /* GameLogic.swift in Sources */,
@@ -325,6 +384,7 @@
 				F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */,
 				F78BFD9F2A9E0136002DA3F5 /* BlockView.swift in Sources */,
 				F78BFD932A9E00CA002DA3F5 /* BlockMatrix.swift in Sources */,
+				F7804E3B2A9F6911009E1F9F /* Player.swift in Sources */,
 				F78BFD982A9E00F6002DA3F5 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
