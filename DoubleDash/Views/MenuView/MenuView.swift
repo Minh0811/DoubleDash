@@ -12,11 +12,20 @@ struct MenuView: View {
     
     // MARK: - Body
     var body: some View {
+       
+            
         NavigationView {
-            menuButtons
-                .padding()
-        }
-        .navigationViewStyle(.stack)
+            ZStack{
+                //Background
+                BackgroundColorScheme.ignoresSafeArea()
+                //Buttons
+                menuButtons
+                    .padding()
+            }
+        }  .navigationViewStyle(.stack)
+
+       
+        
     }
 }
 
@@ -24,7 +33,7 @@ extension MenuView {
     
     private var menuButtons: some View {
         VStack(spacing: 20) {
-            Text("Select Difficulty")
+            Text("Welcome")
                 .font(.largeTitle)
                 .padding()
 
@@ -52,7 +61,7 @@ extension MenuView {
                 Text("Leader Board")
                     .font(.title)
                     .padding()
-                    .background(Color.red)
+                    .background(Color.green)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
@@ -63,7 +72,7 @@ extension MenuView {
                 Text("How to Play")
                     .font(.title)
                     .padding()
-                    .background(Color.red)
+                    .background(Color.green)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
@@ -71,10 +80,10 @@ extension MenuView {
             NavigationLink(
                 destination: DifficultySelectionView().environmentObject(gameLogic), // Use the same gameLogic instance
                 label: {
-                    Text("Setting")
+                    Text("Game Setting")
                         .font(.title)
                         .padding()
-                        .background(Color.orange)
+                        .background(Color.green)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }

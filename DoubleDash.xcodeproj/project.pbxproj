@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */; };
 		F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */; };
 		F78BFD672A9DFF89002DA3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */; };
 		F78BFD6A2A9DFF89002DA3F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD692A9DFF89002DA3F5 /* Preview Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorScheme.swift; sourceTree = "<group>"; };
 		F78BFD5F2A9DFF86002DA3F5 /* DoubleDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashApp.swift; sourceTree = "<group>"; };
 		F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				F78BFDA62A9E0A54002DA3F5 /* BlockColorScheme.swift */,
+				F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */,
 			);
 			path = ColorSchemes;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				F78BFDA32A9E01F5002DA3F5 /* SwiftUIExtensions.swift in Sources */,
 				F78BFD9A2A9E0116002DA3F5 /* BlockGridView.swift in Sources */,
 				F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */,
+				F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */,
 				F78BFD962A9E00E2002DA3F5 /* IdentifiedBlock.swift in Sources */,
 				F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */,
 				F78BFD912A9E00B5002DA3F5 /* GameLogic.swift in Sources */,

@@ -131,7 +131,7 @@ struct GameView : View {
                 .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
                 .background(
                     Rectangle()
-                        .fill(Color(red:0.96, green:0.94, blue:0.90, opacity:1.00))
+                        .fill(BackgroundColorScheme)
                         .edgesIgnoringSafeArea(.all)
                 )
             }
