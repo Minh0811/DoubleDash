@@ -31,30 +31,68 @@ import SwiftUI
 
 struct DifficultySelectionView: View {
     @EnvironmentObject var gameLogic: GameLogic
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
    // var reinitializeGameLogic: () -> Void
     //@Binding var currentLevel: Int
     @State private var refreshView: Bool = false
   //  @State var DifficultyLevel = 3
    // @Binding var currentLevel: Int
     
+    // MARK: - Body
     var body: some View {
+        ZStack{
+            customBackButton
+            difficultyButtons
+                .padding()
+        }
+    }
+}
+
+extension DifficultySelectionView {
+    
+    private var customBackButton: some View {
+        Spacer()
+            .navigationBarBackButtonHidden(true)
+            .toolbar(content: {
+                ToolbarItem (placement: .navigationBarLeading)  {
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        ZStack{
+                            Rectangle()
+                                .fill(Color.black)
+                                .frame(width: 40, height: 40)
+                            Image(systemName: "multiply.square.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 40))
+                        }
+                        
+                        
+                    })
+                }
+            })
+    }
+    
+    private var difficultyButtons: some View {
         VStack(spacing: 20) {
             Text("Select Difficulty")
                 .font(.largeTitle)
                 .padding()
             Text("Current Level: \(gameLogic.currentLevel)")
-                      .font(.title2)
-                      .padding()
+                .font(.title2)
+                .padding()
+            
             Button(action: {
                 print("Easy button pressed")
                 gameLogic.setLevelValue(level: 3)
                 //gameLogic.currentLevel = 1
                 print("Ez: \(gameLogic.currentLevel)")
                 //refreshView.toggle()
-        //        reinitializeGameLogic()
+                //        reinitializeGameLogic()
                 gameLogic.newGame()
-         
-           
+                
+                
             }) {
                 Text("Easy (6x6)")
                     .font(.title)
@@ -62,15 +100,15 @@ struct DifficultySelectionView: View {
                     .background(Color.green)
                     .foregroundColor(.white)
                     .cornerRadius(10)
- 
+                
             }
-
+            
             Button(action: {
                 print("Medium button pressed")
                 gameLogic.setLevelValue(level: 2)
                 print("Medium: \(gameLogic.currentLevel)")
-               // refreshView.toggle()
-          //      reinitializeGameLogic()
+                // refreshView.toggle()
+                //      reinitializeGameLogic()
                 gameLogic.newGame()
             }) {
                 Text("Medium (5x5)")
@@ -80,12 +118,12 @@ struct DifficultySelectionView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
-
+            
             Button(action: {
                 print("Hard button pressed")
                 gameLogic.setLevelValue(level: 1)
                 print("Hard: \(gameLogic.currentLevel)")
-        //        reinitializeGameLogic()
+                //        reinitializeGameLogic()
                 gameLogic.newGame()
             }) {
                 Text("Hard (4x4)")
@@ -95,12 +133,9 @@ struct DifficultySelectionView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
-
         }
-        .padding()
     }
 }
-
 struct DifficultySelectionView_Previews: PreviewProvider {
     @State static var dummyCurrentLevel: Int = 1
         static var dummyGameLogic = GameLogic()

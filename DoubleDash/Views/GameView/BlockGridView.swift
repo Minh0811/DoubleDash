@@ -141,6 +141,8 @@ struct BlockGridView : View {
         return block == nil ? 1 : 1000
     }
     
+    
+    // MARK: - Body
     var body: some View {
         ZStack {
             // Background grid blocks:
@@ -191,9 +193,11 @@ struct BlockGridView_Previews : PreviewProvider {
     static var previews: some View {
         //ipad = 834
         //ip14 = 390
-        BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: 390)
-            .environmentObject(GameLogic())
-            .previewLayout(.sizeThatFits)
+        let deviceSize: CGFloat = 834
+            BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: deviceSize)
+                .environmentObject(GameLogic())
+                .previewLayout(.sizeThatFits)
+ 
     }
     
 }

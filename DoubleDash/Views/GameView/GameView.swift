@@ -25,6 +25,7 @@ extension Edge {
 }
 
 struct GameView : View {
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
     @State var ignoreGesture = false
     
@@ -136,20 +137,25 @@ struct GameView : View {
             }
         }
     }
-    
+    // MARK: - Body
     var body: some View {
         if gestureEnabled {
+            
             return AnyView(
-                content
-                    .gesture(gesture, including: .all)
-                    .alert(isPresented: $isGameOver) {
-                        Alert(title: Text("Game Over"), message: Text("No possible moves left!"), dismissButton: .default(Text("New Game")) {
-                            gameLogic.newGame()
-                            isGameOver = false
-                            self.gameLogic.score = 0
-                            
-                        })
-                    }
+                ZStack{
+                    customBackButton
+                    content
+                        .gesture(gesture, including: .all)
+                        .alert(isPresented: $isGameOver) {
+                            Alert(title: Text("Game Over"), message: Text("No possible moves left!"), dismissButton: .default(Text("New Game")) {
+                                gameLogic.newGame()
+                                isGameOver = false
+                                self.gameLogic.score = 0
+                                
+                            })
+                        }
+                }
+               
             )
         } else {
             return AnyView(content)
@@ -159,6 +165,31 @@ struct GameView : View {
     
 }
 
+extension GameView{
+    private var customBackButton: some View {
+        Spacer()
+            .navigationBarBackButtonHidden(true)
+            .toolbar(content: {
+                ToolbarItem (placement: .navigationBarLeading)  {
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        ZStack{
+                            Rectangle()
+                                .fill(Color.black)
+                                .frame(width: 40, height: 40)
+                            Image(systemName: "multiply.square.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 40))
+                        }
+                        .padding(.top, 10)
+                        
+                    })
+                }
+            })
+    }
+}
 #if DEBUG
 struct GameView_Previews : PreviewProvider {
     
