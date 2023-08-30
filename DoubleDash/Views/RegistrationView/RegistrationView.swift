@@ -13,6 +13,8 @@ struct RegistrationView: View {
     @State private var showErrorAlert: Bool = false
     @EnvironmentObject var gameLogic: GameLogic
     @State private var navigateToGame: Bool = false
+    @State private var newPlayer: Player?
+
 
 
 
@@ -31,32 +33,69 @@ struct RegistrationView: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
                 
-                NavigationLink(
-                    destination: GameView().environmentObject(gameLogic),
-                    
-                    label: {
-                        Text("Start Game")
-                            .font(.title)
-                            .padding()
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+          
+               //if let player = newPlayer {
+                    NavigationLink(
+                        destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic),
+                        label: {
+                            Text("Start Game")
+                                .font(.title)
+                                .padding()
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                    ).onDisappear {
+                        print("Entered username: \(localUsername)")
+                        print("Existing players: \(players)")
+                        if isUsernameUnique() {
+                            newPlayer = Player(username: localUsername, score: 0)
+                            players.append(newPlayer!)
+                            save(players: players)
+                            gameLogic.newGame() // Start a new game
+                            navigateToGame = true
+                            print("isUsernameUnique ran")
+                        } else {
+                            showErrorAlert = true
+                        }
                     }
-                ).onDisappear {
-                    print("Entered username: \(localUsername)")
-                    print("Existing players: \(players)")
-                    if isUsernameUnique() {
-                        let newPlayer = Player(username: localUsername, score: 0)
-                        players.append(newPlayer)
-                        save(players: players)
-                        gameLogic.newGame() // Start a new game
-                        navigateToGame = true
-                        print("isUsernameUnique ran")
-                    } else {
-                        
-                        showErrorAlert = true
-                    }
-                }
+           //     }
+//                Button(action: {
+//                    if isUsernameUnique() {
+//                        newPlayer = Player(username: localUsername, score: 0)
+//                        players.append(newPlayer!)
+//                        save(players: players)
+//                        gameLogic.newGame() // Start a new game
+//                        navigateToGame = true
+//                        print("isUsernameUnique ran")
+//                    } else {
+//                        showErrorAlert = true
+//                    }
+//                }) {
+//                    Text("Start Game")
+//                        .font(.title)
+//                        .padding()
+//                        .background(Color.green)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(10)
+//                }
+//
+//                NavigationLink("", destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic)).opacity(0)
+//                    .frame(width: 0, height: 0)
+//                    .disabled(!navigateToGame)
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
                 //            NavigationLink(
                 //                destination: GameView().environmentObject(gameLogic),

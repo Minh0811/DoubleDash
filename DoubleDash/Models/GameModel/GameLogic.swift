@@ -49,7 +49,7 @@ final class GameLogic : ObservableObject {
     
     init() {
         newGame()
-        print("GameLogic initialized")
+       // print("GameLogic initialized")
     }
     
     func newGame() {
@@ -58,6 +58,7 @@ final class GameLogic : ObservableObject {
         generateNewBlocks()
         objectWillChange.send(self)
         print("newGame funct initialized")
+        score = 0
     }
     
     func resetLastGestureDirection() {

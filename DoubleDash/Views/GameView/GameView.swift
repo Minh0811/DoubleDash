@@ -25,6 +25,9 @@ extension Edge {
 }
 
 struct GameView : View {
+    @Binding var currentPlayer: Player?
+
+    
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
     @State var ignoreGesture = false
@@ -144,7 +147,35 @@ struct GameView : View {
             
             return AnyView(
                 ZStack{
-                    customBackButton
+                    Spacer()
+                        .navigationBarBackButtonHidden(true)
+                        .toolbar(content: {
+                            ToolbarItem (placement: .navigationBarLeading)  {
+                                
+                                Button(action: {
+                                    currentPlayer?.score = gameLogic.score
+                                               var updatedPlayers = load() ?? []
+                                               if let player = currentPlayer, let index = updatedPlayers.firstIndex(where: { $0.username == player.username }) {
+                                                   updatedPlayers[index] = player
+                                               } else if let player = currentPlayer {
+                                                   updatedPlayers.append(player)
+                                               }
+                                               save(players: updatedPlayers)
+                                               presentationMode.wrappedValue.dismiss()
+                                }, label: {
+                                    ZStack{
+                                        Rectangle()
+                                            .fill(Color.black)
+                                            .frame(width: 40, height: 40)
+                                        Image(systemName: "multiply.square.fill")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 40))
+                                    }
+                                    //.padding(.top, 10)
+                                    
+                                })
+                            }
+                        })
                     content
                         .gesture(gesture, including: .all)
                         .alert(isPresented: $isGameOver) {
@@ -195,9 +226,9 @@ extension GameView{
 struct GameView_Previews : PreviewProvider {
     
     static var previews: some View {
-        GameView()
-            .environmentObject(GameLogic())
-    }
+          GameView(currentPlayer: .constant(Player(username: "MockUser", score: 0)))
+              .environmentObject(GameLogic())
+      }
     
 }
 #endif
