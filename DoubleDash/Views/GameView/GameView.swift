@@ -153,15 +153,15 @@ struct GameView : View {
                             ToolbarItem (placement: .navigationBarLeading)  {
                                 
                                 Button(action: {
-                                    currentPlayer?.score = gameLogic.score
-                                               var updatedPlayers = load() ?? []
-                                               if let player = currentPlayer, let index = updatedPlayers.firstIndex(where: { $0.username == player.username }) {
-                                                   updatedPlayers[index] = player
-                                               } else if let player = currentPlayer {
-                                                   updatedPlayers.append(player)
-                                               }
-                                               save(players: updatedPlayers)
-                                               presentationMode.wrappedValue.dismiss()
+                               
+                                    if let player = currentPlayer {
+                                        updatePlayerScoreWithId(id: player.id, newScore: gameLogic.score)
+                                        presentationMode.wrappedValue.dismiss()
+                                    }
+//                                    if let player = currentPlayer {
+//                                           updatePlayerScoreWithId(playerId: player.id, newScore: gameLogic.score)
+//                                           presentationMode.wrappedValue.dismiss()
+//                                       }
                                 }, label: {
                                     ZStack{
                                         Rectangle()

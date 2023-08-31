@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Player: Codable, Hashable {
+    var id: UUID = UUID() 
     var username: String
     var score: Int
 }

@@ -14,7 +14,7 @@ struct RegistrationView: View {
     @EnvironmentObject var gameLogic: GameLogic
     @State private var navigateToGame: Bool = false
     @State private var newPlayer: Player?
-
+    @State private var shouldNavigateToGame: Bool = false
 
 
 
@@ -35,30 +35,30 @@ struct RegistrationView: View {
                 
           
                //if let player = newPlayer {
-                    NavigationLink(
-                        destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic),
-                        label: {
-                            Text("Start Game")
-                                .font(.title)
-                                .padding()
-                                .background(Color.green)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
-                    ).onDisappear {
-                        print("Entered username: \(localUsername)")
-                        print("Existing players: \(players)")
-                      //  if isUsernameUnique() {
-                            newPlayer = Player(username: localUsername, score: 0)
-                            players.append(newPlayer!)
-                            save(players: players)
-                            gameLogic.newGame() // Start a new game
-                            navigateToGame = true
-                            print("isUsernameUnique ran")
-                     //   } else {
-                     //       showErrorAlert = true
-                     //   }
-                    }
+                Button(action: {
+                                  print("Entered username: \(localUsername)")
+                                  print("Existing players: \(players)")
+                                  newPlayer = Player(username: localUsername, score: 0)
+                                  players.append(newPlayer!)
+                                  save(players: players)
+                                  gameLogic.newGame() // Start a new game
+                                  navigateToGame = true
+                                  print("Player saved and game started")
+                                  shouldNavigateToGame = true
+                              }) {
+                                  Text("Start Game")
+                                      .font(.title)
+                                      .padding()
+                                      .background(Color.green)
+                                      .foregroundColor(.white)
+                                      .cornerRadius(10)
+                              }
+                              
+                              NavigationLink(
+                                  destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic),
+                                  isActive: $shouldNavigateToGame,
+                                  label: { EmptyView() }
+                              )
            //     }
                 
                 

@@ -10,7 +10,7 @@ import SwiftUI
 func save(players: [Player]) {
     let encoder = JSONEncoder()
     if let encodedData = try? encoder.encode(players) {
-        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("players1.json") {
+        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("players4.json") {
             try? encodedData.write(to: url)
             print("Data saved to \(url.path)")
         }else {
@@ -20,7 +20,7 @@ func save(players: [Player]) {
 }
 
 func load() -> [Player]? {
-    if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("players1.json") {
+    if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("players4.json") {
         if let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
             if let decodedPlayers = try? decoder.decode([Player].self, from: data) {
@@ -32,5 +32,19 @@ func load() -> [Player]? {
         }
     }
     return nil
+}
+
+func updatePlayerScoreWithId(id: UUID, newScore: Int) {
+    var players = load() ?? []
+    
+    // Loop through all players
+    for (index, player) in players.enumerated() {
+        if player.id == id {
+            players[index].score = newScore
+            break // Exit the loop once the player is found and updated
+        }
+    }
+    
+    save(players: players)
 }
 
