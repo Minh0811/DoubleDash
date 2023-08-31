@@ -48,18 +48,24 @@ struct RegistrationView: View {
                     ).onDisappear {
                         print("Entered username: \(localUsername)")
                         print("Existing players: \(players)")
-                        if isUsernameUnique() {
+                      //  if isUsernameUnique() {
                             newPlayer = Player(username: localUsername, score: 0)
                             players.append(newPlayer!)
                             save(players: players)
                             gameLogic.newGame() // Start a new game
                             navigateToGame = true
                             print("isUsernameUnique ran")
-                        } else {
-                            showErrorAlert = true
-                        }
+                     //   } else {
+                     //       showErrorAlert = true
+                     //   }
                     }
            //     }
+                
+                
+                
+                
+                
+                
 //                Button(action: {
 //                    if isUsernameUnique() {
 //                        newPlayer = Player(username: localUsername, score: 0)
