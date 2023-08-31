@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E372A9F6859009E1F9F /* RegistrationView.swift */; };
 		F7804E3B2A9F6911009E1F9F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3A2A9F6911009E1F9F /* Player.swift */; };
-		F7804E3E2A9F6951009E1F9F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3D2A9F6951009E1F9F /* DataModel.swift */; };
+		F7804E3E2A9F6951009E1F9F /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3D2A9F6951009E1F9F /* PlayerDataModel.swift */; };
 		F7804E412A9F735F009E1F9F /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */; };
 		F7804E442A9F98E4009E1F9F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E432A9F98E4009E1F9F /* Extensions.swift */; };
 		F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */; };
@@ -28,6 +28,9 @@
 		F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */; };
 		F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */; };
 		F78CE6AC2AA0EEC4000E451A /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */; };
+		F78CE6AF2AA12BC9000E451A /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AE2AA12BC9000E451A /* Achievement.swift */; };
+		F78CE6B12AA12CE1000E451A /* achievements.json in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6B02AA12CE1000E451A /* achievements.json */; };
+		F78CE6B32AA12F0C000E451A /* AchievementDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +53,7 @@
 /* Begin PBXFileReference section */
 		F7804E372A9F6859009E1F9F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		F7804E3A2A9F6911009E1F9F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		F7804E3D2A9F6951009E1F9F /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		F7804E3D2A9F6951009E1F9F /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
 		F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		F7804E432A9F98E4009E1F9F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorScheme.swift; sourceTree = "<group>"; };
@@ -72,6 +75,9 @@
 		F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultySelectionView.swift; sourceTree = "<group>"; };
 		F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
+		F78CE6AE2AA12BC9000E451A /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		F78CE6B02AA12CE1000E451A /* achievements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = achievements.json; sourceTree = "<group>"; };
+		F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				F7804E3A2A9F6911009E1F9F /* Player.swift */,
-				F7804E3D2A9F6951009E1F9F /* DataModel.swift */,
+				F7804E3D2A9F6951009E1F9F /* PlayerDataModel.swift */,
 			);
 			path = PlayerModel;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			children = (
 				F7804E3C2A9F6924009E1F9F /* GameModel */,
 				F7804E392A9F68FF009E1F9F /* PlayerModel */,
+				F78CE6AD2AA12BA2000E451A /* AchievementModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +254,16 @@
 				F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F78CE6AD2AA12BA2000E451A /* AchievementModel */ = {
+			isa = PBXGroup;
+			children = (
+				F78CE6AE2AA12BC9000E451A /* Achievement.swift */,
+				F78CE6B02AA12CE1000E451A /* achievements.json */,
+				F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */,
+			);
+			path = AchievementModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,10 +401,13 @@
 				F78CE6AC2AA0EEC4000E451A /* GlobalState.swift in Sources */,
 				F78BFD9A2A9E0116002DA3F5 /* BlockGridView.swift in Sources */,
 				F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */,
+				F78CE6B12AA12CE1000E451A /* achievements.json in Sources */,
 				F7804E412A9F735F009E1F9F /* LeaderBoardView.swift in Sources */,
 				F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */,
 				F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */,
-				F7804E3E2A9F6951009E1F9F /* DataModel.swift in Sources */,
+				F78CE6B32AA12F0C000E451A /* AchievementDataModel.swift in Sources */,
+				F7804E3E2A9F6951009E1F9F /* PlayerDataModel.swift in Sources */,
+				F78CE6AF2AA12BC9000E451A /* Achievement.swift in Sources */,
 				F78BFD962A9E00E2002DA3F5 /* IdentifiedBlock.swift in Sources */,
 				F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */,
 				F78BFD912A9E00B5002DA3F5 /* GameLogic.swift in Sources */,

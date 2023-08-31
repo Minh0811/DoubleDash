@@ -17,7 +17,7 @@ struct RegistrationView: View {
     @State private var shouldNavigateToGame: Bool = false
     @StateObject var globalState = GlobalState()
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    
+    let newPlayerAchievement: [String] = []
     
     var body: some View {
         ZStack{
@@ -47,7 +47,7 @@ struct RegistrationView: View {
                     Button(action: {
                         print("Entered username: \(localUsername)")
                         print("Existing players: \(players)")
-                        newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0)
+                        newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0, achievementNames: newPlayerAchievement)
                         players.append(newPlayer!)
                         save(players: players)
                         gameLogic.newGame() // Start a new game
