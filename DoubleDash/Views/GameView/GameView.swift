@@ -116,15 +116,15 @@ struct GameView : View {
                                 .font(Font.system(size: 48).weight(.black))
                                 .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
                                 .offset(layoutTraits.bannerOffset)
-                            
+                                .padding()
                         }
                         Text("Score: \(self.gameLogic.score)")
                             .font(.title)
-                            .padding()
+                         //   .padding()
                         Text("Width: \(proxy.size.width)")
                         Text("Current Level: \(gameLogic.currentLevel)")
                                   .font(.title2)
-                                  .padding()
+                                  //.padding()
                     }
                     ZStack(alignment: .center) {
                         BlockGridView(matrix: self.gameLogic.blockMatrix,
@@ -147,6 +147,7 @@ struct GameView : View {
             
             return AnyView(
                 ZStack{
+                    //Custom Back Button
                     Spacer()
                         .navigationBarBackButtonHidden(true)
                         .toolbar(content: {
@@ -158,10 +159,6 @@ struct GameView : View {
                                         updatePlayerScoreWithId(id: player.id, newScore: gameLogic.score)
                                         presentationMode.wrappedValue.dismiss()
                                     }
-//                                    if let player = currentPlayer {
-//                                           updatePlayerScoreWithId(playerId: player.id, newScore: gameLogic.score)
-//                                           presentationMode.wrappedValue.dismiss()
-//                                       }
                                 }, label: {
                                     ZStack{
                                         Rectangle()
@@ -176,6 +173,8 @@ struct GameView : View {
                                 })
                             }
                         })
+                    
+                    //The Game
                     content
                         .gesture(gesture, including: .all)
                         .alert(isPresented: $isGameOver) {
@@ -197,36 +196,12 @@ struct GameView : View {
     
 }
 
-extension GameView{
-    private var customBackButton: some View {
-        Spacer()
-            .navigationBarBackButtonHidden(true)
-            .toolbar(content: {
-                ToolbarItem (placement: .navigationBarLeading)  {
-                    
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        ZStack{
-                            Rectangle()
-                                .fill(Color.black)
-                                .frame(width: 40, height: 40)
-                            Image(systemName: "multiply.square.fill")
-                                .foregroundColor(.white)
-                                .font(.system(size: 40))
-                        }
-                        //.padding(.top, 10)
-                        
-                    })
-                }
-            })
-    }
-}
+
 #if DEBUG
 struct GameView_Previews : PreviewProvider {
     
     static var previews: some View {
-          GameView(currentPlayer: .constant(Player(username: "MockUser", score: 0)))
+        GameView(currentPlayer: .constant(Player(gameMode: 1, username: "MockUser", score: 0)))
               .environmentObject(GameLogic())
       }
     

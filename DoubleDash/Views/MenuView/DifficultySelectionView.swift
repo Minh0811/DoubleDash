@@ -8,27 +8,6 @@
 
 import SwiftUI
 
-//struct ParentView: View {
-//    @State private var gameLogic = GameLogic()
-//    @State private var showGame = false
-//    @State private var uniqueID = UUID()
-//    var body: some View {
-//        VStack {
-//            if showGame {
-//                GameView()
-//                    .environmentObject(gameLogic)
-//            } else {
-//                DifficultySelectionView(reinitializeGameLogic: {
-//                    self.gameLogic = GameLogic()
-//                    self.uniqueID = UUID()
-//                    self.showGame = true
-//                })
-//                .environmentObject(gameLogic)
-//            }
-//        }
-//    }
-//}
-
 struct DifficultySelectionView: View {
     @EnvironmentObject var gameLogic: GameLogic
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
@@ -45,40 +24,15 @@ struct DifficultySelectionView: View {
             BackgroundColorScheme.ignoresSafeArea()
             
             //Content
-            ZStack{
-                customBackButton
                 difficultyButtons
                     .padding()
-            }
+
         }
+        .customBackButton(presentationMode: presentationMode)
     }
 }
 
 extension DifficultySelectionView {
-    
-    private var customBackButton: some View {
-        Spacer()
-            .navigationBarBackButtonHidden(true)
-            .toolbar(content: {
-                ToolbarItem (placement: .navigationBarLeading)  {
-                    
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        ZStack{
-                            Rectangle()
-                                .fill(Color.black)
-                                .frame(width: 40, height: 40)
-                            Image(systemName: "multiply.square.fill")
-                                .foregroundColor(.white)
-                                .font(.system(size: 40))
-                        }
-                        
-                        
-                    })
-                }
-            })
-    }
     
     private var difficultyButtons: some View {
         VStack(spacing: 20) {

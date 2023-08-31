@@ -15,116 +15,69 @@ struct RegistrationView: View {
     @State private var navigateToGame: Bool = false
     @State private var newPlayer: Player?
     @State private var shouldNavigateToGame: Bool = false
-
-
-
+    @StateObject var globalState = GlobalState()
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
     
     var body: some View {
         ZStack{
             //Background
             BackgroundColorScheme.ignoresSafeArea()
-            VStack(spacing: 20) {
-                Text("Register Your Name")
-                    .font(.largeTitle)
-                    .padding()
-                
-                TextField("Enter your username", text: $localUsername)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                
-          
-               //if let player = newPlayer {
-                Button(action: {
-                                  print("Entered username: \(localUsername)")
-                                  print("Existing players: \(players)")
-                                  newPlayer = Player(username: localUsername, score: 0)
-                                  players.append(newPlayer!)
-                                  save(players: players)
-                                  gameLogic.newGame() // Start a new game
-                                  navigateToGame = true
-                                  print("Player saved and game started")
-                                  shouldNavigateToGame = true
-                              }) {
-                                  Text("Start Game")
-                                      .font(.title)
-                                      .padding()
-                                      .background(Color.green)
-                                      .foregroundColor(.white)
-                                      .cornerRadius(10)
-                              }
-                              
-                              NavigationLink(
-                                  destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic),
-                                  isActive: $shouldNavigateToGame,
-                                  label: { EmptyView() }
-                              )
-           //     }
-                
-                
-                
-                
-                
-                
-//                Button(action: {
-//                    if isUsernameUnique() {
-//                        newPlayer = Player(username: localUsername, score: 0)
-//                        players.append(newPlayer!)
-//                        save(players: players)
-//                        gameLogic.newGame() // Start a new game
-//                        navigateToGame = true
-//                        print("isUsernameUnique ran")
-//                    } else {
-//                        showErrorAlert = true
-//                    }
-//                }) {
-//                    Text("Start Game")
-//                        .font(.title)
-//                        .padding()
-//                        .background(Color.green)
-//                        .foregroundColor(.white)
-//                        .cornerRadius(10)
-//                }
-//
-//                NavigationLink("", destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic)).opacity(0)
-//                    .frame(width: 0, height: 0)
-//                    .disabled(!navigateToGame)
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                //            NavigationLink(
-                //                destination: GameView().environmentObject(gameLogic),
-                //                label: {
-                //                    Text("Game")
-                //                        .font(.title)
-                //                        .padding()
-                //                        .background(Color.green)
-                //                        .foregroundColor(.white)
-                //                        .cornerRadius(10)
-                //
-                //                }
-                //            ).onTapGesture {
-                //                gameLogic.newGame()
-                //            }
-                
-                
-            }
-            .padding()
-            .onAppear {
-                players = load() ?? []
+            GeometryReader { geometry in
+                var scalingFactor: CGFloat {
+                    return geometry.size.width / globalState.iphone14BaseWidth
+                }
+                // * scalingFactor
+                VStack(spacing: 20) {
+                    Spacer() // Push the content to the center vertically
+                    Text("Register Your Name")
+                        .font(Font.system(size: 30 * scalingFactor).weight(.black))
+                        .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                        .padding()
+                    
+                    TextField("Enter your username", text: $localUsername)
+                        .frame(width: 300 * scalingFactor, height: 20 * scalingFactor)
+                        .font(Font.system(size: 18 * scalingFactor))
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10 * scalingFactor)
+                    
+                    
+                    //if let player = newPlayer {
+                    Button(action: {
+                        print("Entered username: \(localUsername)")
+                        print("Existing players: \(players)")
+                        newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0)
+                        players.append(newPlayer!)
+                        save(players: players)
+                        gameLogic.newGame() // Start a new game
+                        navigateToGame = true
+                        print("Player saved and game started")
+                        shouldNavigateToGame = true
+                    }) {
+                        Text("Start Game")
+                            .font(Font.system(size: 18 * scalingFactor))
+                            .padding()
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                            .cornerRadius(10 * scalingFactor)
+                    }.frame(maxWidth: .infinity)
+                    
+                    NavigationLink(
+                        destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic),
+                        isActive: $shouldNavigateToGame,
+                        label: { EmptyView() }
+                    )
+                    
+                    Spacer() // Push the content to the center vertically
+                }
+                .padding()
+                .onAppear {
+                    players = load() ?? []
+                }
             }
         }
+        .customBackButton(presentationMode: presentationMode)
     }
     func isUsernameUnique() -> Bool {
         return !players.contains { $0.username == localUsername }

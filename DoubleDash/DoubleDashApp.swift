@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct DoubleDashApp: App {
     let gameLogic = GameLogic()
+    
     var body: some Scene {
         WindowGroup {
             MenuView().environmentObject(gameLogic)

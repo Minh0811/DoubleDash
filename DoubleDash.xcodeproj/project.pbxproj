@@ -27,6 +27,7 @@
 		F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDA62A9E0A54002DA3F5 /* BlockColorScheme.swift */; };
 		F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */; };
 		F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */; };
+		F78CE6AC2AA0EEC4000E451A /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		F78BFDA62A9E0A54002DA3F5 /* BlockColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockColorScheme.swift; sourceTree = "<group>"; };
 		F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultySelectionView.swift; sourceTree = "<group>"; };
+		F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */,
-				F7804E422A9F98CF009E1F9F /* Extensions */,
 				F78BFDA42A9E087B002DA3F5 /* Utils */,
+				F78CE6AA2AA0EE0B000E451A /* Helpers */,
+				F7804E422A9F98CF009E1F9F /* Extensions */,
 				F78BFDA52A9E0896002DA3F5 /* ColorSchemes */,
 				F78BFD8D2A9E0065002DA3F5 /* Views */,
 				F78BFD8C2A9E0055002DA3F5 /* Models */,
@@ -236,6 +239,14 @@
 				F78BFD972A9E00F6002DA3F5 /* GameView.swift */,
 			);
 			path = GameView;
+			sourceTree = "<group>";
+		};
+		F78CE6AA2AA0EE0B000E451A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +381,7 @@
 			files = (
 				F78BFDA32A9E01F5002DA3F5 /* SwiftUIExtensions.swift in Sources */,
 				F7804E442A9F98E4009E1F9F /* Extensions.swift in Sources */,
+				F78CE6AC2AA0EEC4000E451A /* GlobalState.swift in Sources */,
 				F78BFD9A2A9E0116002DA3F5 /* BlockGridView.swift in Sources */,
 				F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */,
 				F7804E412A9F735F009E1F9F /* LeaderBoardView.swift in Sources */,

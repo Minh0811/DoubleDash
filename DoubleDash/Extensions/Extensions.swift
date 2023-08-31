@@ -7,30 +7,25 @@
 
 import SwiftUI
 
-
-//extension GameView{
-//    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-//    private var customBackButton: some View {
-//        Spacer()
-//            .navigationBarBackButtonHidden(true)
-//            .toolbar(content: {
-//                ToolbarItem (placement: .navigationBarLeading)  {
-//                    
-//                    Button(action: {
-//                        presentationMode.wrappedValue.dismiss()
-//                    }, label: {
-//                        ZStack{
-//                            Rectangle()
-//                                .fill(Color.black)
-//                                .frame(width: 40, height: 40)
-//                            Image(systemName: "multiply.square.fill")
-//                                .foregroundColor(.white)
-//                                .font(.system(size: 40))
-//                        }
-//                        .padding(.top, 10)
-//                        
-//                    })
-//                }
-//            })
-//    }
-//}
+extension View {
+    func customBackButton(presentationMode: Binding<PresentationMode>) -> some View {
+        self
+            .navigationBarBackButtonHidden(true)
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        ZStack{
+                            Rectangle()
+                                .fill(Color.black)
+                                .frame(width: 40, height: 40)
+                            Image(systemName: "multiply.square.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 40))
+                        }
+                    })
+                }
+            })
+    }
+}
