@@ -78,6 +78,11 @@ struct LeaderBoardView: View {
                         // .padding(.trailing, 60 * scalingFactor)
                             .font(Font.system(size: 17 * scalingFactor))
                             .padding(.trailing, 20 * scalingFactor)
+                        Text("Achievement")
+                          //  .font(.subheadline)
+                        // .padding(.trailing, 60 * scalingFactor)
+                            .font(Font.system(size: 17 * scalingFactor))
+                            .padding(.trailing, 20 * scalingFactor)
                         
                     }
                     //  .padding(10 * scalingFactor)
@@ -104,7 +109,11 @@ struct LeaderBoardView: View {
             //   .padding(.leading, 60 * scalingFactor) // Match the padding of the player's name below
                 .font(Font.system(size: 17 * scalingFactor))
             Spacer()
-            Text("Score")
+            Text("High Score")
+            // .padding(.trailing, 60 * scalingFactor) // Match the padding of the player's score below
+                .font(Font.system(size: 17 * scalingFactor))
+            Spacer()
+            Text("Achievement")
             // .padding(.trailing, 60 * scalingFactor) // Match the padding of the player's score below
                 .font(Font.system(size: 17 * scalingFactor))
         }

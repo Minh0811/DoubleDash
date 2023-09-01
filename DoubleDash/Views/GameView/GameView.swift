@@ -200,7 +200,7 @@ struct GameView : View {
 #if DEBUG
 struct GameView_Previews : PreviewProvider {
     static var previews: some View {
-        let mockStringArray: [String] = []
+        let mockStringArray: String = ""
         GameView(currentPlayer: .constant(Player(gameMode: 1, username: "MockUser", score: 0,achievementNames: mockStringArray)))
               .environmentObject(GameLogic())
       }

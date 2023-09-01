@@ -17,7 +17,7 @@ struct RegistrationView: View {
     @State private var shouldNavigateToGame: Bool = false
     @StateObject var globalState = GlobalState()
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    let newPlayerAchievement: [String] = []
+    let newPlayerAchievement: String = ""
     
     var body: some View {
         ZStack{
