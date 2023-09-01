@@ -78,7 +78,7 @@ struct LeaderBoardView: View {
                         // .padding(.trailing, 60 * scalingFactor)
                             .font(Font.system(size: 17 * scalingFactor))
                             .padding(.trailing, 20 * scalingFactor)
-                        Text("Achievement")
+                        Text(player.achievementNames)
                           //  .font(.subheadline)
                         // .padding(.trailing, 60 * scalingFactor)
                             .font(Font.system(size: 17 * scalingFactor))
@@ -95,13 +95,23 @@ struct LeaderBoardView: View {
             .padding(.top, 2 * scalingFactor)
         }
     }
-    
+    func updateAchievement(for player: inout Player, with achievements: [Achievement]) {
+        let achieved = achievements.filter { $0.milestone <= player.score }
+        if let highestAchievement = achieved.sorted(by: { $0.milestone > $1.milestone }).first {
+            player.achievementNames = highestAchievement.name
+        }
+    }
     func highestScoringPlayers(from players: [Player]) -> [Player] {
         let groupedPlayers = Dictionary(grouping: players, by: { $0.username })
         return groupedPlayers.compactMap { (username, players) -> Player? in
-            players.max(by: { $0.score < $1.score })
+            if var highestScorePlayer = players.max(by: { $0.score < $1.score }) {
+                updateAchievement(for: &highestScorePlayer, with: achievements) // Assuming you have a globalState.achievements containing all achievements
+                return highestScorePlayer
+            }
+            return nil
         }.sorted(by: { $0.score > $1.score })
     }
+
     
     private func tableHeader(scalingFactor: CGFloat) -> some View {
         HStack{

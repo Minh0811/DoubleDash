@@ -205,7 +205,14 @@ final class GameLogic : ObservableObject {
 //            }
 //        }
 //    }
-
+//    func updatePlayerAchievement() {
+//        // Assuming achievements is a global variable containing all the achievements
+//        let achieved = achievements.filter { $0.milestone <= score }
+//        if let highestAchievement = achieved.sorted(by: { $0.milestone > $1.milestone }).first {
+//            currentPlayer.achievementNames = highestAchievement.name
+//        }
+//    }
+    
     func setLevelValue(level: Int) {
         currentLevel = level
        // objectWillChange.send(self)
