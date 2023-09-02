@@ -12,7 +12,9 @@ struct LeaderBoardView: View {
     let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
     let achievements = GlobalData.shared.achievements
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    
+    let collumnWidthSize: CGFloat = 110
+    let tableHeaderFontSize: CGFloat = 18
+    let tableContentFontSize: CGFloat = 17
     var hardPlayers: [Player] {
         highestScoringPlayers(from: players.filter { $0.gameMode == 1 })
     }
@@ -36,7 +38,7 @@ struct LeaderBoardView: View {
                 ScrollView {
                     Text("Leader Board")
                         .font(Font.system(size: 48 * scalingFactor).weight(.black))
-                        .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                        .foregroundColor(Color.black)
                         .padding()
                     VStack(spacing: 20) {
                         leaderboardSection(title: "Hard", players: hardPlayers, scalingFactor: scalingFactor)
@@ -57,12 +59,14 @@ struct LeaderBoardView: View {
         VStack{
             Text(title)
                 .font(Font.system(size: 24 * scalingFactor).weight(.black))
+                .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
                 .padding(.leading)
+              //  .foregroundColor(Color(opacity:1.00))
             
             VStack(spacing: 10 * scalingFactor) {
                 // Table headers
-                tableHeader(scalingFactor: scalingFactor)
-                    .padding(.top, 7 * scalingFactor)
+                tableHeader(scalingFactor: scalingFactor, tableHeaderFontSize: tableHeaderFontSize)
+                    .padding(.top, 10 * scalingFactor)
                     .frame(maxWidth: 300 * scalingFactor)
                 
                 Divider()
@@ -72,19 +76,27 @@ struct LeaderBoardView: View {
                         
                         // Limit the username to 10 characters and append "..." if truncated
                         Text(player.username.count > 8 ? String(player.username.prefix(10)) + "..." : player.username)
-                        .padding(.leading, 10 * scalingFactor)
-                            .font(Font.system(size: 17 * scalingFactor))
+                         //   .padding(.leading, 10 * scalingFactor)
+                            .frame(width: collumnWidthSize * scalingFactor)
+                            .font(Font.system(size: tableContentFontSize * scalingFactor))
+                         //   .background(Color.red)
                         Spacer()
                         Text("\(player.score)")
-                          //  .font(.subheadline)
+                        //  .font(.subheadline)
                         // .padding(.trailing, 60 * scalingFactor)
-                            .font(Font.system(size: 17 * scalingFactor))
-                            .padding(.trailing, 20 * scalingFactor)
-                        Text(player.achievementNames)
-                          //  .font(.subheadline)
+                            .font(Font.system(size: tableContentFontSize * scalingFactor))
+                            .frame(width: collumnWidthSize * scalingFactor)
+                            //.padding(.trailing, 20 * scalingFactor)
+                        //    .background(Color.red)
+                        Spacer()
+                        displayAchievement(for: player, tableContentFontSize: tableContentFontSize, scalingFactor: scalingFactor)
+                            .font(Font.system(size: tableContentFontSize * scalingFactor))
+                            .frame(width: collumnWidthSize * scalingFactor)
+                           // .padding(.trailing, 20 * scalingFactor)
+                           // .background(Color.red)
+                        //  .font(.subheadline)
                         // .padding(.trailing, 60 * scalingFactor)
-                            .font(Font.system(size: 17 * scalingFactor))
-                            .padding(.trailing, 20 * scalingFactor)
+                            
                         
                     }
                     //  .padding(10 * scalingFactor)
@@ -105,8 +117,8 @@ struct LeaderBoardView: View {
             player.achievementNames = "No Achievement"
         }
     }
-
-
+    
+    
     func highestScoringPlayers(from players: [Player]) -> [Player] {
         let groupedPlayers = Dictionary(grouping: players, by: { $0.username })
         return groupedPlayers.compactMap { (username, players) -> Player? in
@@ -117,26 +129,43 @@ struct LeaderBoardView: View {
             return nil
         }.sorted(by: { $0.score > $1.score })
     }
-
     
-    private func tableHeader(scalingFactor: CGFloat) -> some View {
+    
+    private func tableHeader(scalingFactor: CGFloat, tableHeaderFontSize: CGFloat) -> some View {
         HStack{
             Text("Name")
             //   .padding(.leading, 60 * scalingFactor) // Match the padding of the player's name below
-                .font(Font.system(size: 17 * scalingFactor))
+                .frame(width: collumnWidthSize * scalingFactor)
+                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
             Spacer()
             Text("High Score")
             // .padding(.trailing, 60 * scalingFactor) // Match the padding of the player's score below
-                .font(Font.system(size: 17 * scalingFactor))
+                .frame(width: collumnWidthSize * scalingFactor)
+                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
             Spacer()
-            Text("Achievement")
+            Text("Medal")
             // .padding(.trailing, 60 * scalingFactor) // Match the padding of the player's score below
-                .font(Font.system(size: 17 * scalingFactor))
+                .frame(width: collumnWidthSize * scalingFactor)
+                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
         }
     }
+
     
-    
+    private func displayAchievement(for player: Player, tableContentFontSize: CGFloat, scalingFactor: CGFloat) -> some View {
+        VStack{
+            if let achievement = achievements.first(where: { $0.name == player.achievementNames }) {
+                Image(achievement.imageName) // Display the achievement image
+                    .resizable()
+                        .frame(width: 90 * scalingFactor, height: 40 * scalingFactor)
+                Text(achievement.name)      // Display the achievement name
+                    .font(Font.system(size: tableContentFontSize * scalingFactor))
+            } else {
+                Text("No Achievement")
+            }
+        }
+    }
 }
+
 
 struct LeaderBoardView_Previews: PreviewProvider {
     static var previews: some View {
