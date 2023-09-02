@@ -61,7 +61,6 @@ struct LeaderBoardView: View {
                 .font(Font.system(size: 24 * scalingFactor).weight(.black))
                 .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
                 .padding(.leading)
-              //  .foregroundColor(Color(opacity:1.00))
             
             VStack(spacing: 10 * scalingFactor) {
                 // Table headers
@@ -76,30 +75,21 @@ struct LeaderBoardView: View {
                         
                         // Limit the username to 10 characters and append "..." if truncated
                         Text(player.username.count > 8 ? String(player.username.prefix(10)) + "..." : player.username)
-                         //   .padding(.leading, 10 * scalingFactor)
                             .frame(width: collumnWidthSize * scalingFactor)
                             .font(Font.system(size: tableContentFontSize * scalingFactor))
-                         //   .background(Color.red)
+                      
                         Spacer()
+                        
                         Text("\(player.score)")
-                        //  .font(.subheadline)
-                        // .padding(.trailing, 60 * scalingFactor)
                             .font(Font.system(size: tableContentFontSize * scalingFactor))
                             .frame(width: collumnWidthSize * scalingFactor)
-                            //.padding(.trailing, 20 * scalingFactor)
-                        //    .background(Color.red)
+
                         Spacer()
+                        
                         displayAchievement(for: player, tableContentFontSize: tableContentFontSize, scalingFactor: scalingFactor)
                             .font(Font.system(size: tableContentFontSize * scalingFactor))
                             .frame(width: collumnWidthSize * scalingFactor)
-                           // .padding(.trailing, 20 * scalingFactor)
-                           // .background(Color.red)
-                        //  .font(.subheadline)
-                        // .padding(.trailing, 60 * scalingFactor)
-                            
-                        
                     }
-                    //  .padding(10 * scalingFactor)
                     .frame(maxWidth: 320 * scalingFactor)
                     Divider()
                 }
@@ -109,6 +99,7 @@ struct LeaderBoardView: View {
             .padding(.top, 2 * scalingFactor)
         }
     }
+    
     func updateAchievement(for player: inout Player) {
         let achieved = achievements.filter { $0.milestone <= player.score }
         if let highestAchievement = achieved.sorted(by: { $0.milestone > $1.milestone }).first {
@@ -134,17 +125,18 @@ struct LeaderBoardView: View {
     private func tableHeader(scalingFactor: CGFloat, tableHeaderFontSize: CGFloat) -> some View {
         HStack{
             Text("Name")
-            //   .padding(.leading, 60 * scalingFactor) // Match the padding of the player's name below
                 .frame(width: collumnWidthSize * scalingFactor)
                 .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
+            
             Spacer()
+            
             Text("High Score")
-            // .padding(.trailing, 60 * scalingFactor) // Match the padding of the player's score below
                 .frame(width: collumnWidthSize * scalingFactor)
                 .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
+            
             Spacer()
+            
             Text("Medal")
-            // .padding(.trailing, 60 * scalingFactor) // Match the padding of the player's score below
                 .frame(width: collumnWidthSize * scalingFactor)
                 .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
         }
