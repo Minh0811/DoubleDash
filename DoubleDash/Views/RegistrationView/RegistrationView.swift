@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @State private var localUsername: String = ""
-    @State private var players: [Player] = []
-    @State private var showErrorAlert: Bool = false
     @EnvironmentObject var gameLogic: GameLogic
-    @State private var navigateToGame: Bool = false
-    @State private var newPlayer: Player?
-    @State private var shouldNavigateToGame: Bool = false
     let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
+   
+    @State private var players: [Player] = []
+    @State private var newPlayer: Player?
+    
+    @State private var shouldNavigateToGame: Bool = false
+    @State private var localUsername: String = ""
     let newPlayerAchievement: String = ""
+    
+    
     
     var body: some View {
         ZStack{
@@ -51,7 +54,7 @@ struct RegistrationView: View {
                         players.append(newPlayer!)
                         save(players: players)
                         gameLogic.newGame() // Start a new game
-                        navigateToGame = true
+                        //navigateToGame = true
                         print("Player saved and game started")
                         shouldNavigateToGame = true
                     }) {
