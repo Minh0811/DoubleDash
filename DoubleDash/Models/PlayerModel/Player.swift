@@ -12,5 +12,5 @@ struct Player: Codable, Hashable {
     var gameMode: Int
     var username: String
     var score: Int
-    var achievementNames : String
+    var achievementNames: String = "No Achievement"
 }

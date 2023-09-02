@@ -60,7 +60,7 @@ extension AnyTransition {
 
 struct BlockGridView : View {
     @EnvironmentObject var gameLogic: GameLogic
-    @StateObject var globalState = GlobalState()
+    let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
     typealias MatrixType = BlockMatrix<IdentifiedBlock>
     
     let matrix: Self.MatrixType
@@ -73,7 +73,7 @@ struct BlockGridView : View {
         }
 
     var scalingFactor: CGFloat {
-        return deviceSize / globalState.iphone14BaseWidth
+        return deviceSize / iphone14BaseWidth
     }
     
     var blockSettings: (dimension: CGFloat, gap: CGFloat) {

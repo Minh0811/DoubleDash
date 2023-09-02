@@ -15,7 +15,7 @@ struct RegistrationView: View {
     @State private var navigateToGame: Bool = false
     @State private var newPlayer: Player?
     @State private var shouldNavigateToGame: Bool = false
-    @StateObject var globalState = GlobalState()
+    let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     let newPlayerAchievement: String = ""
     
@@ -25,7 +25,7 @@ struct RegistrationView: View {
             BackgroundColorScheme.ignoresSafeArea()
             GeometryReader { geometry in
                 var scalingFactor: CGFloat {
-                    return geometry.size.width / globalState.iphone14BaseWidth
+                    return geometry.size.width / iphone14BaseWidth
                 }
                 // * scalingFactor
                 VStack(spacing: 20) {

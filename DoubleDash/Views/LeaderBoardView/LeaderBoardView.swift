@@ -9,8 +9,10 @@ import SwiftUI
 
 struct LeaderBoardView: View {
     @State private var players: [Player] = []
-    @StateObject var globalState = GlobalState()
+    let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
+    let achievements = GlobalData.shared.achievements
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
     var hardPlayers: [Player] {
         highestScoringPlayers(from: players.filter { $0.gameMode == 1 })
     }
@@ -29,7 +31,7 @@ struct LeaderBoardView: View {
             BackgroundColorScheme.ignoresSafeArea()
             GeometryReader { geometry in
                 var scalingFactor: CGFloat {
-                    return geometry.size.width / globalState.iphone14BaseWidth
+                    return geometry.size.width / iphone14BaseWidth
                 }
                 ScrollView {
                     Text("Leader Board")
@@ -95,17 +97,21 @@ struct LeaderBoardView: View {
             .padding(.top, 2 * scalingFactor)
         }
     }
-    func updateAchievement(for player: inout Player, with achievements: [Achievement]) {
+    func updateAchievement(for player: inout Player) {
         let achieved = achievements.filter { $0.milestone <= player.score }
         if let highestAchievement = achieved.sorted(by: { $0.milestone > $1.milestone }).first {
             player.achievementNames = highestAchievement.name
+        } else {
+            player.achievementNames = "No Achievement"
         }
     }
+
+
     func highestScoringPlayers(from players: [Player]) -> [Player] {
         let groupedPlayers = Dictionary(grouping: players, by: { $0.username })
         return groupedPlayers.compactMap { (username, players) -> Player? in
             if var highestScorePlayer = players.max(by: { $0.score < $1.score }) {
-                updateAchievement(for: &highestScorePlayer, with: achievements) // Assuming you have a globalState.achievements containing all achievements
+                updateAchievement(for: &highestScorePlayer) // Assuming you have a globalState.achievements containing all achievements
                 return highestScorePlayer
             }
             return nil
