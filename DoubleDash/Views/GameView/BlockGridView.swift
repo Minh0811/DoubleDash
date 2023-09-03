@@ -122,6 +122,11 @@ struct BlockGridView : View {
             y: CGFloat(index.1) * (blockDimension + gap) + blockDimension / 2 + gap
         )
         
+        // Play sound effect when a block is generated
+            if block != nil {
+                playSoundEffect(named: "Add.mp3")
+            }
+        
         let blockView = block.map { BlockView(block: $0, scalingFactor: scalingFactor) } ?? BlockView.emptyBlockView()
 
         
@@ -191,7 +196,7 @@ struct BlockGridView_Previews : PreviewProvider {
     static var previews: some View {
         //ipad = 834
         //ip14 = 390
-        let deviceSize: CGFloat = 390
+        let deviceSize: CGFloat = 834
             BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: deviceSize)
                 .environmentObject(GameLogic())
                 .previewLayout(.sizeThatFits)

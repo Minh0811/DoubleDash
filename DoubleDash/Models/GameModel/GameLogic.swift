@@ -11,9 +11,9 @@ import Combine
 
 final class GameLogic : ObservableObject {
     @Published var score: Int = 0
-
-    @Published public var currentLevel: Int = 3
-
+    
+    @Published public var currentLevel: Int = 2
+    
     var boardSize: Int {
         switch currentLevel {
         case 1: return 4
@@ -49,7 +49,7 @@ final class GameLogic : ObservableObject {
     
     init() {
         newGame()
-       // print("GameLogic initialized")
+        // print("GameLogic initialized")
     }
     
     func newGame() {
@@ -128,6 +128,8 @@ final class GameLogic : ObservableObject {
                     mergedBlock.number *= 2
                     //Scoring system
                     score += mergedBlock.number
+                    // Play sound effect when blocks merge
+                    playSoundEffect(named: "Merge.mp3")
                     
                     accPrefix.append((true, mergedBlock))
                     return accPrefix
@@ -185,39 +187,39 @@ final class GameLogic : ObservableObject {
         
         return true
     }
-
     
-//    fileprivate func forEachBlockIndices(mode: ForEachMode = .rowByRow,
-//                                         reversed: Bool = false,
-//                                         _ action: (BlockMatrixType.Index) -> ()) {
-//        var indices = (0..<4).map { $0 }
-//        if reversed {
-//            indices = indices.reversed()
-//        }
-//
-//        for row in indices {
-//            for col in indices {
-//                if mode == .rowByRow {
-//                    action((col, row))
-//                } else {
-//                    action((row, col))  // transpose
-//                }
-//            }
-//        }
-//    }
-//    func updatePlayerAchievement() {
-//        // Assuming achievements is a global variable containing all the achievements
-//        let achieved = achievements.filter { $0.milestone <= score }
-//        if let highestAchievement = achieved.sorted(by: { $0.milestone > $1.milestone }).first {
-//            currentPlayer.achievementNames = highestAchievement.name
-//        }
-//    }
+    
+    //    fileprivate func forEachBlockIndices(mode: ForEachMode = .rowByRow,
+    //                                         reversed: Bool = false,
+    //                                         _ action: (BlockMatrixType.Index) -> ()) {
+    //        var indices = (0..<4).map { $0 }
+    //        if reversed {
+    //            indices = indices.reversed()
+    //        }
+    //
+    //        for row in indices {
+    //            for col in indices {
+    //                if mode == .rowByRow {
+    //                    action((col, row))
+    //                } else {
+    //                    action((row, col))  // transpose
+    //                }
+    //            }
+    //        }
+    //    }
+    //    func updatePlayerAchievement() {
+    //        // Assuming achievements is a global variable containing all the achievements
+    //        let achieved = achievements.filter { $0.milestone <= score }
+    //        if let highestAchievement = achieved.sorted(by: { $0.milestone > $1.milestone }).first {
+    //            currentPlayer.achievementNames = highestAchievement.name
+    //        }
+    //    }
     
     func setLevelValue(level: Int) {
         currentLevel = level
-       // objectWillChange.send(self)
+        // objectWillChange.send(self)
     }
-
+    
     
     func hasPossibleMoves() -> Bool {
         // Check for empty blocks
@@ -238,7 +240,7 @@ final class GameLogic : ObservableObject {
                 let downBlock = rowIndex < 3 ? _blockMatrix[(colIndex, rowIndex + 1)] : nil
                 
                 if (rightBlock != nil && rightBlock!.number == currentBlock!.number) ||
-                   (downBlock != nil && downBlock!.number == currentBlock!.number) {
+                    (downBlock != nil && downBlock!.number == currentBlock!.number) {
                     return true
                 }
             }
@@ -246,6 +248,6 @@ final class GameLogic : ObservableObject {
         
         return false
     }
-
+    
 }
 

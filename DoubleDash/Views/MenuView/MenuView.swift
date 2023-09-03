@@ -51,9 +51,6 @@ extension MenuView {
             ).onTapGesture {
                 gameLogic.newGame()
             }
-//                .onDisappear {
-//                    gameLogic.newGame()
-//                }
             
             NavigationLink(
                 destination: LeaderBoardView(),

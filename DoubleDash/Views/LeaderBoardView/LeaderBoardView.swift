@@ -40,7 +40,7 @@ struct LeaderBoardView: View {
                 ScrollView {
                     Text("Leader Board")
                         .font(Font.system(size: 48 * scalingFactor).weight(.black))
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
                         .padding()
                     VStack(spacing: 20) {
                         leaderboardSection(title: "Hard", players: hardPlayers, scalingFactor: scalingFactor)
