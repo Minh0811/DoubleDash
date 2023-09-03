@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F77F8F8F2AA31E7200CC6AFE /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F8E2AA31E7200CC6AFE /* GlobalData.swift */; };
+		F77F8F922AA350C500CC6AFE /* PlayerStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F912AA350C500CC6AFE /* PlayerStatistics.swift */; };
+		F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */; };
+		F77F8F972AA3D15100CC6AFE /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F962AA3D15100CC6AFE /* README.md */; };
 		F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E372A9F6859009E1F9F /* RegistrationView.swift */; };
 		F7804E3B2A9F6911009E1F9F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3A2A9F6911009E1F9F /* Player.swift */; };
 		F7804E3E2A9F6951009E1F9F /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3D2A9F6951009E1F9F /* PlayerDataModel.swift */; };
@@ -31,6 +34,7 @@
 		F78CE6AC2AA0EEC4000E451A /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */; };
 		F78CE6AF2AA12BC9000E451A /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AE2AA12BC9000E451A /* Achievement.swift */; };
 		F78CE6B32AA12F0C000E451A /* AchievementDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */; };
+		F78F3C022AA492380061E3B8 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = F78F3C012AA492380061E3B8 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,9 @@
 
 /* Begin PBXFileReference section */
 		F77F8F8E2AA31E7200CC6AFE /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		F77F8F912AA350C500CC6AFE /* PlayerStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatistics.swift; sourceTree = "<group>"; };
+		F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeAndLanguageView.swift; sourceTree = "<group>"; };
+		F77F8F962AA3D15100CC6AFE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F7804E372A9F6859009E1F9F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		F7804E3A2A9F6911009E1F9F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F7804E3D2A9F6951009E1F9F /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
@@ -85,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78F3C022AA492380061E3B8 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F77F8F902AA34E4A00CC6AFE /* DifficultySelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */,
+				F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */,
+			);
+			path = DifficultySelectionView;
+			sourceTree = "<group>";
+		};
 		F7804E362A9F6800009E1F9F /* RegistrationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */,
+				F77F8F912AA350C500CC6AFE /* PlayerStatistics.swift */,
 			);
 			path = LeaderBoardView;
 			sourceTree = "<group>";
@@ -170,9 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */,
+				F77F8F962AA3D15100CC6AFE /* README.md */,
+				F7804E422A9F98CF009E1F9F /* Extensions */,
 				F78BFDA42A9E087B002DA3F5 /* Utils */,
 				F78CE6AA2AA0EE0B000E451A /* Helpers */,
-				F7804E422A9F98CF009E1F9F /* Extensions */,
 				F78BFDA52A9E0896002DA3F5 /* ColorSchemes */,
 				F78BFD8D2A9E0065002DA3F5 /* Views */,
 				F78BFD8C2A9E0055002DA3F5 /* Models */,
@@ -204,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				F78BFDA82A9E0A72002DA3F5 /* MenuView */,
+				F77F8F902AA34E4A00CC6AFE /* DifficultySelectionView */,
 				F7804E362A9F6800009E1F9F /* RegistrationView */,
 				F7804E3F2A9F7335009E1F9F /* LeaderBoardView */,
 				F78BFDA92A9E0A7C002DA3F5 /* GameView */,
@@ -233,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */,
-				F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -282,6 +301,9 @@
 			dependencies = (
 			);
 			name = DoubleDash;
+			packageProductDependencies = (
+				F78F3C012AA492380061E3B8 /* SwiftUICharts */,
+			);
 			productName = DoubleDash;
 			productReference = F78BFD5F2A9DFF86002DA3F5 /* DoubleDash.app */;
 			productType = "com.apple.product-type.application";
@@ -354,6 +376,9 @@
 				Base,
 			);
 			mainGroup = F78BFD562A9DFF86002DA3F5;
+			packageReferences = (
+				F78F3C002AA492380061E3B8 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = F78BFD602A9DFF86002DA3F5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -410,14 +435,17 @@
 				F78CE6AF2AA12BC9000E451A /* Achievement.swift in Sources */,
 				F78BFD962A9E00E2002DA3F5 /* IdentifiedBlock.swift in Sources */,
 				F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */,
+				F77F8F922AA350C500CC6AFE /* PlayerStatistics.swift in Sources */,
 				F78BFD912A9E00B5002DA3F5 /* GameLogic.swift in Sources */,
 				F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */,
+				F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */,
 				F78BFDA12A9E01E2002DA3F5 /* FunctionalUtils.swift in Sources */,
 				F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */,
 				F78BFD9F2A9E0136002DA3F5 /* BlockView.swift in Sources */,
 				F78BFD932A9E00CA002DA3F5 /* BlockMatrix.swift in Sources */,
 				F7804E3B2A9F6911009E1F9F /* Player.swift in Sources */,
 				F78BFD982A9E00F6002DA3F5 /* GameView.swift in Sources */,
+				F77F8F972AA3D15100CC6AFE /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +761,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F78F3C002AA492380061E3B8 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F78F3C012AA492380061E3B8 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F78F3C002AA492380061E3B8 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F78BFD572A9DFF86002DA3F5 /* Project object */;
 }

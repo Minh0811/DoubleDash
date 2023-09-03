@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct DoubleDashApp: App {
     let gameLogic = GameLogic()
