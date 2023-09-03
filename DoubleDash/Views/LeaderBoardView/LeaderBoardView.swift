@@ -15,6 +15,7 @@ struct LeaderBoardView: View {
     let collumnWidthSize: CGFloat = 110
     let tableHeaderFontSize: CGFloat = 18
     let tableContentFontSize: CGFloat = 17
+    
     var hardPlayers: [Player] {
         highestScoringPlayers(from: players.filter { $0.gameMode == 1 })
     }
@@ -31,6 +32,7 @@ struct LeaderBoardView: View {
         ZStack{
             //Background
             BackgroundColorScheme.ignoresSafeArea()
+            
             GeometryReader { geometry in
                 var scalingFactor: CGFloat {
                     return geometry.size.width / iphone14BaseWidth
@@ -46,6 +48,17 @@ struct LeaderBoardView: View {
                         leaderboardSection(title: "Easy", players: easyPlayers, scalingFactor: scalingFactor)
                     }
                     .padding()
+                    NavigationLink(
+                        destination: PlayerStatisticsView(), // Use the same gameLogic instance
+                        label: {
+                            Text("Player Statistics")
+                                .font(.title)
+                                .padding()
+                                .background(Color.white)
+                                .foregroundColor(.black)
+                                .cornerRadius(10)
+                        }
+                    )
                 }
                 .onAppear {
                     players = load() ?? []

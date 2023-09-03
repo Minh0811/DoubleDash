@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F77F8F8F2AA31E7200CC6AFE /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F8E2AA31E7200CC6AFE /* GlobalData.swift */; };
-		F77F8F922AA350C500CC6AFE /* PlayerStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F912AA350C500CC6AFE /* PlayerStatistics.swift */; };
+		F77F8F922AA350C500CC6AFE /* PlayerStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */; };
 		F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */; };
 		F77F8F972AA3D15100CC6AFE /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F962AA3D15100CC6AFE /* README.md */; };
 		F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E372A9F6859009E1F9F /* RegistrationView.swift */; };
@@ -56,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		F77F8F8E2AA31E7200CC6AFE /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
-		F77F8F912AA350C500CC6AFE /* PlayerStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatistics.swift; sourceTree = "<group>"; };
+		F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatisticsView.swift; sourceTree = "<group>"; };
 		F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeAndLanguageView.swift; sourceTree = "<group>"; };
 		F77F8F962AA3D15100CC6AFE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F7804E372A9F6859009E1F9F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */,
-				F77F8F912AA350C500CC6AFE /* PlayerStatistics.swift */,
+				F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */,
 			);
 			path = LeaderBoardView;
 			sourceTree = "<group>";
@@ -435,7 +435,7 @@
 				F78CE6AF2AA12BC9000E451A /* Achievement.swift in Sources */,
 				F78BFD962A9E00E2002DA3F5 /* IdentifiedBlock.swift in Sources */,
 				F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */,
-				F77F8F922AA350C500CC6AFE /* PlayerStatistics.swift in Sources */,
+				F77F8F922AA350C500CC6AFE /* PlayerStatisticsView.swift in Sources */,
 				F78BFD912A9E00B5002DA3F5 /* GameLogic.swift in Sources */,
 				F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */,
 				F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */,
