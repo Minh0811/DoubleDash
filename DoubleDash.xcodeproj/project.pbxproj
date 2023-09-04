@@ -11,7 +11,6 @@
 		F77F8F8F2AA31E7200CC6AFE /* GlobalDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F8E2AA31E7200CC6AFE /* GlobalDatas.swift */; };
 		F77F8F922AA350C500CC6AFE /* PlayerStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */; };
 		F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */; };
-		F77F8F972AA3D15100CC6AFE /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F962AA3D15100CC6AFE /* README.md */; };
 		F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E372A9F6859009E1F9F /* RegistrationView.swift */; };
 		F7804E3B2A9F6911009E1F9F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3A2A9F6911009E1F9F /* Player.swift */; };
 		F7804E3E2A9F6951009E1F9F /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3D2A9F6951009E1F9F /* PlayerDataModel.swift */; };
@@ -179,6 +178,7 @@
 		F78BFD562A9DFF86002DA3F5 = {
 			isa = PBXGroup;
 			children = (
+				F77F8F962AA3D15100CC6AFE /* README.md */,
 				F78BFD612A9DFF86002DA3F5 /* DoubleDash */,
 				F78BFD602A9DFF86002DA3F5 /* Products */,
 			);
@@ -199,7 +199,6 @@
 			children = (
 				F78F3C032AA50F860061E3B8 /* Assets */,
 				F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */,
-				F77F8F962AA3D15100CC6AFE /* README.md */,
 				F7804E422A9F98CF009E1F9F /* Extensions */,
 				F78BFDA42A9E087B002DA3F5 /* Utils */,
 				F78CE6AA2AA0EE0B000E451A /* Helpers */,
@@ -481,7 +480,6 @@
 				F78BFD932A9E00CA002DA3F5 /* BlockMatrix.swift in Sources */,
 				F7804E3B2A9F6911009E1F9F /* Player.swift in Sources */,
 				F78BFD982A9E00F6002DA3F5 /* GameView.swift in Sources */,
-				F77F8F972AA3D15100CC6AFE /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
