@@ -25,6 +25,9 @@ extension Edge {
 }
 
 struct GameView : View {
+    
+    @EnvironmentObject var globalSettings: GlobalSettings
+    let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     @Binding var currentPlayer: Player?
 
     
@@ -36,6 +39,18 @@ struct GameView : View {
     
     @EnvironmentObject var gameLogic: GameLogic
     
+    var difficultyDescription: String {
+        switch gameLogic.currentLevel {
+        case 1:
+            return "Hard"
+        case 2:
+            return "Medium"
+        case 3:
+            return "Easy"
+        default:
+            return "Unknown"
+        }
+    }
     
     fileprivate struct LayoutTraits {
         let bannerOffset: CGSize
@@ -107,23 +122,30 @@ struct GameView : View {
     }
     
     var content: some View {
+        
         GeometryReader { proxy in
+            
+            var scalingFactor: CGFloat {
+                return proxy.size.width / iphone14BaseWidth
+            }
+            
             bind(self.layoutTraits(for: proxy)) { layoutTraits in
                 ZStack(alignment: layoutTraits.containerAlignment) {
                     VStack{
                         if layoutTraits.showsBanner {
                             Text("2048")
-                                .font(Font.system(size: 48).weight(.black))
-                                .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                                .font(Font.system(size: 40 * scalingFactor).weight(.black))
+                                .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                                 .offset(layoutTraits.bannerOffset)
                                 .padding()
                         }
                         Text("Score: \(self.gameLogic.score)")
-                            .font(.title)
-                         //   .padding()
-                        Text("Width: \(proxy.size.width)")
-                        Text("Current Level: \(gameLogic.currentLevel)")
-                                  .font(.title2)
+                            .font(Font.system(size: 30 * scalingFactor))
+                            .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
+                        
+                        Text("Level: \(difficultyDescription)")
+                            .font(Font.system(size: 30 * scalingFactor))
+                                  .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                                   //.padding()
                     }
                     ZStack(alignment: .center) {
@@ -135,17 +157,20 @@ struct GameView : View {
                 .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
                 .background(
                     Rectangle()
-                        .fill(BackgroundColorScheme)
+                        .fill( globalSettings.isDark ? DarkBackgroundColorScheme : BackgroundColorScheme)
                         .edgesIgnoringSafeArea(.all)
+                    
                 )
             }
         }
+        
     }
     // MARK: - Body
     var body: some View {
         if gestureEnabled {
             
             return AnyView(
+                
                 ZStack{
                     //Custom Back Button
                     Spacer()
@@ -203,6 +228,7 @@ struct GameView_Previews : PreviewProvider {
         let mockStringArray: String = ""
         GameView(currentPlayer: .constant(Player(gameMode: 1, username: "MockUser", score: 0,achievementNames: mockStringArray)))
               .environmentObject(GameLogic())
+              .environmentObject(GlobalSettings.shared)
       }
     
 }

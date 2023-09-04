@@ -9,8 +9,10 @@ import SwiftUI
 
 struct LeaderBoardView: View {
     @State private var players: [Player] = []
+    @EnvironmentObject var globalSettings: GlobalSettings
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     let achievements = GlobalDatas.shared.achievements
+    
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     let collumnWidthSize: CGFloat = 110
     let tableHeaderFontSize: CGFloat = 18
@@ -31,7 +33,7 @@ struct LeaderBoardView: View {
     var body: some View {
         ZStack{
             //Background
-            BackgroundColorScheme.ignoresSafeArea()
+            globalSettings.isDark ? DarkBackgroundColorScheme.ignoresSafeArea() : BackgroundColorScheme.ignoresSafeArea()
             
             GeometryReader { geometry in
                 var scalingFactor: CGFloat {
@@ -40,7 +42,7 @@ struct LeaderBoardView: View {
                 ScrollView {
                     Text("Leader Board")
                         .font(Font.system(size: 48 * scalingFactor).weight(.black))
-                        .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                        .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                         .padding()
                     VStack(spacing: 20) {
                         leaderboardSection(title: "Hard", players: hardPlayers, scalingFactor: scalingFactor)
@@ -52,10 +54,10 @@ struct LeaderBoardView: View {
                         destination: PlayerStatisticsView(), // Use the same gameLogic instance
                         label: {
                             Text("Player Statistics")
-                                .font(.title)
+                                .font(Font.system(size: 30 * scalingFactor))
                                 .padding()
-                                .background(Color.white)
-                                .foregroundColor(.black)
+                                .background(globalSettings.isDark ? ButtonColorScheme: DarkButtonColorScheme)
+                                .foregroundColor(globalSettings.isDark ? DarkButtonLetterColorScheme : ButtonLetterColorScheme)
                                 .cornerRadius(10)
                         }
                     )
@@ -72,7 +74,7 @@ struct LeaderBoardView: View {
         VStack{
             Text(title)
                 .font(Font.system(size: 24 * scalingFactor).weight(.black))
-                .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                 .padding(.leading)
             
             VStack(spacing: 10 * scalingFactor) {
@@ -90,26 +92,49 @@ struct LeaderBoardView: View {
                         Text(player.username.count > 8 ? String(player.username.prefix(10)) + "..." : player.username)
                             .frame(width: collumnWidthSize * scalingFactor)
                             .font(Font.system(size: tableContentFontSize * scalingFactor))
+                            .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
                       
                         Spacer()
                         
                         Text("\(player.score)")
                             .font(Font.system(size: tableContentFontSize * scalingFactor))
                             .frame(width: collumnWidthSize * scalingFactor)
+                            .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
 
                         Spacer()
                         
                         displayAchievement(for: player, tableContentFontSize: tableContentFontSize, scalingFactor: scalingFactor)
                             .font(Font.system(size: tableContentFontSize * scalingFactor))
                             .frame(width: collumnWidthSize * scalingFactor)
+                            .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
                     }
                     .frame(maxWidth: 320 * scalingFactor)
                     Divider()
                 }
             }
-            .background(Color.white)
+            .background(globalSettings.isDark ? Color.gray : Color.white)
             .cornerRadius(10 * scalingFactor)
             .padding(.top, 2 * scalingFactor)
+        }
+    }
+    private func tableHeader(scalingFactor: CGFloat, tableHeaderFontSize: CGFloat) -> some View {
+        HStack{
+            Text("Name")
+                .frame(width: collumnWidthSize * scalingFactor)
+                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
+                .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
+            Spacer()
+            
+            Text("High Score")
+                .frame(width: collumnWidthSize * scalingFactor)
+                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
+                .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
+            Spacer()
+            
+            Text("Medal")
+                .frame(width: collumnWidthSize * scalingFactor)
+                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
+                .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
         }
     }
     
@@ -135,25 +160,7 @@ struct LeaderBoardView: View {
     }
     
     
-    private func tableHeader(scalingFactor: CGFloat, tableHeaderFontSize: CGFloat) -> some View {
-        HStack{
-            Text("Name")
-                .frame(width: collumnWidthSize * scalingFactor)
-                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
-            
-            Spacer()
-            
-            Text("High Score")
-                .frame(width: collumnWidthSize * scalingFactor)
-                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
-            
-            Spacer()
-            
-            Text("Medal")
-                .frame(width: collumnWidthSize * scalingFactor)
-                .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
-        }
-    }
+  
 
     
     private func displayAchievement(for player: Player, tableContentFontSize: CGFloat, scalingFactor: CGFloat) -> some View {
@@ -175,5 +182,6 @@ struct LeaderBoardView: View {
 struct LeaderBoardView_Previews: PreviewProvider {
     static var previews: some View {
         LeaderBoardView()
+            .environmentObject(GlobalSettings.shared)
     }
 }
