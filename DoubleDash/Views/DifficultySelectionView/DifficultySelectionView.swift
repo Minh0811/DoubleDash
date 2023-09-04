@@ -17,6 +17,7 @@ struct DifficultySelectionView: View {
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     @State private var selectedDifficulty: Int = 0
     @State private var selectedMode: Int = 0
+    @State private var selectedLanguage: Int = 0
 
 
 
@@ -65,6 +66,7 @@ struct DifficultySelectionView: View {
                    break
                }
             selectedMode = globalSettings.isDark ? 1 : 0
+            selectedLanguage = globalSettings.isEnglish ? 0 : 1
            }
        // .preferredColorScheme(isDark ? .dark : .light)
         
@@ -75,7 +77,7 @@ extension DifficultySelectionView {
     
     func difficultyButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
-            Text("Select Difficulty")
+            Text(LocalizedStrings.selectDifficulty)
                 .font(Font.system(size: 35 * scalingFactor).weight(.black))
                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
             
@@ -88,9 +90,9 @@ extension DifficultySelectionView {
                         .padding(.top, 20 * scalingFactor)
             
             Picker(selection: $selectedDifficulty, label: Text("Difficulty")) {
-                Text("Easy (6x6)").tag(0)
-                Text("Medium (5x5)").tag(1)
-                Text("Hard (4x4)").tag(2)
+                Text(LocalizedStrings.easy).tag(0)
+                Text(LocalizedStrings.medium).tag(1)
+                Text(LocalizedStrings.hard).tag(2)
             }
             .pickerStyle(SegmentedPickerStyle())
             .onChange(of: selectedDifficulty) { newValue in
@@ -124,14 +126,14 @@ extension DifficultySelectionView {
     }
     func darkModeButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
-            Text("Select Mode")
+            Text(LocalizedStrings.selectMode)
                 .font(Font.system(size: 35 * scalingFactor).weight(.black))
                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
             
             Picker(selection: $selectedMode, label: Text("Difficulty")) {
-                Text("Light Mode").tag(0)
+                Text(LocalizedStrings.lightMode).tag(0)
                 
-                Text("Dark Mode").tag(1)
+                Text(LocalizedStrings.darkMode).tag(1)
             }
             
             .pickerStyle(SegmentedPickerStyle())
@@ -151,27 +153,27 @@ extension DifficultySelectionView {
     
     func LanguageButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
-            Text("Select Language")
+            Text(LocalizedStrings.selectLanguage)
                 .font(Font.system(size: 35 * scalingFactor).weight(.black))
                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
             
-            Picker(selection: $selectedMode, label: Text("Difficulty")) {
-                Text("English").tag(0)
+            Picker(selection: $selectedLanguage, label: Text("Difficulty")) {
+                Text(LocalizedStrings.english).tag(0)
                 
-                Text("Tiếng Việt").tag(1)
+                Text(LocalizedStrings.vietnamese).tag(1)
             }
             
             .pickerStyle(SegmentedPickerStyle())
-//            .onChange(of: selectedMode) { newValue in
-//                switch newValue {
-//                case 1:
-//                    globalSettings.isDark = true
-//                case 0:
-//                    globalSettings.isDark = false
-//                default:
-//                    break
-//                }
-//            }
+            .onChange(of: selectedLanguage) { newValue in
+                switch newValue {
+                case 0:
+                    globalSettings.isEnglish = true
+                case 1:
+                    globalSettings.isEnglish = false
+                default:
+                    break
+                }
+            }
             
         }
     }

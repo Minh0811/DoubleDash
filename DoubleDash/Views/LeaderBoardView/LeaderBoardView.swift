@@ -40,20 +40,20 @@ struct LeaderBoardView: View {
                     return geometry.size.width / iphone14BaseWidth
                 }
                 ScrollView {
-                    Text("Leader Board")
+                    Text(LocalizedStrings.leaderBoard)
                         .font(Font.system(size: 48 * scalingFactor).weight(.black))
                         .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                         .padding()
                     VStack(spacing: 20) {
-                        leaderboardSection(title: "Hard", players: hardPlayers, scalingFactor: scalingFactor)
-                        leaderboardSection(title: "Medium", players: mediumPlayers, scalingFactor: scalingFactor)
-                        leaderboardSection(title: "Easy", players: easyPlayers, scalingFactor: scalingFactor)
+                        leaderboardSection(title: LocalizedStrings.hard, players: hardPlayers, scalingFactor: scalingFactor)
+                        leaderboardSection(title: LocalizedStrings.medium, players: mediumPlayers, scalingFactor: scalingFactor)
+                        leaderboardSection(title: LocalizedStrings.easy, players: easyPlayers, scalingFactor: scalingFactor)
                     }
                     .padding()
                     NavigationLink(
                         destination: PlayerStatisticsView(), // Use the same gameLogic instance
                         label: {
-                            Text("Player Statistics")
+                            Text(LocalizedStrings.playerStatistic)
                                 .font(Font.system(size: 30 * scalingFactor))
                                 .padding()
                                 .background(globalSettings.isDark ? ButtonColorScheme: DarkButtonColorScheme)
@@ -119,19 +119,19 @@ struct LeaderBoardView: View {
     }
     private func tableHeader(scalingFactor: CGFloat, tableHeaderFontSize: CGFloat) -> some View {
         HStack{
-            Text("Name")
+            Text(LocalizedStrings.name)
                 .frame(width: collumnWidthSize * scalingFactor)
                 .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
                 .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
             Spacer()
             
-            Text("High Score")
+            Text(LocalizedStrings.highScore)
                 .frame(width: collumnWidthSize * scalingFactor)
                 .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
                 .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
             Spacer()
             
-            Text("Medal")
+            Text(LocalizedStrings.medal)
                 .frame(width: collumnWidthSize * scalingFactor)
                 .font(Font.system(size: tableHeaderFontSize * scalingFactor).bold())
                 .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)

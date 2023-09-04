@@ -18,7 +18,8 @@ class GlobalSettings: ObservableObject {
     
 
     @Published var isDark: Bool = false
-
+    
+    @Published var isEnglish: Bool = true
 
     // MARK: - Initializer
     

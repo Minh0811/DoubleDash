@@ -25,7 +25,7 @@ struct PlayerStatisticsView: View {
                 }
                 
                 ScrollView{
-                    Text("Player Statistic")
+                    Text(LocalizedStrings.playerStatistic)
                         .font(Font.system(size: 44 * scalingFactor).weight(.black))
                         .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                         .padding()
@@ -43,7 +43,7 @@ struct PlayerStatisticsView: View {
 //                                    .foregroundColor(globalSettings.isDark ? Color.black : Color.black)
                                   
                          
-                                    LineView(data: getLastSixScores(for: playerName).map { Double($0) }, title: playerName, legend: "Last 6 Matches")
+                                LineView(data: getLastSixScores(for: playerName).map { Double($0) }, title: playerName, legend: LocalizedStrings.lastSixMatchs)
                                         .frame(width: 280 * scalingFactor)
                            
                                 //.padding()
@@ -55,7 +55,7 @@ struct PlayerStatisticsView: View {
                                     .frame(width: 350 * scalingFactor, height: 70 * scalingFactor)
                                     .cornerRadius(12 * scalingFactor)
                                     .foregroundColor(globalSettings.isDark ? Color.gray: Color.white)
-                                Text("Average Score: \(String(format: "%.1f", getAverageScore(for: playerName)))")
+                                Text(LocalizedStrings.averageScore + ": \(String(format: "%.1f", getAverageScore(for: playerName)))")
                                     .font(Font.system(size: 24 * scalingFactor).weight(.black))
                                     .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                                 

@@ -34,12 +34,12 @@ struct RegistrationView: View {
                 // * scalingFactor
                 VStack(spacing: 20) {
                     Spacer() // Push the content to the center vertically
-                    Text("Register Your Name")
+                    Text(LocalizedStrings.registerYourName)
                         .font(Font.system(size: 30 * scalingFactor).weight(.black))
                         .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                         .padding()
                     
-                    TextField("Enter your username", text: $localUsername)
+                    TextField(LocalizedStrings.enterYourUserName, text: $localUsername)
                         .frame(width: 300 * scalingFactor, height: 20 * scalingFactor)
                         .font(Font.system(size: 18 * scalingFactor))
                         .padding()
@@ -59,7 +59,7 @@ struct RegistrationView: View {
                         print("Player saved and game started")
                         shouldNavigateToGame = true
                     }) {
-                        Text("Start Game")
+                        Text(LocalizedStrings.startGame)
                             .font(Font.system(size: 28 * scalingFactor))
                             .padding()
                             .frame(width: 230 * scalingFactor, height: 70 * scalingFactor)

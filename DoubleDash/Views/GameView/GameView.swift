@@ -42,11 +42,11 @@ struct GameView : View {
     var difficultyDescription: String {
         switch gameLogic.currentLevel {
         case 1:
-            return "Hard"
+            return LocalizedStrings.hard
         case 2:
-            return "Medium"
+            return LocalizedStrings.medium
         case 3:
-            return "Easy"
+            return LocalizedStrings.easy
         default:
             return "Unknown"
         }

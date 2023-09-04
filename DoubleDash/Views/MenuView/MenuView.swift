@@ -48,7 +48,7 @@ extension MenuView {
     
     func menuButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
-            Text("Welcome")
+            Text(LocalizedStrings.welcome)
                 .font(Font.system(size: 65 * scalingFactor).weight(.black))
                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                 .padding(.vertical, 50 * scalingFactor)
@@ -56,7 +56,7 @@ extension MenuView {
             NavigationLink(
                 destination: RegistrationView().environmentObject(gameLogic),
                 label: {
-                    Text("Game")
+                    Text(LocalizedStrings.playGame)
                         .font(Font.system(size: 28 * scalingFactor))
                         .padding()
                         .frame(width: 230 * scalingFactor, height: 70 * scalingFactor)
@@ -72,7 +72,7 @@ extension MenuView {
             NavigationLink(
                 destination: LeaderBoardView(),
                 label: {
-                    Text("Leader Board")
+                    Text(LocalizedStrings.leaderBoard)
                         .font(Font.system(size: 28 * scalingFactor))
                         .padding()
                         .frame(width: 230 * scalingFactor, height: 70 * scalingFactor)
@@ -86,7 +86,7 @@ extension MenuView {
             Button(action: {
                 
             }) {
-                Text("How to Play")
+                Text(LocalizedStrings.howToPlay)
                     .font(Font.system(size: 28 * scalingFactor))
                     .padding()
                     .frame(width: 230 * scalingFactor, height: 70 * scalingFactor)
@@ -98,7 +98,7 @@ extension MenuView {
             NavigationLink(
                 destination: DifficultySelectionView().environmentObject(gameLogic), // Use the same gameLogic instance
                 label: {
-                    Text("Game Setting")
+                    Text(LocalizedStrings.gameSetting)
                         .font(Font.system(size: 28 * scalingFactor))
                         .padding()
                         .frame(width: 230 * scalingFactor, height: 70 * scalingFactor)
