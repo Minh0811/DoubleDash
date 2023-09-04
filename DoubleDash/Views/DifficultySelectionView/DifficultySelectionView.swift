@@ -47,6 +47,8 @@ struct DifficultySelectionView: View {
                         .padding()
                     darkModeButtons(scalingFactor: scalingFactor)
                         .padding()
+                    LanguageButtons(scalingFactor: scalingFactor)
+                        .padding()
                 }
             }
         }
@@ -143,6 +145,33 @@ extension DifficultySelectionView {
                     break
                 }
             }
+            
+        }
+    }
+    
+    func LanguageButtons(scalingFactor: CGFloat) -> some View {
+        VStack(spacing: 20) {
+            Text("Select Language")
+                .font(Font.system(size: 35 * scalingFactor).weight(.black))
+                .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
+            
+            Picker(selection: $selectedMode, label: Text("Difficulty")) {
+                Text("English").tag(0)
+                
+                Text("Tiếng Việt").tag(1)
+            }
+            
+            .pickerStyle(SegmentedPickerStyle())
+//            .onChange(of: selectedMode) { newValue in
+//                switch newValue {
+//                case 1:
+//                    globalSettings.isDark = true
+//                case 0:
+//                    globalSettings.isDark = false
+//                default:
+//                    break
+//                }
+//            }
             
         }
     }
