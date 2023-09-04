@@ -1,5 +1,5 @@
 //
-//  GlobalData.swift
+//  GlobalDatas.swift
 //  DoubleDash
 //
 //  Created by Minh Vo on 02/09/2023.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-class GlobalData: ObservableObject {
+class GlobalDatas: ObservableObject {
     
     // MARK: - Singleton Instance
     
     /// The shared singleton instance of `GlobalState`.
-    static let shared = GlobalData()
+    static let shared = GlobalDatas()
 
     // MARK: - Properties
 

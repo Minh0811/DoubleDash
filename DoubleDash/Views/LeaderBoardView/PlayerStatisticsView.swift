@@ -11,7 +11,7 @@ import SwiftUICharts
 struct PlayerStatisticsView: View {
     @State private var players: [Player] = []
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
+    let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     var body: some View {
         ZStack{
             //Background

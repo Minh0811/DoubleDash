@@ -10,18 +10,33 @@ import SwiftUI
 
 struct DifficultySelectionView: View {
     @EnvironmentObject var gameLogic: GameLogic
+    @EnvironmentObject var globalSettings: GlobalSettings
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     @State private var refreshView: Bool = false
     
-    let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
+    let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     @State private var selectedDifficulty: Int = 0
     @State private var selectedMode: Int = 0
+
+
+
+    
+    
+    init() {
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal) // Change UIColor.red to your desired color
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
+        
+        UISegmentedControl.appearance().backgroundColor = UIColor.white // Change to your desired background color
+        //UISegmentedControl.appearance().tintColor = UIColor.blue
+    }
+    
+  
 
     // MARK: - Body
     var body: some View {
         ZStack{
             //Background
-            BackgroundColorScheme.ignoresSafeArea()
+            globalSettings.isDark ? DarkBackgroundColorScheme.ignoresSafeArea() : BackgroundColorScheme.ignoresSafeArea()
             GeometryReader { geometry in
                 var scalingFactor: CGFloat {
                     return geometry.size.width / iphone14BaseWidth
@@ -48,6 +63,7 @@ struct DifficultySelectionView: View {
                    break
                }
            }
+       // .preferredColorScheme(isDark ? .dark : .light)
         
     }
 }
@@ -58,7 +74,7 @@ extension DifficultySelectionView {
         VStack(spacing: 20) {
             Text("Select Difficulty")
                 .font(Font.system(size: 35 * scalingFactor).weight(.black))
-                .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
             
 //            Text("Current Level: \(gameLogic.currentLevel)")
 //                .font(.title2)
@@ -74,7 +90,6 @@ extension DifficultySelectionView {
                 Text("Hard (4x4)").tag(2)
             }
             .pickerStyle(SegmentedPickerStyle())
-            
             .onChange(of: selectedDifficulty) { newValue in
                 switch newValue {
                 case 0:
@@ -106,21 +121,37 @@ extension DifficultySelectionView {
     }
     func darkModeButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
+            Text("Select Mode")
+                .font(Font.system(size: 35 * scalingFactor).weight(.black))
+                .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
+            
             Picker(selection: $selectedMode, label: Text("Difficulty")) {
-                Text("Dark Mode").tag(0)
-                Text("Light Mode").tag(1)
+                Text("Light Mode").tag(0)
+                
+                Text("Dark Mode").tag(1)
             }
+            
             .pickerStyle(SegmentedPickerStyle())
+            .onChange(of: selectedMode) { newValue in
+                switch newValue {
+                case 1:
+                    globalSettings.isDark = true
+                case 0:
+                    globalSettings.isDark = false
+                default:
+                    break
+                }
+            }
+            
         }
     }
 }
 struct DifficultySelectionView_Previews: PreviewProvider {
-    @State static var dummyCurrentLevel: Int = 1
-        static var dummyGameLogic = GameLogic()
 
     static var previews: some View {
            DifficultySelectionView() // Provide an empty closure for the preview
                .environmentObject(GameLogic())
+               .environmentObject(GlobalSettings.shared)
         
        }
 }

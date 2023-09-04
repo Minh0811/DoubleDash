@@ -14,7 +14,11 @@ struct DoubleDashApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MenuView().environmentObject(gameLogic)
+            MenuView()
+                .environmentObject(gameLogic)
+//                .environmentObject(GlobalStates.shared)
+//                .environmentObject(GlobalDatas.shared)
+//                .environmentObject(GlobalSettings.shared)
         }
     }
 }

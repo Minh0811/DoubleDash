@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LeaderBoardView: View {
     @State private var players: [Player] = []
-    let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
-    let achievements = GlobalData.shared.achievements
+    let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
+    let achievements = GlobalDatas.shared.achievements
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     let collumnWidthSize: CGFloat = 110
     let tableHeaderFontSize: CGFloat = 18

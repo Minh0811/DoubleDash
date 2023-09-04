@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RegistrationView: View {
     @EnvironmentObject var gameLogic: GameLogic
-    let iphone14BaseWidth = GlobalState.shared.iphone14BaseWidth
+    @EnvironmentObject var globalSettings: GlobalSettings
+    let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
    
@@ -25,7 +26,7 @@ struct RegistrationView: View {
     var body: some View {
         ZStack{
             //Background
-            BackgroundColorScheme.ignoresSafeArea()
+            globalSettings.isDark ? DarkBackgroundColorScheme.ignoresSafeArea() : BackgroundColorScheme.ignoresSafeArea()
             GeometryReader { geometry in
                 var scalingFactor: CGFloat {
                     return geometry.size.width / iphone14BaseWidth
@@ -35,14 +36,14 @@ struct RegistrationView: View {
                     Spacer() // Push the content to the center vertically
                     Text("Register Your Name")
                         .font(Font.system(size: 30 * scalingFactor).weight(.black))
-                        .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                        .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                         .padding()
                     
                     TextField("Enter your username", text: $localUsername)
                         .frame(width: 300 * scalingFactor, height: 20 * scalingFactor)
                         .font(Font.system(size: 18 * scalingFactor))
                         .padding()
-                        .background(Color.gray.opacity(0.2))
+                        .background(globalSettings.isDark ?Color.white.opacity(0.8) : Color.gray.opacity(0.2))
                         .cornerRadius(10 * scalingFactor)
                     
                     
@@ -59,10 +60,11 @@ struct RegistrationView: View {
                         shouldNavigateToGame = true
                     }) {
                         Text("Start Game")
-                            .font(Font.system(size: 18 * scalingFactor))
+                            .font(Font.system(size: 28 * scalingFactor))
                             .padding()
-                            .background(Color.green)
-                            .foregroundColor(.white)
+                            .frame(width: 230 * scalingFactor, height: 70 * scalingFactor)
+                            .background(globalSettings.isDark ? ButtonColorScheme: DarkButtonColorScheme)
+                            .foregroundColor(globalSettings.isDark ? DarkButtonLetterColorScheme : ButtonLetterColorScheme)
                             .cornerRadius(10 * scalingFactor)
                     }.frame(maxWidth: .infinity)
                     
@@ -89,6 +91,8 @@ struct RegistrationView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView().environmentObject(GameLogic())
+        RegistrationView()
+            .environmentObject(GameLogic())
+            .environmentObject(GlobalSettings.shared)
     }
 }

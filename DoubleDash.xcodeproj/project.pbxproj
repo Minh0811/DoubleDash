@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F77D9D422AA5120D00077587 /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D9D412AA5120D00077587 /* AudioHelper.swift */; };
-		F77F8F8F2AA31E7200CC6AFE /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F8E2AA31E7200CC6AFE /* GlobalData.swift */; };
+		F77F8F8F2AA31E7200CC6AFE /* GlobalDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F8E2AA31E7200CC6AFE /* GlobalDatas.swift */; };
 		F77F8F922AA350C500CC6AFE /* PlayerStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */; };
 		F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */; };
 		F77F8F972AA3D15100CC6AFE /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F962AA3D15100CC6AFE /* README.md */; };
@@ -32,13 +32,14 @@
 		F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDA62A9E0A54002DA3F5 /* BlockColorScheme.swift */; };
 		F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */; };
 		F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */; };
-		F78CE6AC2AA0EEC4000E451A /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */; };
+		F78CE6AC2AA0EEC4000E451A /* GlobalStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AB2AA0EEC4000E451A /* GlobalStates.swift */; };
 		F78CE6AF2AA12BC9000E451A /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AE2AA12BC9000E451A /* Achievement.swift */; };
 		F78CE6B32AA12F0C000E451A /* AchievementDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */; };
 		F78F3C022AA492380061E3B8 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = F78F3C012AA492380061E3B8 /* SwiftUICharts */; };
 		F78F3C082AA50FA50061E3B8 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = F78F3C052AA50FA50061E3B8 /* License.txt */; };
 		F78F3C092AA50FA60061E3B8 /* Add.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78F3C062AA50FA50061E3B8 /* Add.mp3 */; };
 		F78F3C0A2AA50FA60061E3B8 /* Merge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78F3C072AA50FA50061E3B8 /* Merge.mp3 */; };
+		F7EB564B2AA5E636005ED22A /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB564A2AA5E636005ED22A /* GlobalSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,7 @@
 
 /* Begin PBXFileReference section */
 		F77D9D412AA5120D00077587 /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
-		F77F8F8E2AA31E7200CC6AFE /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		F77F8F8E2AA31E7200CC6AFE /* GlobalDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDatas.swift; sourceTree = "<group>"; };
 		F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatisticsView.swift; sourceTree = "<group>"; };
 		F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeAndLanguageView.swift; sourceTree = "<group>"; };
 		F77F8F962AA3D15100CC6AFE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -87,12 +88,13 @@
 		F78BFDA62A9E0A54002DA3F5 /* BlockColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockColorScheme.swift; sourceTree = "<group>"; };
 		F78BFDAA2A9E0A95002DA3F5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultySelectionView.swift; sourceTree = "<group>"; };
-		F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
+		F78CE6AB2AA0EEC4000E451A /* GlobalStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStates.swift; sourceTree = "<group>"; };
 		F78CE6AE2AA12BC9000E451A /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementDataModel.swift; sourceTree = "<group>"; };
 		F78F3C052AA50FA50061E3B8 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		F78F3C062AA50FA50061E3B8 /* Add.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Add.mp3; sourceTree = "<group>"; };
 		F78F3C072AA50FA50061E3B8 /* Merge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Merge.mp3; sourceTree = "<group>"; };
+		F7EB564A2AA5E636005ED22A /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,8 +281,9 @@
 		F78CE6AA2AA0EE0B000E451A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F78CE6AB2AA0EEC4000E451A /* GlobalState.swift */,
-				F77F8F8E2AA31E7200CC6AFE /* GlobalData.swift */,
+				F78CE6AB2AA0EEC4000E451A /* GlobalStates.swift */,
+				F77F8F8E2AA31E7200CC6AFE /* GlobalDatas.swift */,
+				F7EB564A2AA5E636005ED22A /* GlobalSettings.swift */,
 				F77D9D412AA5120D00077587 /* AudioHelper.swift */,
 			);
 			path = Helpers;
@@ -454,9 +457,9 @@
 			files = (
 				F78BFDA32A9E01F5002DA3F5 /* SwiftUIExtensions.swift in Sources */,
 				F7804E442A9F98E4009E1F9F /* Extensions.swift in Sources */,
-				F78CE6AC2AA0EEC4000E451A /* GlobalState.swift in Sources */,
+				F78CE6AC2AA0EEC4000E451A /* GlobalStates.swift in Sources */,
 				F78BFD9A2A9E0116002DA3F5 /* BlockGridView.swift in Sources */,
-				F77F8F8F2AA31E7200CC6AFE /* GlobalData.swift in Sources */,
+				F77F8F8F2AA31E7200CC6AFE /* GlobalDatas.swift in Sources */,
 				F78BFDA72A9E0A54002DA3F5 /* BlockColorScheme.swift in Sources */,
 				F77D9D422AA5120D00077587 /* AudioHelper.swift in Sources */,
 				F7804E412A9F735F009E1F9F /* LeaderBoardView.swift in Sources */,
@@ -472,6 +475,7 @@
 				F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */,
 				F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */,
 				F78BFDA12A9E01E2002DA3F5 /* FunctionalUtils.swift in Sources */,
+				F7EB564B2AA5E636005ED22A /* GlobalSettings.swift in Sources */,
 				F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */,
 				F78BFD9F2A9E0136002DA3F5 /* BlockView.swift in Sources */,
 				F78BFD932A9E00CA002DA3F5 /* BlockMatrix.swift in Sources */,
