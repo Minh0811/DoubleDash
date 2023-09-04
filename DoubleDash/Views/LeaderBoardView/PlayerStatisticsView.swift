@@ -10,12 +10,13 @@ import SwiftUICharts
 
 struct PlayerStatisticsView: View {
     @State private var players: [Player] = []
+    @EnvironmentObject var globalSettings: GlobalSettings
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     var body: some View {
         ZStack{
             //Background
-            BackgroundColorScheme.ignoresSafeArea()
+            globalSettings.isDark ? DarkBackgroundColorScheme.ignoresSafeArea() : BackgroundColorScheme.ignoresSafeArea()
             
             GeometryReader { geometry in
                 
@@ -26,7 +27,7 @@ struct PlayerStatisticsView: View {
                 ScrollView{
                     Text("Player Statistic")
                         .font(Font.system(size: 44 * scalingFactor).weight(.black))
-                        .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                        .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                         .padding()
                     ForEach(players.map { $0.username }.removingDuplicates(), id: \.self) { playerName in
                         VStack{
@@ -34,10 +35,17 @@ struct PlayerStatisticsView: View {
                                 Rectangle()
                                     .frame(width: 350 * scalingFactor, height: 400)
                                     .cornerRadius(12 * scalingFactor)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(globalSettings.isDark ? Color.gray : Color.white)
+                                
+                                Rectangle()
+                                    .frame(width: 320 * scalingFactor, height: 270)
+                                    .cornerRadius(12 * scalingFactor)
+                                    .foregroundColor(globalSettings.isDark ? Color.black : Color.white)
+                                    .offset(y: 30)
                                 
                                 LineView(data: getLastSixScores(for: playerName).map { Double($0) }, title: playerName, legend: "Last 6 Matches")
                                     .frame(width: 280 * scalingFactor)
+                                
                                 //.padding()
                                 
                                 
@@ -46,10 +54,10 @@ struct PlayerStatisticsView: View {
                                 Rectangle()
                                     .frame(width: 350 * scalingFactor, height: 70 * scalingFactor)
                                     .cornerRadius(12 * scalingFactor)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(globalSettings.isDark ? Color.gray: Color.white)
                                 Text("Average Score: \(String(format: "%.1f", getAverageScore(for: playerName)))")
                                     .font(Font.system(size: 24 * scalingFactor).weight(.black))
-                                    .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                                    .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                                 
                             }
                         }
@@ -57,6 +65,7 @@ struct PlayerStatisticsView: View {
                     }
                     
                 }
+                
                 .frame(width: geometry.size.width, alignment: .center)
                 .onAppear {
                     players = load() ?? []
@@ -64,6 +73,7 @@ struct PlayerStatisticsView: View {
             }
         }
         .customBackButton(presentationMode: presentationMode)
+        .preferredColorScheme(globalSettings.isDark ? .dark : .light)
     }
     
     
@@ -93,6 +103,7 @@ extension Array where Element: Hashable {
 struct PlayerStatisticsView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerStatisticsView()
+            .environmentObject(GlobalSettings.shared)
     }
 }
 
