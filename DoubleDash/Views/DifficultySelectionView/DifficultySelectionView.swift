@@ -62,6 +62,7 @@ struct DifficultySelectionView: View {
                default:
                    break
                }
+            selectedMode = globalSettings.isDark ? 1 : 0
            }
        // .preferredColorScheme(isDark ? .dark : .light)
         

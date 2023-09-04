@@ -37,15 +37,15 @@ struct PlayerStatisticsView: View {
                                     .cornerRadius(12 * scalingFactor)
                                     .foregroundColor(globalSettings.isDark ? Color.gray : Color.white)
                                 
-                                Rectangle()
-                                    .frame(width: 320 * scalingFactor, height: 270)
-                                    .cornerRadius(12 * scalingFactor)
-                                    .foregroundColor(globalSettings.isDark ? Color.black : Color.white)
-                                    .offset(y: 30)
-                                
-                                LineView(data: getLastSixScores(for: playerName).map { Double($0) }, title: playerName, legend: "Last 6 Matches")
-                                    .frame(width: 280 * scalingFactor)
-                                
+//                                Rectangle()
+//                                    .frame(width: 320 * scalingFactor, height: 270 )
+//                                    .cornerRadius(12 * scalingFactor)
+//                                    .foregroundColor(globalSettings.isDark ? Color.black : Color.black)
+                                  
+                         
+                                    LineView(data: getLastSixScores(for: playerName).map { Double($0) }, title: playerName, legend: "Last 6 Matches")
+                                        .frame(width: 280 * scalingFactor)
+                           
                                 //.padding()
                                 
                                 
