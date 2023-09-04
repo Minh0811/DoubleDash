@@ -197,8 +197,8 @@
 		F78BFD612A9DFF86002DA3F5 /* DoubleDash */ = {
 			isa = PBXGroup;
 			children = (
-				F78F3C032AA50F860061E3B8 /* Assets */,
 				F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */,
+				F78F3C032AA50F860061E3B8 /* Assets */,
 				F7804E422A9F98CF009E1F9F /* Extensions */,
 				F78BFDA42A9E087B002DA3F5 /* Utils */,
 				F78CE6AA2AA0EE0B000E451A /* Helpers */,
