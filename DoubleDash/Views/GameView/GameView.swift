@@ -143,17 +143,17 @@ struct GameView : View {
                     VStack{
                         if layoutTraits.showsBanner {
                             Text("2048")
-                                .font(Font.system(size: 40 * scalingFactor).weight(.black))
+                                .font(Font.system(size: 40 ).weight(.black))
                                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                                 .offset(layoutTraits.bannerOffset)
                                 .padding()
                         }
                         Text("Score: \(self.gameLogic.score)")
-                            .font(Font.system(size: 30 * scalingFactor))
+                            .font(Font.system(size: 30 ))
                             .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                         
                         Text("Level: \(difficultyDescription)")
-                            .font(Font.system(size: 30 * scalingFactor))
+                            .font(Font.system(size: 30 ))
                                   .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
                                   //.padding()
                     }
