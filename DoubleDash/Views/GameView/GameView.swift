@@ -9,6 +9,7 @@ import SwiftUI
 
 extension Edge {
     
+    // Extension for Edge to convert from GameLogic.Direction
     static func from(_ from: GameLogic.Direction) -> Self {
         switch from {
         case .down:
@@ -24,13 +25,17 @@ extension Edge {
     
 }
 
+// Main GameView struct conforming to View
 struct GameView : View {
-    
+    // MARK: - Property Declarations
+    //  An instance of the `GlobalSettings` class.
     @EnvironmentObject var globalSettings: GlobalSettings
+    // iphone 14 width size fetched from the shared `GlobalStates` object
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
+    
     @Binding var currentPlayer: Player?
 
-    
+    //  Provide how the View should be presented for the custom back button
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
     @State var ignoreGesture = false
@@ -39,6 +44,7 @@ struct GameView : View {
     
     @EnvironmentObject var gameLogic: GameLogic
     
+    // Description for the current difficulty level
     var difficultyDescription: String {
         switch gameLogic.currentLevel {
         case 1:
@@ -52,12 +58,14 @@ struct GameView : View {
         }
     }
     
+    // Layout traits for the game view
     fileprivate struct LayoutTraits {
         let bannerOffset: CGSize
         let showsBanner: Bool
         let containerAlignment: Alignment
     }
     
+    // Function to determine layout traits based on device orientation
     fileprivate func layoutTraits(`for` proxy: GeometryProxy) -> LayoutTraits {
 #if os(macOS)
         let landscape = false
@@ -74,6 +82,7 @@ struct GameView : View {
         )
     }
     
+    // Gesture properties and logic
     var gestureEnabled: Bool {
         // Existed for future usage.
 #if os(macOS) || targetEnvironment(macCatalyst)
@@ -221,7 +230,7 @@ struct GameView : View {
     
 }
 
-
+// MARK: - Previews
 #if DEBUG
 struct GameView_Previews : PreviewProvider {
     static var previews: some View {

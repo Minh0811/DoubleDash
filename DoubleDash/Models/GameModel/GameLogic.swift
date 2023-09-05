@@ -49,7 +49,6 @@ final class GameLogic : ObservableObject {
     
     init() {
         newGame()
-        // print("GameLogic initialized")
     }
     
     func newGame() {
@@ -57,7 +56,6 @@ final class GameLogic : ObservableObject {
         resetLastGestureDirection()
         generateNewBlocks()
         objectWillChange.send(self)
-        print("newGame funct initialized")
         score = 0
     }
     
@@ -188,36 +186,8 @@ final class GameLogic : ObservableObject {
         return true
     }
     
-    
-    //    fileprivate func forEachBlockIndices(mode: ForEachMode = .rowByRow,
-    //                                         reversed: Bool = false,
-    //                                         _ action: (BlockMatrixType.Index) -> ()) {
-    //        var indices = (0..<4).map { $0 }
-    //        if reversed {
-    //            indices = indices.reversed()
-    //        }
-    //
-    //        for row in indices {
-    //            for col in indices {
-    //                if mode == .rowByRow {
-    //                    action((col, row))
-    //                } else {
-    //                    action((row, col))  // transpose
-    //                }
-    //            }
-    //        }
-    //    }
-    //    func updatePlayerAchievement() {
-    //        // Assuming achievements is a global variable containing all the achievements
-    //        let achieved = achievements.filter { $0.milestone <= score }
-    //        if let highestAchievement = achieved.sorted(by: { $0.milestone > $1.milestone }).first {
-    //            currentPlayer.achievementNames = highestAchievement.name
-    //        }
-    //    }
-    
     func setLevelValue(level: Int) {
         currentLevel = level
-        // objectWillChange.send(self)
     }
     
     

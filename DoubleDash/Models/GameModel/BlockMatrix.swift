@@ -8,17 +8,12 @@
 import Foundation
 
 protocol Block {
-    
     associatedtype Value
-    
     var number: Value { get set }
-    
 }
 
 struct IndexedBlock<T> where T: Block {
-    
     typealias Index = BlockMatrix<T>.Index
-    
     let index: Self.Index
     let item: T
 
