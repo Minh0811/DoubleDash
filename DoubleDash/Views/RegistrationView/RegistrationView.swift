@@ -22,6 +22,7 @@ struct RegistrationView: View {
     @State private var players: [Player] = []
     @State private var newPlayer: Player?
     @State private var shouldNavigateToGame: Bool = false
+    @State private var showingAlert = false
     @State private var localUsername: String = ""
     let newPlayerAchievement: String = ""
     
@@ -57,13 +58,21 @@ struct RegistrationView: View {
                     Button(action: {
                         print("Entered username: \(localUsername)")
                         print("Existing players: \(players)")
-                        newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0, achievementNames: newPlayerAchievement)
-                        players.append(newPlayer!)
-                        save(players: players)
-                        gameLogic.newGame() // Start a new game
-                        //navigateToGame = true
-                        print("Player saved and game started")
-                        shouldNavigateToGame = true
+                        if isUsernameUnique() {
+                            newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0, achievementNames: newPlayerAchievement)
+                            players.append(newPlayer!)
+                            save(players: players)
+                            gameLogic.newGame() // Start a new game
+                            print("Player saved and game started")
+                            shouldNavigateToGame = true
+                        } else {
+                            newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0, achievementNames: newPlayerAchievement)
+                            players.append(newPlayer!)
+                            save(players: players)
+                            gameLogic.newGame() // Start a new game
+                            print("Player saved and game started")
+                            showingAlert = true
+                        }
                     }) {
                         Text(LocalizedStrings.startGame)
                             .font(Font.system(size: 28 * scalingFactor))
@@ -72,7 +81,17 @@ struct RegistrationView: View {
                             .background(globalSettings.isDark ? ButtonColorScheme: DarkButtonColorScheme)
                             .foregroundColor(globalSettings.isDark ? DarkButtonLetterColorScheme : ButtonLetterColorScheme)
                             .cornerRadius(10 * scalingFactor)
-                    }.frame(maxWidth: .infinity)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("Username Already Exists"),
+                                  message: Text("Do you want to continue with this name or change to a different name?"),
+                                  primaryButton: .default(Text("Continue"), action: {
+                                shouldNavigateToGame = true
+                                  }),
+                                  secondaryButton: .cancel(Text("Change Name"))
+                            )
+                        }
                     
                     NavigationLink(
                         destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic),
