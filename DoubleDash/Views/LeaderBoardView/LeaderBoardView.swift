@@ -22,7 +22,7 @@ struct LeaderBoardView: View {
     @State private var players: [Player] = []
     
     // UI constants for table layout.
-    let collumnWidthSize: CGFloat = 110
+    let collumnWidthSize: CGFloat = 100
     let tableHeaderFontSize: CGFloat = 18
     let tableContentFontSize: CGFloat = 17
     
@@ -179,18 +179,27 @@ struct LeaderBoardView: View {
     
     /// Displays the achievement for a player.
     private func displayAchievement(for player: Player, tableContentFontSize: CGFloat, scalingFactor: CGFloat) -> some View {
-        VStack{
-            if let achievement = achievements.first(where: { $0.name == player.achievementNames }) {
-                Image(achievement.imageName) // Display the achievement image
-                    .resizable()
-                        .frame(width: 90 * scalingFactor, height: 40 * scalingFactor)
-                Text(achievement.name)      // Display the achievement name
-                    .font(Font.system(size: tableContentFontSize * scalingFactor))
-            } else {
-                Text("No Achievement")
+        HStack{
+            NavigationLink(destination: AchievementListView(player: player)) {
+                VStack{
+                    if let achievement = achievements.first(where: { $0.name == player.achievementNames }) {
+                        
+                        Image(achievement.imageName) // Display the achievement image
+                            .resizable()
+                            .frame(width: 90 * scalingFactor, height: 40 * scalingFactor)
+                        Text(achievement.name)      // Display the achievement name
+                            .font(Font.system(size: tableContentFontSize * scalingFactor))
+                        
+                    } else {
+                        Text("No Achievement")
+                    }
+                }
+                Image(systemName: "arrowtriangle.forward.fill") // System icon
+                    .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
             }
         }
     }
+
 }
 
 // MARK: - Previews

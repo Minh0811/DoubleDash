@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Achievement: Codable, Hashable {
+struct Achievement: Codable, Hashable, Identifiable {
     var id: Int
     var name: String
     var imageName: String

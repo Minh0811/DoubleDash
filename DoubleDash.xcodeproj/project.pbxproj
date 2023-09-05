@@ -16,6 +16,7 @@
 		F7804E3E2A9F6951009E1F9F /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3D2A9F6951009E1F9F /* PlayerDataModel.swift */; };
 		F7804E412A9F735F009E1F9F /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */; };
 		F7804E442A9F98E4009E1F9F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E432A9F98E4009E1F9F /* Extensions.swift */; };
+		F78AD1EA2AA7E4B100341551 /* AchievementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AD1E92AA7E4B100341551 /* AchievementListView.swift */; };
 		F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */; };
 		F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */; };
 		F78BFD672A9DFF89002DA3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		F7804E3D2A9F6951009E1F9F /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
 		F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		F7804E432A9F98E4009E1F9F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F78AD1E92AA7E4B100341551 /* AchievementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementListView.swift; sourceTree = "<group>"; };
 		F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorScheme.swift; sourceTree = "<group>"; };
 		F78BFD5F2A9DFF86002DA3F5 /* DoubleDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashApp.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				F7804E402A9F735F009E1F9F /* LeaderBoardView.swift */,
 				F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */,
+				F78AD1E92AA7E4B100341551 /* AchievementListView.swift */,
 			);
 			path = LeaderBoardView;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78AD1EA2AA7E4B100341551 /* AchievementListView.swift in Sources */,
 				F78BFDA32A9E01F5002DA3F5 /* SwiftUIExtensions.swift in Sources */,
 				F7804E442A9F98E4009E1F9F /* Extensions.swift in Sources */,
 				F78CE6AC2AA0EEC4000E451A /* GlobalStates.swift in Sources */,

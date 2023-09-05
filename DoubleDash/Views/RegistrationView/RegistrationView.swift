@@ -84,12 +84,12 @@ struct RegistrationView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .alert(isPresented: $showingAlert) {
-                            Alert(title: Text("Username Already Exists"),
-                                  message: Text("Do you want to continue with this name or change to a different name?"),
-                                  primaryButton: .default(Text("Continue"), action: {
+                        Alert(title: Text(LocalizedStrings.alertTitleRegistrationView),
+                              message: Text(LocalizedStrings.alertContentRegistrationView),
+                              primaryButton: .default(Text(LocalizedStrings.alertDefaultButtonRegistrationView), action: {
                                 shouldNavigateToGame = true
                                   }),
-                                  secondaryButton: .cancel(Text("Change Name"))
+                              secondaryButton: .cancel(Text(LocalizedStrings.alertCancelButtonContentRegistrationView))
                             )
                         }
                     

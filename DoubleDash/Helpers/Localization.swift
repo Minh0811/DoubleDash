@@ -145,5 +145,25 @@ struct LocalizedStrings {
     static var level: String {
         return GlobalSettings.shared.isEnglish ? "Level:" : "Độ Khó"
     }
+    
+    // MARK: - AchievementListView
+    /// Localized string for the list of achievements
+    static var listOfAchievements: String {
+        return GlobalSettings.shared.isEnglish ? "List of Achievements:" : "Danh Sách Huy Chương"
+    }
+    
+    // MARK: - Alerts - Registration View
+    static var alertTitleRegistrationView: String {
+        return GlobalSettings.shared.isEnglish ? "Username Already Exists:" : "Tên Đã Tồn Tại"
+    }
+    static var alertContentRegistrationView: String {
+        return GlobalSettings.shared.isEnglish ? "Do you want to continue with this name or change to a different name?" : "Bạn có muốn tiếp tục với tên này hay đổi tên khác"
+    }
+    static var alertDefaultButtonRegistrationView: String {
+        return GlobalSettings.shared.isEnglish ? "Continue" : "Tiếp Tục"
+    }
+    static var alertCancelButtonContentRegistrationView: String {
+        return GlobalSettings.shared.isEnglish ? "Change Name" : "Đổi Tên"
+    }
 }
 

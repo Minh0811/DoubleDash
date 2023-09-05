@@ -211,7 +211,7 @@ struct BlockGridView_Previews : PreviewProvider {
     static var previews: some View {
         //ipad = 834
         //ip14 = 390
-        let deviceSize: CGFloat = 834
+        let deviceSize: CGFloat = 390
         BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: deviceSize)
             .environmentObject(GameLogic())
             .previewLayout(.sizeThatFits)
