@@ -11,7 +11,7 @@ class GlobalDatas: ObservableObject {
     
     // MARK: - Singleton Instance
     
-    /// The shared singleton instance of `GlobalState`.
+    // The shared singleton instance of GlobalState.
     static let shared = GlobalDatas()
 
     // MARK: - Properties
@@ -38,7 +38,7 @@ class GlobalDatas: ObservableObject {
     
     
     
-    /// A list of achievements that players can achieve.
+    // A list of achievements that players can achieve.
     let achievements: [Achievement] = [
         Achievement(id: 1, name: "1K", imageName: "silver_1", milestone: 1000),
         Achievement(id: 2, name: "3K", imageName: "silver_2", milestone: 3000),
@@ -59,11 +59,11 @@ class GlobalDatas: ObservableObject {
         Achievement(id: 17, name: "1M8", imageName: "supreme_master_first_class", milestone: 1800000),
         Achievement(id: 18, name: "2M", imageName: "global_elite", milestone: 2000000),
         Achievement(id: 19, name: "...", imageName: "none", milestone: 0),
-        // ... add other achievements as needed
+
     ]
 
     // MARK: - Initializer
     
-    /// Private initializer to ensure only one instance of `GlobalState` is created.
+    // Private initializer to ensure only one instance of GlobalState is created.
     private init() {}
 }

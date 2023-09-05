@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A view modifier that scales a view based on a given anchor point.
 struct ScaledAnchorModifier: ViewModifier {
     let scaleValue: CGFloat
     let anchorPoint: UnitPoint
@@ -16,6 +17,7 @@ struct ScaledAnchorModifier: ViewModifier {
     }
 }
 
+/// A view modifier that applies a blur effect to a view.
 struct BlurModifier: ViewModifier {
     let blurValue: CGFloat
     
@@ -24,6 +26,7 @@ struct BlurModifier: ViewModifier {
     }
 }
 
+/// A view modifier that combines two other view modifiers.
 struct CombinedModifiers<M1: ViewModifier, M2: ViewModifier>: ViewModifier {
     let modifier1: M1
     let modifier2: M2
@@ -38,7 +41,9 @@ struct CombinedModifiers<M1: ViewModifier, M2: ViewModifier>: ViewModifier {
     }
 }
 
+// MARK: - extension
 extension AnyTransition {
+    /// A custom transition for blocks.
     static func blockTransition(from edge: Edge, at position: CGPoint, within rect: CGRect) -> AnyTransition {
         let calculatedAnchor = UnitPoint(x: position.x / rect.width, y: position.y / rect.height)
         
@@ -59,76 +64,86 @@ extension AnyTransition {
 }
 
 struct BlockGridView : View {
+    // MARK: - Property Declarations
+    //  an instance of the `GameLogic` class.
     @EnvironmentObject var gameLogic: GameLogic
+    // iphone 14 width size fetched from the shared `GlobalStates` object
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
+    
     typealias MatrixType = BlockMatrix<IdentifiedBlock>
     
+    // Represents the matrix of blocks in the game.
     let matrix: Self.MatrixType
+    
+    // The edge from which the block enters the grid.
     let blockEnterEdge: Edge
+    
+    // The size of the device screen.
     let deviceSize: CGFloat
     
-    // New values for the grid's frame
+    // Computed property to get the current level of the game.
     var currentLevel: Int {
-            return gameLogic.currentLevel
-        }
-
+        return gameLogic.currentLevel
+    }
+    
+    // Computed property to get the scaling factor based on the device size.
     var scalingFactor: CGFloat {
         return deviceSize / iphone14BaseWidth
     }
     
+    // Computed property to get the block settings (dimension and gap) based on the current level.
     var blockSettings: (dimension: CGFloat, gap: CGFloat) {
-        
-            switch currentLevel {
-            case 1:
-                return (60 * scalingFactor, 12 * scalingFactor)
-            case 2:
-                return (55 * scalingFactor, 12 * scalingFactor)
-            case 3:
-                return (50 * scalingFactor, 7 * scalingFactor)
-            default:
-                return (40 * scalingFactor, 12 * scalingFactor)  // Default values
-            }
+        switch currentLevel {
+        case 1:
+            // Settings for level 1.
+            return (60 * scalingFactor, 12 * scalingFactor)
+        case 2:
+            // Settings for level 2.
+            return (55 * scalingFactor, 12 * scalingFactor)
+        case 3:
+            // Settings for level 3.
+            return (50 * scalingFactor, 7 * scalingFactor)
+        default:
+            // Default settings for other levels.
+            return (40 * scalingFactor, 12 * scalingFactor)
         }
-        
-        var blockDimension: CGFloat {
-            return blockSettings.dimension
-        }
-        
-        var gap: CGFloat {
-            return blockSettings.gap
-        }
-        
-        var gridWidth: CGFloat {
-            return CGFloat(gameLogic.boardSize) * (blockDimension + gap) + gap
-        }
-        
-        var gridHeight: CGFloat {
-            return gridWidth // Since it's a square
-        }
+    }
     
-//    let blockDimension: CGFloat = 40
-//    let gap: CGFloat = 12
-//    var gridWidth: CGFloat {
-//        return CGFloat(gameLogic.boardSize) * (blockDimension + gap) + gap
-//    }
-//    var gridHeight: CGFloat {
-//        return gridWidth // Since it's a square
-//    }
+    // Computed property to get the block dimension based on the current level.
+    var blockDimension: CGFloat {
+        return blockSettings.dimension
+    }
+
+    // Computed property to get the gap between blocks based on the current level.
+    var gap: CGFloat {
+        return blockSettings.gap
+    }
+
+    // Computed property to get the width of the grid based on the block dimension, gap, and board size.
+    var gridWidth: CGFloat {
+        return CGFloat(gameLogic.boardSize) * (blockDimension + gap) + gap
+    }
+
+    // Computed property to get the height of the grid. It's the same as the width since the grid is a square.
+    var gridHeight: CGFloat {
+        return gridWidth
+    }
     
+    /// Generates a block view for a given block at a specific index.
     func generateBlock(_ block: IdentifiedBlock?,
-                     at index: (Int, Int)) -> some View {
+                       at index: (Int, Int)) -> some View {
         let position = CGPoint(
             x: CGFloat(index.0) * (blockDimension + gap) + blockDimension / 2 + gap,
             y: CGFloat(index.1) * (blockDimension + gap) + blockDimension / 2 + gap
         )
         
         // Play sound effect when a block is generated
-            if block != nil {
-                playSoundEffect(named: "Add.mp3")
-            }
+        if block != nil {
+            playSoundEffect(named: "Add.mp3")
+        }
         
         let blockView = block.map { BlockView(block: $0, scalingFactor: scalingFactor) } ?? BlockView.emptyBlockView()
-
+        
         
         return blockView
             .frame(width: blockDimension, height: blockDimension, alignment: .center)
@@ -189,7 +204,7 @@ struct BlockGridView_Previews : PreviewProvider {
         _matrix.place(IdentifiedBlock(id: 6, number: 64), to: (1, 1))
         _matrix.place(IdentifiedBlock(id: 7, number: 128), to: (2, 1))
         _matrix.place(IdentifiedBlock(id: 8, number: 2097152), to: (3, 1))
-
+        
         return _matrix
     }
     
@@ -197,10 +212,10 @@ struct BlockGridView_Previews : PreviewProvider {
         //ipad = 834
         //ip14 = 390
         let deviceSize: CGFloat = 834
-            BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: deviceSize)
-                .environmentObject(GameLogic())
-                .previewLayout(.sizeThatFits)
- 
+        BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: deviceSize)
+            .environmentObject(GameLogic())
+            .previewLayout(.sizeThatFits)
+        
     }
     
 }

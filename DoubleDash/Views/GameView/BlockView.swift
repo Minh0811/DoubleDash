@@ -7,27 +7,37 @@
 
 import SwiftUI
 
+/// Represents a block in the 2048 game.
 struct BlockView: View {
     
-    fileprivate let blockNumber : Int?
+    // The number displayed on the block.
+    fileprivate let blockNumber: Int?
+    
+    // A unique identifier for the block.
     fileprivate let uniqueTextIdentifier: String?
+    
+    // A factor to scale the block size.
     fileprivate let scalingFactor: CGFloat
-
+    
     // MARK: - Initializers
+    
+    /// Initializes a block with a given number, identifier, and scaling factor.
     init(block: IdentifiedBlock, scalingFactor: CGFloat) {
         self.blockNumber = block.number
         self.uniqueTextIdentifier = "\(block.id):\(block.number)"
         self.scalingFactor = scalingFactor
     }
-
+    
+    /// Initializes an empty block with a default scaling factor.
     fileprivate init(scalingFactor: CGFloat = 1.0) {
         self.blockNumber = nil
         self.uniqueTextIdentifier = ""
         self.scalingFactor = scalingFactor
     }
-
+    
     
     // MARK: - Computed Properties
+    /// Returns the formatted number to be displayed on the block.
     fileprivate var formattedNumber: String {
         guard let number = blockNumber else {
             return ""
@@ -35,6 +45,8 @@ struct BlockView: View {
         return String(number)
     }
     
+    
+    /// Returns the appropriate font size based on the length of the number.
     fileprivate var fontSize: CGFloat {
         let textLength = formattedNumber.count
         switch textLength {
@@ -48,8 +60,9 @@ struct BlockView: View {
             return 10 * scalingFactor
         }
     }
-
-
+    
+    
+    /// Returns the appropriate colors for the block based on its number.
     fileprivate var blockColors: (Color, Color) {
         // Return default color for blocks without a number.
         guard let number = blockNumber else {
@@ -66,25 +79,30 @@ struct BlockView: View {
         
         return BlockColorScheme[index]
     }
-
+    
     // MARK: - Body
     var body: some View {
         ZStack{
+            // Background color of the block.
             Rectangle()
-                .fill(blockColors.0) //BlockColorScheme[index].0
+                .fill(blockColors.0)
+            
+            // Number displayed on the block.
             Text(formattedNumber)
                 .font(Font.system(size: fontSize).bold())
-                .foregroundColor(blockColors.1) //BlockColorScheme[index].1
+                .foregroundColor(blockColors.1)
+            
         }
     }
     
     // MARK: - Static Methods
+    /// Returns an empty block view.
     static func emptyBlockView() -> Self {
         return self.init()
     }
 }
 
-    // MARK: - Previews
+// MARK: - Previews
 struct BlockView_Previews: PreviewProvider {
     static var previews: some View {
         BlockView(block: IdentifiedBlock(id: 3, number: 2), scalingFactor: 1)

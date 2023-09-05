@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct LeaderBoardView: View {
-    @State private var players: [Player] = []
+    // MARK: - Property Declarations
+    //  an instance of the `GlobalSettings` class.
     @EnvironmentObject var globalSettings: GlobalSettings
+    // iphone 14 width size fetched from the shared `GlobalStates` object
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
+    // Achivements data fetched from the shared `GlobalDatas` object
     let achievements = GlobalDatas.shared.achievements
-    
+    //  Provide how the View should be presented for the custom back button
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
+    // State properties to manage player data.
+    @State private var players: [Player] = []
+    
+    // UI constants for table layout.
     let collumnWidthSize: CGFloat = 110
     let tableHeaderFontSize: CGFloat = 18
     let tableContentFontSize: CGFloat = 17
     
+    // Filtered lists of players based on their difficulty level.
     var hardPlayers: [Player] {
         highestScoringPlayers(from: players.filter { $0.gameMode == 1 })
     }
@@ -30,16 +39,19 @@ struct LeaderBoardView: View {
         highestScoringPlayers(from: players.filter { $0.gameMode == 3 })
     }
     
+    // MARK: - Body
     var body: some View {
         ZStack{
-            //Background
+            // Set the background color based on the current theme (dark/light mode).
             globalSettings.isDark ? DarkBackgroundColorScheme.ignoresSafeArea() : BackgroundColorScheme.ignoresSafeArea()
-            
+            //  Use GeometryReader to find current device width
             GeometryReader { geometry in
+                //  Calculate the ratio between current device and iphone 14
                 var scalingFactor: CGFloat {
                     return geometry.size.width / iphone14BaseWidth
                 }
                 ScrollView {
+                    // Display leaderboard UI components.
                     Text(LocalizedStrings.leaderBoard)
                         .font(Font.system(size: 48 * scalingFactor).weight(.black))
                         .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
@@ -63,6 +75,7 @@ struct LeaderBoardView: View {
                     )
                 }
                 .onAppear {
+                    // Load existing players when the view appears.
                     players = load() ?? []
                 }
             }
@@ -70,6 +83,8 @@ struct LeaderBoardView: View {
         .customBackButton(presentationMode: presentationMode)
     }
     
+    // MARK: - Helper Functions
+    /// Creates a section of the leaderboard for a specific difficulty level.
     func leaderboardSection(title: String, players: [Player], scalingFactor: CGFloat) -> some View {
         VStack{
             Text(title)
@@ -117,6 +132,8 @@ struct LeaderBoardView: View {
             .padding(.top, 2 * scalingFactor)
         }
     }
+    
+    /// Displays the table header for the leaderboard.
     private func tableHeader(scalingFactor: CGFloat, tableHeaderFontSize: CGFloat) -> some View {
         HStack{
             Text(LocalizedStrings.name)
@@ -138,6 +155,7 @@ struct LeaderBoardView: View {
         }
     }
     
+    /// Updates the achievement for a player based on their score.
     func updateAchievement(for player: inout Player) {
         let achieved = achievements.filter { $0.milestone <= player.score }
         if let highestAchievement = achieved.sorted(by: { $0.milestone > $1.milestone }).first {
@@ -147,7 +165,7 @@ struct LeaderBoardView: View {
         }
     }
     
-    
+    /// Returns a list of players with the highest scores.
     func highestScoringPlayers(from players: [Player]) -> [Player] {
         let groupedPlayers = Dictionary(grouping: players, by: { $0.username })
         return groupedPlayers.compactMap { (username, players) -> Player? in
@@ -159,10 +177,7 @@ struct LeaderBoardView: View {
         }.sorted(by: { $0.score > $1.score })
     }
     
-    
-  
-
-    
+    /// Displays the achievement for a player.
     private func displayAchievement(for player: Player, tableContentFontSize: CGFloat, scalingFactor: CGFloat) -> some View {
         VStack{
             if let achievement = achievements.first(where: { $0.name == player.achievementNames }) {
@@ -178,7 +193,7 @@ struct LeaderBoardView: View {
     }
 }
 
-
+// MARK: - Previews
 struct LeaderBoardView_Previews: PreviewProvider {
     static var previews: some View {
         LeaderBoardView()

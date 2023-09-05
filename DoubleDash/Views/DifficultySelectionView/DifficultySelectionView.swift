@@ -9,52 +9,57 @@
 import SwiftUI
 
 struct DifficultySelectionView: View {
-    @EnvironmentObject var gameLogic: GameLogic
-    @EnvironmentObject var globalSettings: GlobalSettings
-    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    @State private var refreshView: Bool = false
     
+    // MARK: - Property Declarations
+    
+    //  An instance of the `GameLogic` class.
+    @EnvironmentObject var gameLogic: GameLogic
+    //  An instance of the `GlobalSettings` class.
+    @EnvironmentObject var globalSettings: GlobalSettings
+    //  Provide how the View should be presented for the custom back button
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
+    // iphone 14 width size fetched from the shared `GlobalStates` object
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
+    
+    // Property for storing user selection
     @State private var selectedDifficulty: Int = 0
     @State private var selectedMode: Int = 0
     @State private var selectedLanguage: Int = 0
 
-
-
-    
-    
+    // Initializer to customize the appearance of UISegmentedControl.
     init() {
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal) // Change UIColor.red to your desired color
+        // Change the text color for a non-selected option in the Segment Control
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+        // Change the text color for a selected option in the Segment Control
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
-        
-        UISegmentedControl.appearance().backgroundColor = UIColor.white // Change to your desired background color
-        //UISegmentedControl.appearance().tintColor = UIColor.blue
+        // Change the background color in the Segment Control
+        UISegmentedControl.appearance().backgroundColor = UIColor.white
     }
     
-  
-
     // MARK: - Body
     var body: some View {
         ZStack{
-            //Background
+            // Set the background color based on the current theme (dark/light mode).
             globalSettings.isDark ? DarkBackgroundColorScheme.ignoresSafeArea() : BackgroundColorScheme.ignoresSafeArea()
+            //  Use GeometryReader to find current device width
             GeometryReader { geometry in
+                //  Calculate the ratio between current device and iphone 14
                 var scalingFactor: CGFloat {
                     return geometry.size.width / iphone14BaseWidth
                 }
                 VStack{
-                    //Content
-                    difficultyButtons(scalingFactor: scalingFactor)
-                        .padding()
-                    darkModeButtons(scalingFactor: scalingFactor)
-                        .padding()
-                    LanguageButtons(scalingFactor: scalingFactor)
-                        .padding()
+                    // Display the difficulty, mode, and language selection buttons.
+                    difficultyButtons(scalingFactor: scalingFactor).padding()
+                    darkModeButtons(scalingFactor: scalingFactor).padding()
+                    LanguageButtons(scalingFactor: scalingFactor).padding()
                 }
             }
         }
+        // Add a custom back button to the view.
         .customBackButton(presentationMode: presentationMode)
         .onAppear {
+            // Initialize the selection states based on the current game and global settings.
                switch gameLogic.currentLevel {
                case 3:
                    selectedDifficulty = 0
@@ -68,23 +73,18 @@ struct DifficultySelectionView: View {
             selectedMode = globalSettings.isDark ? 1 : 0
             selectedLanguage = globalSettings.isEnglish ? 0 : 1
            }
-       // .preferredColorScheme(isDark ? .dark : .light)
-        
     }
 }
 
+// MARK: - Extension
 extension DifficultySelectionView {
     
+    // Returns a VStack containing difficulty selection controls.
     func difficultyButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
             Text(LocalizedStrings.selectDifficulty)
                 .font(Font.system(size: 35 * scalingFactor).weight(.black))
                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
-            
-//            Text("Current Level: \(gameLogic.currentLevel)")
-//                .font(.title2)
-//                .padding()
-            
             selectedDifficultyImage(scalingFactor: scalingFactor)
                         .frame(width: 300 * scalingFactor, height: 300 * scalingFactor)
                         .padding(.top, 20 * scalingFactor)
@@ -95,6 +95,7 @@ extension DifficultySelectionView {
                 Text(LocalizedStrings.hard).tag(2)
             }
             .pickerStyle(SegmentedPickerStyle())
+            // in the moment of when the selectedDifficult is changed, set the game difficulty base on the changes
             .onChange(of: selectedDifficulty) { newValue in
                 switch newValue {
                 case 0:
@@ -112,6 +113,7 @@ extension DifficultySelectionView {
         }
     }
     
+    // Returns an image view based on the selected difficulty.
     func selectedDifficultyImage(scalingFactor: CGFloat) -> some View {
         switch selectedDifficulty {
         case 0:
@@ -124,6 +126,8 @@ extension DifficultySelectionView {
             return AnyView(EmptyView())
         }
     }
+    
+    // Returns a VStack containing dark mode selection controls.
     func darkModeButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
             Text(LocalizedStrings.selectMode)
@@ -151,6 +155,7 @@ extension DifficultySelectionView {
         }
     }
     
+    // Returns a VStack containing language selection controls.
     func LanguageButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
             Text(LocalizedStrings.selectLanguage)
@@ -178,8 +183,9 @@ extension DifficultySelectionView {
         }
     }
 }
-struct DifficultySelectionView_Previews: PreviewProvider {
 
+// MARK: - Previews
+struct DifficultySelectionView_Previews: PreviewProvider {
     static var previews: some View {
            DifficultySelectionView() // Provide an empty closure for the preview
                .environmentObject(GameLogic())

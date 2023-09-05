@@ -5,6 +5,9 @@
 //  Created by Minh Vo on 22/08/2023.
 //
 
+//  BlockColorScheme.swift defines the color scheme for different block values up to more than 2 million
+// Each Tuple represent the background color and the number color for each block
+
 import SwiftUI
 
 public let BlockColorScheme: [(Color, Color)] = [
@@ -52,5 +55,6 @@ public let BlockColorScheme: [(Color, Color)] = [
     (Color(red:1, green:0.75, blue:0.79, opacity:1.00), Color.white),
 ]
 
+//  the default color a block that have no pre-define values
 public let DefaultBlockColorScheme: (Color, Color) =
 (Color(red:0.78, green:0.73, blue:0.68, opacity:1.00), Color.black)

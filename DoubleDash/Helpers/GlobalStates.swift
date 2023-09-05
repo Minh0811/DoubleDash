@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-/// `GlobalState` is a singleton class that holds global properties and data
-/// that can be accessed from anywhere in the app.
+// GlobalState is a singleton class that holds global properties and data
+// that can be accessed from anywhere in the app.
 class GlobalStates: ObservableObject {
     
     // MARK: - Singleton Instance
     
-    /// The shared singleton instance of `GlobalState`.
+    // The shared singleton instance of GlobalState.
     static let shared = GlobalStates()
 
     // MARK: - Properties
     
-    /// The base width for iPhone 14. This can be used for layout calculations.
+    // The base width for iPhone 14. This is use to calculate the scale ratio for a responsive UI.
     @Published var iphone14BaseWidth: CGFloat = 390
 
 
     // MARK: - Initializer
     
-    /// Private initializer to ensure only one instance of `GlobalState` is created.
+    // Private initializer to ensure only one instance of GlobalState is created.
     private init() {}
 }

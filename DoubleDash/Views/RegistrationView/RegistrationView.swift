@@ -8,31 +8,37 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    // MARK: - Property Declarations
+    //  an instance of the `GameLogic` class.
     @EnvironmentObject var gameLogic: GameLogic
+    //  an instance of the `GlobalSettings` class.
     @EnvironmentObject var globalSettings: GlobalSettings
+    // iphone 14 width size fetched from the shared `GlobalStates` object
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
+    //  Provide how the View should be presented for the custom back button
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
-   
+    // State properties to manage player data and navigation.
     @State private var players: [Player] = []
     @State private var newPlayer: Player?
-    
     @State private var shouldNavigateToGame: Bool = false
     @State private var localUsername: String = ""
     let newPlayerAchievement: String = ""
     
     
-    
+    // MARK: - Body
     var body: some View {
         ZStack{
-            //Background
+            // Set the background color based on the current theme (dark/light mode).
             globalSettings.isDark ? DarkBackgroundColorScheme.ignoresSafeArea() : BackgroundColorScheme.ignoresSafeArea()
+            //  Use GeometryReader to find current device width
             GeometryReader { geometry in
+                //  Calculate the ratio between current device and iphone 14
                 var scalingFactor: CGFloat {
                     return geometry.size.width / iphone14BaseWidth
                 }
-                // * scalingFactor
                 VStack(spacing: 20) {
+                    // Display registration UI components.
                     Spacer() // Push the content to the center vertically
                     Text(LocalizedStrings.registerYourName)
                         .font(Font.system(size: 30 * scalingFactor).weight(.black))
@@ -45,9 +51,9 @@ struct RegistrationView: View {
                         .padding()
                         .background(globalSettings.isDark ?Color.white.opacity(0.8) : Color.gray.opacity(0.2))
                         .cornerRadius(10 * scalingFactor)
+                        .disableAutocorrection(true)
                     
-                    
-                    //if let player = newPlayer {
+                
                     Button(action: {
                         print("Entered username: \(localUsername)")
                         print("Existing players: \(players)")
@@ -78,17 +84,23 @@ struct RegistrationView: View {
                 }
                 .padding()
                 .onAppear {
+                    // Load existing players when the view appears.
                     players = load() ?? []
                 }
             }
         }
+        // Add a custom back button to the view.
         .customBackButton(presentationMode: presentationMode)
     }
+    // MARK: - Function
+    
+    // Checks if the entered username is unique among registered players.
     func isUsernameUnique() -> Bool {
         return !players.contains { $0.username == localUsername }
     }
 }
 
+// MARK: - Previews
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         RegistrationView()

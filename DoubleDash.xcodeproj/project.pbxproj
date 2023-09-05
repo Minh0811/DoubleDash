@@ -10,7 +10,6 @@
 		F77D9D422AA5120D00077587 /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D9D412AA5120D00077587 /* AudioHelper.swift */; };
 		F77F8F8F2AA31E7200CC6AFE /* GlobalDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F8E2AA31E7200CC6AFE /* GlobalDatas.swift */; };
 		F77F8F922AA350C500CC6AFE /* PlayerStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */; };
-		F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */; };
 		F77FB5072AA63D920012A702 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FB5062AA63D920012A702 /* Localization.swift */; };
 		F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E372A9F6859009E1F9F /* RegistrationView.swift */; };
 		F7804E3B2A9F6911009E1F9F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E3A2A9F6911009E1F9F /* Player.swift */; };
@@ -63,7 +62,6 @@
 		F77D9D412AA5120D00077587 /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
 		F77F8F8E2AA31E7200CC6AFE /* GlobalDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDatas.swift; sourceTree = "<group>"; };
 		F77F8F912AA350C500CC6AFE /* PlayerStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatisticsView.swift; sourceTree = "<group>"; };
-		F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeAndLanguageView.swift; sourceTree = "<group>"; };
 		F77F8F962AA3D15100CC6AFE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F77FB5062AA63D920012A702 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		F7804E372A9F6859009E1F9F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */,
-				F77F8F942AA3510800CC6AFE /* DarkModeAndLanguageView.swift */,
 			);
 			path = DifficultySelectionView;
 			sourceTree = "<group>";
@@ -204,7 +201,6 @@
 				F7804E422A9F98CF009E1F9F /* Extensions */,
 				F78BFDA42A9E087B002DA3F5 /* Utils */,
 				F78CE6AA2AA0EE0B000E451A /* Helpers */,
-				F78BFDA52A9E0896002DA3F5 /* ColorSchemes */,
 				F78BFD8D2A9E0065002DA3F5 /* Views */,
 				F78BFD8C2A9E0055002DA3F5 /* Models */,
 				F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */,
@@ -287,6 +283,7 @@
 				F7EB564A2AA5E636005ED22A /* GlobalSettings.swift */,
 				F77D9D412AA5120D00077587 /* AudioHelper.swift */,
 				F77FB5062AA63D920012A702 /* Localization.swift */,
+				F78BFDA52A9E0896002DA3F5 /* ColorSchemes */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -476,7 +473,6 @@
 				F77F8F922AA350C500CC6AFE /* PlayerStatisticsView.swift in Sources */,
 				F78BFD912A9E00B5002DA3F5 /* GameLogic.swift in Sources */,
 				F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */,
-				F77F8F952AA3510800CC6AFE /* DarkModeAndLanguageView.swift in Sources */,
 				F78BFDA12A9E01E2002DA3F5 /* FunctionalUtils.swift in Sources */,
 				F7EB564B2AA5E636005ED22A /* GlobalSettings.swift in Sources */,
 				F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */,
