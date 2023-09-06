@@ -18,6 +18,7 @@
 		F7804E442A9F98E4009E1F9F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7804E432A9F98E4009E1F9F /* Extensions.swift */; };
 		F78AD1EA2AA7E4B100341551 /* AchievementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AD1E92AA7E4B100341551 /* AchievementListView.swift */; };
 		F78AD1EE2AA7FBE800341551 /* losing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78AD1ED2AA7FBE700341551 /* losing.mp3 */; };
+		F78AD1F02AA8060B00341551 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78AD1EF2AA8060B00341551 /* backgroundmusic.mp3 */; };
 		F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */; };
 		F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */; };
 		F78BFD672A9DFF89002DA3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		F7804E432A9F98E4009E1F9F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F78AD1E92AA7E4B100341551 /* AchievementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementListView.swift; sourceTree = "<group>"; };
 		F78AD1ED2AA7FBE700341551 /* losing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = losing.mp3; sourceTree = "<group>"; };
+		F78AD1EF2AA8060B00341551 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundmusic.mp3; sourceTree = "<group>"; };
 		F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorScheme.swift; sourceTree = "<group>"; };
 		F78BFD5F2A9DFF86002DA3F5 /* DoubleDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashApp.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 		F78F3C042AA50F910061E3B8 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				F78AD1EF2AA8060B00341551 /* backgroundmusic.mp3 */,
 				F78AD1ED2AA7FBE700341551 /* losing.mp3 */,
 				F78F3C062AA50FA50061E3B8 /* Add.mp3 */,
 				F78F3C052AA50FA50061E3B8 /* License.txt */,
@@ -437,6 +440,7 @@
 				F78AD1EE2AA7FBE800341551 /* losing.mp3 in Resources */,
 				F78F3C092AA50FA60061E3B8 /* Add.mp3 in Resources */,
 				F78F3C082AA50FA50061E3B8 /* License.txt in Resources */,
+				F78AD1F02AA8060B00341551 /* backgroundmusic.mp3 in Resources */,
 				F78F3C0A2AA50FA60061E3B8 /* Merge.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

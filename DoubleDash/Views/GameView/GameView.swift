@@ -219,6 +219,8 @@ struct GameView : View {
                                
                             })
                         }
+                } .onAppear {
+                    stopBackgroundMusic()
                 }
                
             )

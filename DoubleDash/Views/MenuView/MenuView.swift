@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuView: View {
     
     // MARK: - Property Declarations
-
+    
     //  an instance of the `GameLogic` class.
     @EnvironmentObject var gameLogic: GameLogic
     //  an instance of the `GlobalSettings` class.
@@ -22,8 +22,8 @@ struct MenuView: View {
     
     // MARK: - Body
     var body: some View {
-       
-            
+        
+        
         NavigationView {
             ZStack{
                 // Set the background color based on the current theme (dark/light mode).
@@ -46,18 +46,26 @@ struct MenuView: View {
                         Spacer()
                     }
                 }
+                .onAppear {
+                    startBackgroundMusic()
+                }
+               
             }
+            
+            
         }  .navigationViewStyle(.stack)
+        
     }
+    
 }
 
 // MARK: - Extension
 extension MenuView {
     
-      /// Creates and returns the menu buttons, including "Play Game", "Leaderboard", "How To Play", and "Game Setting".
-      ///
-      /// - Parameter scalingFactor: A factor to scale the UI elements based on the screen width.
-      /// - Returns: A `VStack` containing the menu buttons.
+    /// Creates and returns the menu buttons, including "Play Game", "Leaderboard", "How To Play", and "Game Setting".
+    ///
+    /// - Parameter scalingFactor: A factor to scale the UI elements based on the screen width.
+    /// - Returns: A `VStack` containing the menu buttons.
     func menuButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
             // Welcome text.

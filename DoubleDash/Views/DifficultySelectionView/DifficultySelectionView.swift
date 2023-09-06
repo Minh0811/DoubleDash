@@ -61,6 +61,7 @@ struct DifficultySelectionView: View {
         // Add a custom back button to the view.
         .customBackButton(presentationMode: presentationMode)
         .onAppear {
+            startBackgroundMusic()
             // Initialize the selection states based on the current game and global settings.
                switch gameLogic.currentLevel {
                case 3:
@@ -75,6 +76,7 @@ struct DifficultySelectionView: View {
             selectedMode = globalSettings.isDark ? 1 : 0
             selectedLanguage = globalSettings.isEnglish ? 0 : 1
            }
+             
     }
 }
 

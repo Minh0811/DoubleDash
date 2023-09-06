@@ -71,6 +71,9 @@ struct PlayerStatisticsView: View {
                 .onAppear {
                     // Load existing players when the view appears.
                     players = load() ?? []
+                   
+                            startBackgroundMusic()
+            
                 }
             }
         }

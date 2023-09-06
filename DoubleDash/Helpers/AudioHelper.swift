@@ -11,6 +11,9 @@ import AVFoundation
 // Global instance of the audio player used to play sound effects.
 var audioPlayer: AVAudioPlayer?
 
+var backgroundMusicPlayer: AVAudioPlayer?
+
+
 /// - Parameter soundFileName: The name of the sound file (without its extension) to be played.
 // Dictionary to hold audio players for different sounds
 var audioPlayers: [String: AVAudioPlayer] = [:]
@@ -43,3 +46,23 @@ func playSoundEffect(named soundFileName: String) {
 }
 
 
+
+
+func startBackgroundMusic(named soundFileName: String = "backgroundmusic.mp3") {
+    guard backgroundMusicPlayer == nil else { return } // Ensure music isn't already playing
+    
+    if let soundURL = Bundle.main.url(forResource: soundFileName, withExtension: nil) {
+        do {
+            backgroundMusicPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            backgroundMusicPlayer?.numberOfLoops = -1 // Infinite loop
+            backgroundMusicPlayer?.play()
+        } catch {
+            print("Error playing background music: \(error)")
+        }
+    }
+}
+
+func stopBackgroundMusic() {
+    backgroundMusicPlayer?.stop()
+    backgroundMusicPlayer = nil
+}

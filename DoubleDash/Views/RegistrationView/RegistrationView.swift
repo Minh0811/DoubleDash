@@ -106,6 +106,8 @@ struct RegistrationView: View {
                     // Load existing players when the view appears.
                     players = load() ?? []
                 }
+            } .onAppear {
+                startBackgroundMusic()
             }
         }
         // Add a custom back button to the view.

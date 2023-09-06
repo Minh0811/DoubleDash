@@ -56,6 +56,8 @@ struct AchievementListView: View {
                             }
                         }
                     }
+                } .onAppear {
+                    startBackgroundMusic()
                 }
             }
         }
