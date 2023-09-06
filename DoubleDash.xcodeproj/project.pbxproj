@@ -19,6 +19,7 @@
 		F78AD1EA2AA7E4B100341551 /* AchievementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78AD1E92AA7E4B100341551 /* AchievementListView.swift */; };
 		F78AD1EE2AA7FBE800341551 /* losing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78AD1ED2AA7FBE700341551 /* losing.mp3 */; };
 		F78AD1F02AA8060B00341551 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78AD1EF2AA8060B00341551 /* backgroundmusic.mp3 */; };
+		F78B27512AA838EA00CA3830 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B27502AA838EA00CA3830 /* HowToPlayView.swift */; };
 		F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */; };
 		F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */; };
 		F78BFD672A9DFF89002DA3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		F78AD1E92AA7E4B100341551 /* AchievementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementListView.swift; sourceTree = "<group>"; };
 		F78AD1ED2AA7FBE700341551 /* losing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = losing.mp3; sourceTree = "<group>"; };
 		F78AD1EF2AA8060B00341551 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundmusic.mp3; sourceTree = "<group>"; };
+		F78B27502AA838EA00CA3830 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 		F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorScheme.swift; sourceTree = "<group>"; };
 		F78BFD5F2A9DFF86002DA3F5 /* DoubleDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashApp.swift; sourceTree = "<group>"; };
@@ -181,6 +183,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F78B274F2AA838D000CA3830 /* HowToPlayView */ = {
+			isa = PBXGroup;
+			children = (
+				F78B27502AA838EA00CA3830 /* HowToPlayView.swift */,
+			);
+			path = HowToPlayView;
+			sourceTree = "<group>";
+		};
 		F78BFD562A9DFF86002DA3F5 = {
 			isa = PBXGroup;
 			children = (
@@ -238,9 +248,10 @@
 			isa = PBXGroup;
 			children = (
 				F78BFDA82A9E0A72002DA3F5 /* MenuView */,
+				F7804E3F2A9F7335009E1F9F /* LeaderBoardView */,
 				F77F8F902AA34E4A00CC6AFE /* DifficultySelectionView */,
 				F7804E362A9F6800009E1F9F /* RegistrationView */,
-				F7804E3F2A9F7335009E1F9F /* LeaderBoardView */,
+				F78B274F2AA838D000CA3830 /* HowToPlayView */,
 				F78BFDA92A9E0A7C002DA3F5 /* GameView */,
 			);
 			path = Views;
@@ -488,6 +499,7 @@
 				F78BFDA12A9E01E2002DA3F5 /* FunctionalUtils.swift in Sources */,
 				F7EB564B2AA5E636005ED22A /* GlobalSettings.swift in Sources */,
 				F78BFDAB2A9E0A95002DA3F5 /* MenuView.swift in Sources */,
+				F78B27512AA838EA00CA3830 /* HowToPlayView.swift in Sources */,
 				F78BFD9F2A9E0136002DA3F5 /* BlockView.swift in Sources */,
 				F77FB5072AA63D920012A702 /* Localization.swift in Sources */,
 				F78BFD932A9E00CA002DA3F5 /* BlockMatrix.swift in Sources */,

@@ -107,17 +107,18 @@ extension MenuView {
             )
             
             // How to play button.
-            Button(action: {
-                
-            }) {
-                Text(LocalizedStrings.howToPlay)
-                    .font(Font.system(size: 28 * scalingFactor))
-                    .padding()
-                    .frame(width: 230 * scalingFactor, height: 70 * scalingFactor)
-                    .background(globalSettings.isDark ? ButtonColorScheme: DarkButtonColorScheme)
-                    .foregroundColor(globalSettings.isDark ? DarkButtonLetterColorScheme : ButtonLetterColorScheme)
-                    .cornerRadius(10 * scalingFactor)
-            }
+            NavigationLink(
+                destination: HowToPlayView(), // Use the same gameLogic instance
+                label: {
+                    Text(LocalizedStrings.howToPlay)
+                        .font(Font.system(size: 28 * scalingFactor))
+                        .padding()
+                        .frame(width: 230 * scalingFactor, height: 70 * scalingFactor)
+                        .background(globalSettings.isDark ? ButtonColorScheme: DarkButtonColorScheme)
+                        .foregroundColor(globalSettings.isDark ? DarkButtonLetterColorScheme : ButtonLetterColorScheme)
+                        .cornerRadius(10 * scalingFactor)
+                }
+            )
             
             // Game Setting button.
             NavigationLink(
