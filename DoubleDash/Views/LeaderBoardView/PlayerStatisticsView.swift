@@ -117,3 +117,12 @@ struct PlayerStatisticsView_Previews: PreviewProvider {
     }
 }
 
+// Purpose of PlayerStatistics.swift:
+// This file defines the interface for the player statistics section of the "DoubleDash" game using SwiftUI.
+// The PlayerStatisticsView struct provides a user interface for users to view statistics for each registered player.
+// The view displays the player's name followed by a line chart representing the last six scores of the player.
+// Below the chart, the average score for the player is also displayed.
+// The view is designed to be responsive, adapting to different device sizes and orientations.
+// It also integrates with the global settings to adjust its appearance based on the user's theme preferences (dark/light mode).
+// The view provides a custom back button for navigation and plays background music when it appears.
+// Additionally, the file includes an extension to remove duplicates from an array, which is used to ensure unique player names in the statistics view.

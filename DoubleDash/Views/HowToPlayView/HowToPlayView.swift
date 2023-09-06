@@ -143,3 +143,10 @@ struct HowToPlayView_Previews: PreviewProvider {
             .environmentObject(GlobalSettings.shared)
     }
 }
+
+// Purpose of HowToPlayView.swift:
+// This file defines the interface for the "How to Play" section of the DoubleDash game using SwiftUI.
+// The HowToPlayView struct provides a detailed guide on how to play the game, including objectives, game mechanics, scoring, and more.
+// It uses localized strings to present the instructions, ensuring adaptability for multiple languages.
+// The view is designed to be responsive, adapting to different device sizes and orientations.
+// It also integrates with the global settings to adjust its appearance based on the user's theme preferences (dark/light mode).

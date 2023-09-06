@@ -7,11 +7,13 @@
 
 import Foundation
 
+// Protocol for a block with an associated type for its value.
 protocol Block {
     associatedtype Value
     var number: Value { get set }
 }
 
+// Struct representing a block with an index.
 struct IndexedBlock<T> where T: Block {
     typealias Index = BlockMatrix<T>.Index
     let index: Self.Index
@@ -19,13 +21,14 @@ struct IndexedBlock<T> where T: Block {
 
 }
 
+// Struct representing a matrix of blocks.
 struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
     
     typealias Index = (Int, Int)
-       
        fileprivate var matrix: [[T?]]
        
-       init(size: Int) {
+    // Initializer for the block matrix with a given size.
+    init(size: Int) {
            matrix = [[T?]]()
            for _ in 0..<size {
                var row = [T?]()
@@ -36,6 +39,7 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
            }
        }
     
+    // Debug description for the block matrix.
     var debugDescription: String {
         matrix.map { row -> String in
             row.map {
@@ -48,6 +52,7 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
         }.joined(separator: "\n")
     }
     
+    // Flatten the matrix into an array of indexed blocks.
     var flatten: [IndexedBlock<T>] {
         return self.matrix.enumerated().flatMap { (y: Int, element: [T?]) in
             element.enumerated().compactMap { (x: Int, element: T?) in
@@ -59,6 +64,7 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
         }
     }
     
+    // Subscript to get a block at a specific index.
     subscript(index: Self.Index) -> T? {
         guard isIndexValid(index) else {
             return nil
@@ -67,6 +73,7 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
         return matrix[index.1][index.0]
     }
     
+    // Move a block from one location to another.
     /// Move the block to specific location and leave the original location blank.
     /// - Parameter from: Source location
     /// - Parameter to: Destination location
@@ -84,6 +91,8 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
         matrix[from.1][from.0] = nil
     }
     
+    
+    // Move a block from one location to another and change its value.
     /// Move the block to specific location, change its value and leave the original location blank.
     /// - Parameter from: Source location
     /// - Parameter to: Destination location
@@ -104,6 +113,7 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
         matrix[from.1][from.0] = nil
     }
     
+    
     /// Place a block to specific location.
     /// - Parameter block: The block to place
     /// - Parameter to: Destination location
@@ -111,6 +121,7 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
         matrix[to.1][to.0] = block
     }
     
+    // Check if an index is valid.
     fileprivate func isIndexValid(_ index: Self.Index) -> Bool {
         guard index.0 >= 0 && index.0 < 6 else {
             return false
@@ -125,3 +136,7 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
     
 }
 
+// Purpose of BlockMatrix.swift:
+// This file defines the structure and operations for a matrix of blocks used in the game.
+// It provides functionalities like moving blocks, merging them, and checking their positions.
+// The matrix is central to the game's logic, representing the game board where players interact with blocks.

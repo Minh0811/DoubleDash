@@ -212,3 +212,13 @@ struct LeaderBoardView_Previews: PreviewProvider {
             .environmentObject(GlobalSettings.shared)
     }
 }
+
+// Purpose of LeaderBoardView.swift:
+// This file defines the interface for the leaderboard section of the "DoubleDash" game using SwiftUI.
+// The LeaderBoardView struct provides a user interface for users to view the top players' scores across different difficulty levels: Hard, Medium, and Easy.
+// The leaderboard displays the player's name, high score, and their highest achievement.
+// Players are grouped by their usernames, and only the highest score for each player is displayed.
+// The view also provides navigation to the AchievementListView, where users can see a detailed list of a player's achievements.
+// The leaderboard is designed to be responsive, adapting to different device sizes and orientations.
+// It also integrates with the global settings to adjust its appearance based on the user's theme preferences (dark/light mode).
+// The view provides a custom back button for navigation and plays background music when it appears.

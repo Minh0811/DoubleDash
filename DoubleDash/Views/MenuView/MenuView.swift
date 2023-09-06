@@ -68,11 +68,15 @@ extension MenuView {
     /// - Returns: A `VStack` containing the menu buttons.
     func menuButtons(scalingFactor: CGFloat) -> some View {
         VStack(spacing: 20) {
+            Image("logo")
+                .resizable()
+                .frame(width: 100 * scalingFactor, height: 100 * scalingFactor)
+                .cornerRadius(10 * scalingFactor)
             // Welcome text.
             Text(LocalizedStrings.welcome)
                 .font(Font.system(size: 65 * scalingFactor).weight(.black))
                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
-                .padding(.vertical, 50 * scalingFactor)
+                .padding(.vertical, 10 * scalingFactor)
             
             // Play Game button.
             NavigationLink(
@@ -146,3 +150,18 @@ struct MenuView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
+
+// Purpose of MenuView.swift:
+// This file defines the main menu interface for the "my-2048" game using SwiftUI.
+// The MenuView struct provides a user interface that acts as the entry point for the game, offering several options to the user.
+// The main functionalities include:
+// 1. Displaying a welcome message to the user.
+// 2. Providing navigation buttons for the following:
+//    - Starting a new game (Play Game).
+//    - Viewing the leaderboard (Leaderboard).
+//    - Learning how to play the game (How To Play).
+//    - Adjusting game settings, including difficulty (Game Setting).
+// The view is designed to be responsive, adapting to different device sizes and orientations.
+// It also integrates with the global settings to adjust its appearance based on the user's theme preferences (dark/light mode).
+// The view plays background music when it appears.
+// The menu buttons are designed with a consistent look and feel, and they navigate to their respective views when tapped.

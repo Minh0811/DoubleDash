@@ -27,3 +27,10 @@ class GlobalStates: ObservableObject {
     // Private initializer to ensure only one instance of GlobalState is created.
     private init() {}
 }
+
+// Purpose of GlobalStates.swift:
+// This file defines the `GlobalStates` class, which serves as a centralized location for managing global properties and data for the "DoubleDash" game using SwiftUI.
+// The main functionalities and features include:
+// 1. Singleton Pattern: The `GlobalStates` class follows the Singleton design pattern, ensuring that only one instance of the class is created and shared throughout the app.
+// 2. Responsive UI: The `iphone14BaseWidth` property is used as a reference width to calculate scaling factors for creating a responsive UI across different device sizes.
+// By centralizing these global properties in this class, it ensures that the game maintains consistent UI scaling and provides a single point of truth for global states.

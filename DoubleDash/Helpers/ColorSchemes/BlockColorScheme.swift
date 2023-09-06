@@ -5,8 +5,13 @@
 //  Created by Minh Vo on 22/08/2023.
 //
 
-//  BlockColorScheme.swift defines the color scheme for different block values up to more than 2 million
-// Each Tuple represent the background color and the number color for each block
+// Purpose of BlockColorScheme.swift:
+// This file defines the color schemes for different block values in the "my-2048" game using SwiftUI.
+// The BlockColorScheme provides a centralized location for defining and managing the color schemes used for each block value in the game.
+// The main functionalities and features include:
+// 1. Block Colors: Each tuple in the BlockColorScheme array represents the background color and the number color for a specific block value, ranging from 2 to over 2 million.
+// 2. Default Block Color: A default color scheme is provided for blocks that do not have a pre-defined value in the BlockColorScheme array.
+// By centralizing the color definitions in this file, it ensures consistency across the game and makes it easier to make block color-related changes in the future.
 
 import SwiftUI
 

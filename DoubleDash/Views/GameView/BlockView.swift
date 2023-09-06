@@ -108,3 +108,9 @@ struct BlockView_Previews: PreviewProvider {
         BlockView(block: IdentifiedBlock(id: 3, number: 2), scalingFactor: 1)
     }
 }
+
+// Purpose of BlockView.swift:
+// This file defines the visual representation of a block in the 2048 game using SwiftUI.
+// The BlockView struct provides a customizable view for each block, including its number, color, and size.
+// It also provides utility functions for formatting and styling based on the block's attributes.
+// The view is designed to be scalable and adaptive to different game states and configurations.

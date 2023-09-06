@@ -20,6 +20,9 @@
 		F78AD1EE2AA7FBE800341551 /* losing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78AD1ED2AA7FBE700341551 /* losing.mp3 */; };
 		F78AD1F02AA8060B00341551 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78AD1EF2AA8060B00341551 /* backgroundmusic.mp3 */; };
 		F78B27512AA838EA00CA3830 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B27502AA838EA00CA3830 /* HowToPlayView.swift */; };
+		F78B27552AA8525100CA3830 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78B27522AA8525100CA3830 /* logo@3x.png */; };
+		F78B27562AA8525100CA3830 /* logo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78B27532AA8525100CA3830 /* logo@1x.png */; };
+		F78B27572AA8525100CA3830 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78B27542AA8525100CA3830 /* logo@2x.png */; };
 		F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */; };
 		F78BFD632A9DFF86002DA3F5 /* DoubleDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */; };
 		F78BFD672A9DFF89002DA3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78BFD662A9DFF89002DA3F5 /* Assets.xcassets */; };
@@ -37,7 +40,6 @@
 		F78BFDAD2A9E0AA6002DA3F5 /* DifficultySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */; };
 		F78CE6AC2AA0EEC4000E451A /* GlobalStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AB2AA0EEC4000E451A /* GlobalStates.swift */; };
 		F78CE6AF2AA12BC9000E451A /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6AE2AA12BC9000E451A /* Achievement.swift */; };
-		F78CE6B32AA12F0C000E451A /* AchievementDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */; };
 		F78F3C022AA492380061E3B8 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = F78F3C012AA492380061E3B8 /* SwiftUICharts */; };
 		F78F3C082AA50FA50061E3B8 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = F78F3C052AA50FA50061E3B8 /* License.txt */; };
 		F78F3C092AA50FA60061E3B8 /* Add.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F78F3C062AA50FA50061E3B8 /* Add.mp3 */; };
@@ -77,6 +79,9 @@
 		F78AD1ED2AA7FBE700341551 /* losing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = losing.mp3; sourceTree = "<group>"; };
 		F78AD1EF2AA8060B00341551 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundmusic.mp3; sourceTree = "<group>"; };
 		F78B27502AA838EA00CA3830 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
+		F78B27522AA8525100CA3830 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		F78B27532AA8525100CA3830 /* logo@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@1x.png"; sourceTree = "<group>"; };
+		F78B27542AA8525100CA3830 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		F78B92732A9F0B790058B837 /* ThemeColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorScheme.swift; sourceTree = "<group>"; };
 		F78BFD5F2A9DFF86002DA3F5 /* DoubleDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78BFD622A9DFF86002DA3F5 /* DoubleDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDashApp.swift; sourceTree = "<group>"; };
@@ -97,7 +102,6 @@
 		F78BFDAC2A9E0AA6002DA3F5 /* DifficultySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultySelectionView.swift; sourceTree = "<group>"; };
 		F78CE6AB2AA0EEC4000E451A /* GlobalStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStates.swift; sourceTree = "<group>"; };
 		F78CE6AE2AA12BC9000E451A /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
-		F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementDataModel.swift; sourceTree = "<group>"; };
 		F78F3C052AA50FA50061E3B8 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		F78F3C062AA50FA50061E3B8 /* Add.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Add.mp3; sourceTree = "<group>"; };
 		F78F3C072AA50FA50061E3B8 /* Merge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Merge.mp3; sourceTree = "<group>"; };
@@ -310,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				F78CE6AE2AA12BC9000E451A /* Achievement.swift */,
-				F78CE6B22AA12F0B000E451A /* AchievementDataModel.swift */,
 			);
 			path = AchievementModel;
 			sourceTree = "<group>";
@@ -318,6 +321,9 @@
 		F78F3C032AA50F860061E3B8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F78B27532AA8525100CA3830 /* logo@1x.png */,
+				F78B27542AA8525100CA3830 /* logo@2x.png */,
+				F78B27522AA8525100CA3830 /* logo@3x.png */,
 				F78F3C042AA50F910061E3B8 /* Audio */,
 			);
 			path = Assets;
@@ -448,7 +454,10 @@
 			files = (
 				F78BFD6A2A9DFF89002DA3F5 /* Preview Assets.xcassets in Resources */,
 				F78BFD672A9DFF89002DA3F5 /* Assets.xcassets in Resources */,
+				F78B27552AA8525100CA3830 /* logo@3x.png in Resources */,
 				F78AD1EE2AA7FBE800341551 /* losing.mp3 in Resources */,
+				F78B27562AA8525100CA3830 /* logo@1x.png in Resources */,
+				F78B27572AA8525100CA3830 /* logo@2x.png in Resources */,
 				F78F3C092AA50FA60061E3B8 /* Add.mp3 in Resources */,
 				F78F3C082AA50FA50061E3B8 /* License.txt in Resources */,
 				F78AD1F02AA8060B00341551 /* backgroundmusic.mp3 in Resources */,
@@ -488,7 +497,6 @@
 				F7804E412A9F735F009E1F9F /* LeaderBoardView.swift in Sources */,
 				F7804E382A9F6859009E1F9F /* RegistrationView.swift in Sources */,
 				F78B92742A9F0B790058B837 /* ThemeColorScheme.swift in Sources */,
-				F78CE6B32AA12F0C000E451A /* AchievementDataModel.swift in Sources */,
 				F7804E3E2A9F6951009E1F9F /* PlayerDataModel.swift in Sources */,
 				F78CE6AF2AA12BC9000E451A /* Achievement.swift in Sources */,
 				F78BFD962A9E00E2002DA3F5 /* IdentifiedBlock.swift in Sources */,

@@ -200,3 +200,10 @@ struct DifficultySelectionView_Previews: PreviewProvider {
        }
 }
     
+// Purpose of DifficultySelectionView.swift:
+// This file defines the interface for the difficulty selection section of the "my-2048" game using SwiftUI.
+// The DifficultySelectionView struct provides a user interface for players to select the game difficulty, theme mode (dark/light), and language.
+// It ensures that the selected settings are applied to the game and saved in the global settings.
+// The view is designed to be responsive, adapting to different device sizes and orientations.
+// It also integrates with the global settings to adjust its appearance based on the user's theme preferences (dark/light mode) and language preferences.
+// The view provides visual feedback by displaying images corresponding to the selected difficulty level.

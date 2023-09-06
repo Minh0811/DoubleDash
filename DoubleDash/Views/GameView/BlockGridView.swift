@@ -215,8 +215,12 @@ struct BlockGridView_Previews : PreviewProvider {
         BlockGridView(matrix: matrix, blockEnterEdge: .top, deviceSize: deviceSize)
             .environmentObject(GameLogic())
             .previewLayout(.sizeThatFits)
-        
     }
-    
 }
 #endif
+
+// Purpose of BlockGridView.swift:
+// This file defines the visual representation of the entire grid of blocks in the DoubleNumbers game using SwiftUI.
+// The BlockGridView struct provides a customizable view for the game grid, including individual blocks, their positions, and animations.
+// It also contains several view modifiers to enhance the appearance and behavior of blocks, such as scaling, blurring, and custom transitions.
+// The grid view is designed to be dynamic, adapting to different game states, block configurations, and device sizes.

@@ -129,3 +129,11 @@ struct RegistrationView_Previews: PreviewProvider {
             .environmentObject(GlobalSettings.shared)
     }
 }
+
+// Purpose of RegistrationView.swift:
+// This file defines the interface for the player registration section of the DoubleDash game using SwiftUI.
+// The RegistrationView struct provides a user interface for players to enter their username before starting the game.
+// It ensures that the entered username is unique among registered players and saves the new player's data.
+// The view is designed to be responsive, adapting to different device sizes and orientations.
+// It also integrates with the global settings to adjust its appearance based on the user's theme preferences (dark/light mode).
+// Upon successful registration, the player is navigated to the main game view.

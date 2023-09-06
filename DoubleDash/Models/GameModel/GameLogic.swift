@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 import Combine
 
+// Observable class representing the game logic.
 final class GameLogic : ObservableObject {
     @Published var score: Int = 0
-    
     @Published public var currentLevel: Int = 2
     
+    // Enum representing the direction of movement.
     var boardSize: Int {
         switch currentLevel {
         case 1: return 4
@@ -47,11 +48,12 @@ final class GameLogic : ObservableObject {
         return _globalID
     }
     
+    // Initializer for the game logic.
     init() {
-        
         newGame()
     }
     
+    // Start a new game.
     func newGame() {
         _blockMatrix = BlockMatrixType(size: boardSize)
         resetLastGestureDirection()
@@ -60,10 +62,12 @@ final class GameLogic : ObservableObject {
         score = 0
     }
     
+    // Reset the last gesture direction.
     func resetLastGestureDirection() {
         lastGestureDirection = .up
     }
     
+    // Move blocks in a specific direction.
     func move(_ direction: Direction) {
         defer {
             objectWillChange.send(self)
@@ -113,6 +117,7 @@ final class GameLogic : ObservableObject {
         }
     }
     
+    // Merge blocks in a specific direction.
     fileprivate func merge(blocks: inout [IdentifiedBlock], reverse: Bool) {
         if reverse {
             blocks = blocks.reversed()
@@ -146,6 +151,7 @@ final class GameLogic : ObservableObject {
         
     }
     
+    // Generate new blocks on the board.
     @discardableResult fileprivate func generateNewBlocks() -> Bool {
         var blankLocations = [BlockMatrixType.Index]()
         for rowIndex in 0..<boardSize {
@@ -187,11 +193,12 @@ final class GameLogic : ObservableObject {
         return true
     }
     
+    // Set the level value.
     func setLevelValue(level: Int) {
         currentLevel = level
     }
     
-    
+    // Check if there are possible moves left.
     func hasPossibleMoves() -> Bool {
         // Check for empty blocks
         for rowIndex in 0..<boardSize {
@@ -221,9 +228,12 @@ final class GameLogic : ObservableObject {
             }
         }
         playSoundEffect(named: "losing.mp3")
-    
         return false
     }
     
 }
 
+// Purpose of GameLogic.swift:
+// This file encapsulates the core game mechanics and logic for DoubleDash.
+// It handles player actions, block movements, scoring, and game state changes.
+// The logic ensures that the game progresses correctly based on player inputs and game rules.

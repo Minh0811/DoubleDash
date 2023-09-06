@@ -241,7 +241,12 @@ struct GameView_Previews : PreviewProvider {
               .environmentObject(GameLogic())
               .environmentObject(GlobalSettings.shared)
       }
-    
 }
 #endif
 
+// Purpose of GameView.swift:
+// This file defines the main game interface for the DoubleNumbers game using SwiftUI.
+// The GameView struct provides a comprehensive view of the game grid, score, level, and other game-related information.
+// It also handles user interactions, such as gestures for moving blocks, and presents game alerts like "Game Over."
+// The view integrates various custom view modifiers and extensions to enhance the gameplay experience.
+// Additionally, it provides a custom back button for navigation and manages the game's state and transitions.

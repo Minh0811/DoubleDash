@@ -15,28 +15,6 @@ class GlobalDatas: ObservableObject {
     static let shared = GlobalDatas()
 
     // MARK: - Properties
-
-    
-//    Silver I (S1)
-//    Silver 2 CSGO (S2)
-//    Silver III (S3)
-//    Silver IV (S4)
-//    Silver Elite (SE)
-//    Silver Elite Master (SEM)
-//    Gold Nova I (GN1)
-//    Gold Nova II (GN2)
-//    Gold Nova III (GN3)
-//    Gold Nova Master (GNM)
-//    Master Guardian I (MG1)
-//    Master Guardian II (MG2)
-//    Master Guardian Elite (MGE)
-//    Distinguished Master Guardian CSGO (DMG)
-//    Legendary Eagle (LE)
-//    Legendary Eagle Master (LEM CSGO)
-//    Supreme Master First Class (SMFC)
-//    Global Elite CSGO (GE)
-    
-    
     
     // A list of achievements that players can achieve.
     let achievements: [Achievement] = [
@@ -67,3 +45,12 @@ class GlobalDatas: ObservableObject {
     // Private initializer to ensure only one instance of GlobalState is created.
     private init() {}
 }
+
+// Purpose of GlobalDatas.swift:
+// This file defines a centralized location for managing global data related to player achievements in the "DoubleDash" game using SwiftUI.
+// The GlobalDatas class provides a mechanism to store and access various achievements that players can achieve during gameplay.
+// The main functionalities and features include:
+// 1. Singleton Pattern: The GlobalDatas class follows the Singleton design pattern, ensuring that only one instance of the class is created and shared throughout the app.
+// 2. Achievements Data: The `achievements` property contains a list of achievements, each with a unique ID, name, image representation, and milestone score required to achieve it.
+// 3. Achievement Tiers: The achievements are categorized into different tiers, such as Silver, Gold, Master Guardian, etc., each representing a different level of accomplishment.
+// By centralizing the achievements data in this class, it ensures that the game has a consistent set of milestones for players to strive for, and provides a single point of truth for these achievements.

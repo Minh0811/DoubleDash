@@ -74,3 +74,12 @@ struct AchievementListView_Previews: PreviewProvider {
             .environmentObject(GlobalSettings.shared)
     }
 }
+
+// Purpose of AchievementListView.swift:
+// This file defines the interface for the achievement list section of the "DoubleDash" game using SwiftUI.
+// The AchievementListView struct provides a user interface for players to view the list of achievements they have unlocked based on their scores.
+// It displays the player's name at the top, followed by a list of achievements that the player has unlocked.
+// Each achievement is represented by an image and its name.
+// The view is designed to be responsive, adapting to different device sizes and orientations.
+// It also integrates with the global settings to adjust its appearance based on the user's theme preferences (dark/light mode).
+// The view provides a custom back button for navigation and plays background music when it appears.

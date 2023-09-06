@@ -14,3 +14,7 @@ struct Achievement: Codable, Hashable, Identifiable {
     var milestone: Int
 }
     
+// Purpose of Achievement.swift:
+// This file defines the data structure for game achievements in DoubleDash.
+// Each achievement has an ID, name, associated image, and a milestone indicating the criteria for earning it.
+// The structure is used to track and display player achievements as they progress in the game.
