@@ -48,6 +48,7 @@ final class GameLogic : ObservableObject {
     }
     
     init() {
+        
         newGame()
     }
     
@@ -197,6 +198,7 @@ final class GameLogic : ObservableObject {
             for colIndex in 0..<boardSize {
                 let index = (colIndex, rowIndex)
                 if _blockMatrix[index] == nil {
+                    print("moved")
                     return true
                 }
             }
@@ -211,11 +213,15 @@ final class GameLogic : ObservableObject {
                 
                 if (rightBlock != nil && rightBlock!.number == currentBlock!.number) ||
                     (downBlock != nil && downBlock!.number == currentBlock!.number) {
+               
                     return true
+                 
+                    
                 }
             }
         }
         playSoundEffect(named: "losing.mp3")
+    
         return false
     }
     

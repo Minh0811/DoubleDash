@@ -139,7 +139,7 @@ struct BlockGridView : View {
         
         // Play sound effect when a block is generated
         if block != nil {
-            playSoundEffect(named: "Add.mp3")
+            playSoundEffect(named: "Merge.mp3")
         }
         
         let blockView = block.map { BlockView(block: $0, scalingFactor: scalingFactor) } ?? BlockView.emptyBlockView()
