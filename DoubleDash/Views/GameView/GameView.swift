@@ -216,7 +216,7 @@ struct GameView : View {
                                 gameLogic.newGame()
                                 isGameOver = false
                                 self.gameLogic.score = 0
-                                
+                               
                             })
                         }
                 }

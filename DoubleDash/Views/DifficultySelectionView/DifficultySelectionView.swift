@@ -48,11 +48,13 @@ struct DifficultySelectionView: View {
                 var scalingFactor: CGFloat {
                     return geometry.size.width / iphone14BaseWidth
                 }
-                VStack{
-                    // Display the difficulty, mode, and language selection buttons.
-                    difficultyButtons(scalingFactor: scalingFactor).padding()
-                    darkModeButtons(scalingFactor: scalingFactor).padding()
-                    LanguageButtons(scalingFactor: scalingFactor).padding()
+                ScrollView{
+                    VStack{
+                        // Display the difficulty, mode, and language selection buttons.
+                        difficultyButtons(scalingFactor: scalingFactor).padding()
+                        darkModeButtons(scalingFactor: scalingFactor).padding()
+                        LanguageButtons(scalingFactor: scalingFactor).padding()
+                    }
                 }
             }
         }
@@ -90,9 +92,11 @@ extension DifficultySelectionView {
                         .padding(.top, 20 * scalingFactor)
             
             Picker(selection: $selectedDifficulty, label: Text("Difficulty")) {
-                Text(LocalizedStrings.easy).tag(0)
-                Text(LocalizedStrings.medium).tag(1)
-                Text(LocalizedStrings.hard).tag(2)
+
+                    Text(LocalizedStrings.easy).tag(0)
+                    Text(LocalizedStrings.medium).tag(1)
+                    Text(LocalizedStrings.hard).tag(2)
+
             }
             .pickerStyle(SegmentedPickerStyle())
             // in the moment of when the selectedDifficult is changed, set the game difficulty base on the changes

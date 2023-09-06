@@ -127,8 +127,8 @@ final class GameLogic : ObservableObject {
                     //Scoring system
                     score += mergedBlock.number
                     // Play sound effect when blocks merge
-                    playSoundEffect(named: "Merge.mp3")
-                    
+                   playSoundEffect(named: "Merge.mp3")
+                    //playSoundEffect(named: "losing.mp3")
                     accPrefix.append((true, mergedBlock))
                     return accPrefix
                 } else {
@@ -215,7 +215,7 @@ final class GameLogic : ObservableObject {
                 }
             }
         }
-        
+        playSoundEffect(named: "losing.mp3")
         return false
     }
     
