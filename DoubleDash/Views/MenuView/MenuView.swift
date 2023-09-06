@@ -1,9 +1,14 @@
-//
-//  MenuView.swift
-//  my-2048
-//
-//  Created by Minh Vo on 24/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2022B
+  Assessment: Assignment 2
+  Author: Minh Vo
+  ID: S3879953
+  Created  date: 20/08/2023 (e.g. 31/07/2023)
+  Last modified: 6/09/2023 (e.g. 05/08/2023)
+  Acknowledgement:
+*/
 
 import SwiftUI
 
@@ -67,16 +72,20 @@ extension MenuView {
     /// - Parameter scalingFactor: A factor to scale the UI elements based on the screen width.
     /// - Returns: A `VStack` containing the menu buttons.
     func menuButtons(scalingFactor: CGFloat) -> some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
             Image("logo")
                 .resizable()
                 .frame(width: 100 * scalingFactor, height: 100 * scalingFactor)
                 .cornerRadius(10 * scalingFactor)
             // Welcome text.
             Text(LocalizedStrings.welcome)
-                .font(Font.system(size: 65 * scalingFactor).weight(.black))
+                .font(Font.system(size: 45 * scalingFactor).weight(.black))
                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
-                .padding(.vertical, 10 * scalingFactor)
+               
+            Text("DoubleDash")
+                .font(Font.system(size: 35 * scalingFactor).weight(.black))
+                .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
+        
             
             // Play Game button.
             NavigationLink(

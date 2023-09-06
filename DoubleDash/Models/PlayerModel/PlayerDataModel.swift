@@ -1,9 +1,14 @@
-//
-//  DataModel.swift
-//  DoubleDash
-//
-//  Created by Minh Vo on 30/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2022B
+  Assessment: Assignment 2
+  Author: Minh Vo
+  ID: S3879953
+  Created  date: 20/08/2023 (e.g. 31/07/2023)
+  Last modified: 6/09/2023 (e.g. 05/08/2023)
+  Acknowledgement:
+*/
 
 import SwiftUI
 
@@ -13,7 +18,7 @@ func save(players: [Player]) {
     // Attempt to encode the players array to JSON data.
     if let encodedData = try? encoder.encode(players) {
         // Construct the file URL for saving the data.
-        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("players7.json") {
+        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("players8.json") {
             // Attempt to write the encoded data to the file.
             try? encodedData.write(to: url)
             print("Data saved to \(url.path)")
@@ -26,7 +31,7 @@ func save(players: [Player]) {
 // Function to load an array of players from a JSON file.
 func load() -> [Player]? {
     // Construct the file URL for loading the data.
-    if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("players7.json") {
+    if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("players8.json") {
         // Attempt to read the data from the file.
         if let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()

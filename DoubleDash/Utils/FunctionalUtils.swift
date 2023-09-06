@@ -1,9 +1,14 @@
-//
-//  FunctionalUtils.swift
-//  DoubleNumbers
-//
-//  Created by Minh Vo on 16/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2022B
+  Assessment: Assignment 2
+  Author: Minh Vo
+ ID: S3879953
+  Created  date: 16/08/2023 (e.g. 31/07/2023)
+  Last modified: 6/09/2023 (e.g. 05/08/2023)
+  Acknowledgement:
+*/
 
 /// Binds a value to a closure and returns the result of the closure.
 ///

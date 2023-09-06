@@ -1,9 +1,14 @@
-//
-//  RegistrationView.swift
-//  DoubleDash
-//
-//  Created by Minh Vo on 30/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2022B
+  Assessment: Assignment 2
+  Author: Minh Vo
+  ID: S3879953
+  Created  date: 20/08/2023 (e.g. 31/07/2023)
+  Last modified: 6/09/2023 (e.g. 05/08/2023)
+  Acknowledgement:
+*/
 
 import SwiftUI
 
@@ -56,21 +61,17 @@ struct RegistrationView: View {
                     
                 
                     Button(action: {
-                        print("Entered username: \(localUsername)")
-                        print("Existing players: \(players)")
                         if isUsernameUnique() {
                             newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0, achievementNames: newPlayerAchievement)
                             players.append(newPlayer!)
                             save(players: players)
                             gameLogic.newGame() // Start a new game
-                            print("Player saved and game started")
                             shouldNavigateToGame = true
                         } else {
                             newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0, achievementNames: newPlayerAchievement)
                             players.append(newPlayer!)
                             save(players: players)
                             gameLogic.newGame() // Start a new game
-                            print("Player saved and game started")
                             showingAlert = true
                         }
                     }) {
