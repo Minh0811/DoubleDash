@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 30/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 30/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -21,7 +21,7 @@ struct AchievementListView: View {
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     var player: Player
     let achievements = GlobalDatas.shared.achievements
-
+    
     var body: some View {
         ZStack{
             // Set the background color based on the current theme (dark/light mode).
@@ -73,7 +73,7 @@ struct AchievementListView: View {
 
 struct AchievementListView_Previews: PreviewProvider {
     static var mockPlayer = Player(gameMode: 1, username: "TestUser", score: 10000)
-
+    
     static var previews: some View {
         AchievementListView(player: mockPlayer)
             .environmentObject(GlobalSettings.shared)

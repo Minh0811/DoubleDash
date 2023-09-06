@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 20/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement: https://github.com/unixzii/SwiftUI-2048.git
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 20/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement: https://github.com/unixzii/SwiftUI-2048.git
+ */
 
 import Foundation
 
@@ -23,26 +23,26 @@ struct IndexedBlock<T> where T: Block {
     typealias Index = BlockMatrix<T>.Index
     let index: Self.Index
     let item: T
-
+    
 }
 
 // Struct representing a matrix of blocks.
 struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
     
     typealias Index = (Int, Int)
-       fileprivate var matrix: [[T?]]
-       
+    fileprivate var matrix: [[T?]]
+    
     // Initializer for the block matrix with a given size.
     init(size: Int) {
-           matrix = [[T?]]()
-           for _ in 0..<size {
-               var row = [T?]()
-               for _ in 0..<size {
-                   row.append(nil)
-               }
-               matrix.append(row)
-           }
-       }
+        matrix = [[T?]]()
+        for _ in 0..<size {
+            var row = [T?]()
+            for _ in 0..<size {
+                row.append(nil)
+            }
+            matrix.append(row)
+        }
+    }
     
     // Debug description for the block matrix.
     var debugDescription: String {

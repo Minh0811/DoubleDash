@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 31/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 31/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -20,13 +20,13 @@ class GlobalStates: ObservableObject {
     
     // The shared singleton instance of GlobalState.
     static let shared = GlobalStates()
-
+    
     // MARK: - Properties
     
     // The base width for iPhone 14. This is use to calculate the scale ratio for a responsive UI.
     @Published var iphone14BaseWidth: CGFloat = 390
-
-
+    
+    
     // MARK: - Initializer
     
     // Private initializer to ensure only one instance of GlobalState is created.

@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 20/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 20/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -59,7 +59,7 @@ struct RegistrationView: View {
                         .cornerRadius(10 * scalingFactor)
                         .disableAutocorrection(true)
                     
-                
+                    
                     Button(action: {
                         if isUsernameUnique() {
                             newPlayer = Player(gameMode: gameLogic.currentLevel, username: localUsername, score: 0, achievementNames: newPlayerAchievement)
@@ -88,11 +88,11 @@ struct RegistrationView: View {
                         Alert(title: Text(LocalizedStrings.alertTitleRegistrationView),
                               message: Text(LocalizedStrings.alertContentRegistrationView),
                               primaryButton: .default(Text(LocalizedStrings.alertDefaultButtonRegistrationView), action: {
-                                shouldNavigateToGame = true
-                                  }),
+                            shouldNavigateToGame = true
+                        }),
                               secondaryButton: .cancel(Text(LocalizedStrings.alertCancelButtonContentRegistrationView))
-                            )
-                        }
+                        )
+                    }
                     
                     NavigationLink(
                         destination: GameView(currentPlayer: $newPlayer).environmentObject(gameLogic),

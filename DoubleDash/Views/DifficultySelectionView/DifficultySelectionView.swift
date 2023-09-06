@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 20/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 20/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 
 import SwiftUI
@@ -31,7 +31,7 @@ struct DifficultySelectionView: View {
     @State private var selectedDifficulty: Int = 0
     @State private var selectedMode: Int = 0
     @State private var selectedLanguage: Int = 0
-
+    
     // Initializer to customize the appearance of UISegmentedControl.
     init() {
         // Change the text color for a non-selected option in the Segment Control
@@ -68,20 +68,20 @@ struct DifficultySelectionView: View {
         .onAppear {
             startBackgroundMusic()
             // Initialize the selection states based on the current game and global settings.
-               switch gameLogic.currentLevel {
-               case 3:
-                   selectedDifficulty = 0
-               case 2:
-                   selectedDifficulty = 1
-               case 1:
-                   selectedDifficulty = 2
-               default:
-                   break
-               }
+            switch gameLogic.currentLevel {
+            case 3:
+                selectedDifficulty = 0
+            case 2:
+                selectedDifficulty = 1
+            case 1:
+                selectedDifficulty = 2
+            default:
+                break
+            }
             selectedMode = globalSettings.isDark ? 1 : 0
             selectedLanguage = globalSettings.isEnglish ? 0 : 1
-           }
-             
+        }
+        
     }
 }
 
@@ -95,15 +95,15 @@ extension DifficultySelectionView {
                 .font(Font.system(size: 35 * scalingFactor).weight(.black))
                 .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
             selectedDifficultyImage(scalingFactor: scalingFactor)
-                        .frame(width: 300 * scalingFactor, height: 300 * scalingFactor)
-                        .padding(.top, 20 * scalingFactor)
+                .frame(width: 300 * scalingFactor, height: 300 * scalingFactor)
+                .padding(.top, 20 * scalingFactor)
             
             Picker(selection: $selectedDifficulty, label: Text("Difficulty")) {
-
-                    Text(LocalizedStrings.easy).tag(0)
-                    Text(LocalizedStrings.medium).tag(1)
-                    Text(LocalizedStrings.hard).tag(2)
-
+                
+                Text(LocalizedStrings.easy).tag(0)
+                Text(LocalizedStrings.medium).tag(1)
+                Text(LocalizedStrings.hard).tag(2)
+                
             }
             .pickerStyle(SegmentedPickerStyle())
             // in the moment of when the selectedDifficult is changed, set the game difficulty base on the changes
@@ -198,13 +198,13 @@ extension DifficultySelectionView {
 // MARK: - Previews
 struct DifficultySelectionView_Previews: PreviewProvider {
     static var previews: some View {
-           DifficultySelectionView() // Provide an empty closure for the preview
-               .environmentObject(GameLogic())
-               .environmentObject(GlobalSettings.shared)
+        DifficultySelectionView() // Provide an empty closure for the preview
+            .environmentObject(GameLogic())
+            .environmentObject(GlobalSettings.shared)
         
-       }
+    }
 }
-    
+
 // Purpose of DifficultySelectionView.swift:
 // This file defines the interface for the difficulty selection section of the "my-2048" game using SwiftUI.
 // The DifficultySelectionView struct provides a user interface for players to select the game difficulty, theme mode (dark/light), and language.

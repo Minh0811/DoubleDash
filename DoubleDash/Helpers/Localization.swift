@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 31/08/2023 (e.g. 31/07/2023)
-  Last modified: 4/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 31/08/2023 (e.g. 31/07/2023)
+ Last modified: 4/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -162,49 +162,49 @@ struct LocalizedStrings {
     static var alertTitleRegistrationView: String {
         return GlobalSettings.shared.isEnglish ? "Username Already Exists:" : "Tên Đã Tồn Tại"
     }
-
+    
     /// Localized string for alert content prompting user action when username already exists.
     static var alertContentRegistrationView: String {
         return GlobalSettings.shared.isEnglish ? "Do you want to continue with this name or change to a different name?" : "Bạn có muốn tiếp tục với tên này hay đổi tên khác"
     }
-
+    
     /// Localized string for default button text in registration view alert.
     static var alertDefaultButtonRegistrationView: String {
         return GlobalSettings.shared.isEnglish ? "Continue" : "Tiếp Tục"
     }
-
+    
     /// Localized string for cancel button text in registration view alert.
     static var alertCancelButtonContentRegistrationView: String {
         return GlobalSettings.shared.isEnglish ? "Change Name" : "Đổi Tên"
     }
-
+    
     // MARK: - HowToPlayView
-
+    
     /// Localized string for the title of the game's objective section.
     static var objective: String {
         return GlobalSettings.shared.isEnglish ? "1. Objective:" : "1. Mục tiêu:"
     }
-
+    
     /// Localized string explaining the game's main objective.
     static var objectiveContent1: String {
         return GlobalSettings.shared.isEnglish ? "The main goal of DoubleDash is to combine tiles of the same number to create a tile with a higher value. Try to achieve the highest score possible before the board fills up and no more moves are available." : "Mục tiêu chính của DoubleDash là kết hợp các ô có cùng số để tạo ra ô có giá trị cao hơn. Cố gắng đạt được số điểm cao nhất có thể trước khi bảng đầy và không còn nước đi nào nữa."
     }
-
+    
     /// Localized string for the title of the game mechanics section.
     static var theGame: String {
         return GlobalSettings.shared.isEnglish ? "2.The Game:" : "2.Trò chơi:"
     }
-
+    
     /// Localized string explaining the initial game setup.
     static var theGameContent1: String {
         return GlobalSettings.shared.isEnglish ? "When you start a new game, you'll be presented with a grid (or board). Initially, there will be two tiles with numbers on the board." : "Khi bạn bắt đầu một trò chơi mới, bạn sẽ thấy một lưới (hoặc bảng). Ban đầu, sẽ có hai ô có số trên bảng."
     }
-
+    
     /// Localized string for the title of the tile movement section.
     static var movingTiles: String {
         return GlobalSettings.shared.isEnglish ? "3. Moving Tiles:" : "3. Di chuyển gạch:"
     }
-
+    
     /// Localized string explaining how to move tiles.
     static var movingTilesContent1: String {
         return GlobalSettings.shared.isEnglish ? "Swipe in any of the four directions: up, down, left, or right." : "Vuốt theo bất kỳ hướng nào trong bốn hướng: lên, xuống, trái hoặc phải."
@@ -235,7 +235,7 @@ struct LocalizedStrings {
         return GlobalSettings.shared.isEnglish ? "The game becomes more challenging as the board fills up, so plan your moves carefully!" : "Trò chơi trở nên khó khăn hơn khi bàn cờ đầy lên, vì vậy hãy lên kế hoạch di chuyển cẩn thận!"
     }
     /// Localized string for the end of game title.
-
+    
     static var endOfGame: String {
         return GlobalSettings.shared.isEnglish ? "5. End of Game:" : "5. Kết thúc game:"
     }
@@ -251,7 +251,7 @@ struct LocalizedStrings {
     static var scoringContent1: String {
         return GlobalSettings.shared.isEnglish ? "Your score is the sum of all merged tile values. Aim to merge higher value tiles to boost your score!" : "Điểm của bạn là tổng của tất cả các giá trị ô được hợp nhất. Nhằm mục đích hợp nhất các ô có giá trị cao hơn để tăng điểm số của bạn!"
     }
-
+    
     /// Localized string for the first content of the leaderboard.
     static var LeaderboardConten1: String {
         return GlobalSettings.shared.isEnglish ? "After each game, your score is saved under your username." : "Sau mỗi trận đấu, điểm của bạn sẽ được lưu dưới tên người dùng của bạn."

@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 20/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement: https://github.com/unixzii/SwiftUI-2048.git
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 20/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement: https://github.com/unixzii/SwiftUI-2048.git
+ */
 
 import SwiftUI
 
@@ -118,17 +118,17 @@ struct BlockGridView : View {
     var blockDimension: CGFloat {
         return blockSettings.dimension
     }
-
+    
     // Computed property to get the gap between blocks based on the current level.
     var gap: CGFloat {
         return blockSettings.gap
     }
-
+    
     // Computed property to get the width of the grid based on the block dimension, gap, and board size.
     var gridWidth: CGFloat {
         return CGFloat(gameLogic.boardSize) * (blockDimension + gap) + gap
     }
-
+    
     // Computed property to get the height of the grid. It's the same as the width since the grid is a square.
     var gridHeight: CGFloat {
         return gridWidth
@@ -198,7 +198,7 @@ struct BlockGridView : View {
 #if DEBUG
 struct BlockGridView_Previews : PreviewProvider {
     static var gameLogic = GameLogic()
-        
+    
     static var matrix: BlockGridView.MatrixType {
         var _matrix = BlockGridView.MatrixType(size: gameLogic.boardSize)
         _matrix.place(IdentifiedBlock(id: 1, number: 2), to: (0, 0))

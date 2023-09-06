@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 20/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 20/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -39,7 +39,7 @@ struct GameView : View {
     let iphone14BaseWidth = GlobalStates.shared.iphone14BaseWidth
     
     @Binding var currentPlayer: Player?
-
+    
     //  Provide how the View should be presented for the custom back button
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
@@ -159,8 +159,8 @@ struct GameView : View {
                         
                         Text("Level: \(difficultyDescription)")
                             .font(Font.system(size: 30 ))
-                                  .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
-                                  //.padding()
+                            .foregroundColor(globalSettings.isDark ? DarkTitleColorScheme : TitleColorScheme)
+                        //.padding()
                     }
                     ZStack(alignment: .center) {
                         BlockGridView(matrix: self.gameLogic.blockMatrix,
@@ -193,7 +193,7 @@ struct GameView : View {
                             ToolbarItem (placement: .navigationBarLeading)  {
                                 
                                 Button(action: {
-                               
+                                    
                                     if let player = currentPlayer {
                                         updatePlayerScoreWithId(id: player.id, newScore: gameLogic.score)
                                         presentationMode.wrappedValue.dismiss()
@@ -221,13 +221,13 @@ struct GameView : View {
                                 gameLogic.newGame()
                                 isGameOver = false
                                 self.gameLogic.score = 0
-                               
+                                
                             })
                         }
                 } .onAppear {
                     stopBackgroundMusic()
                 }
-               
+                
             )
         } else {
             return AnyView(content)
@@ -243,9 +243,9 @@ struct GameView_Previews : PreviewProvider {
     static var previews: some View {
         let mockStringArray: String = ""
         GameView(currentPlayer: .constant(Player(gameMode: 1, username: "MockUser", score: 0,achievementNames: mockStringArray)))
-              .environmentObject(GameLogic())
-              .environmentObject(GlobalSettings.shared)
-      }
+            .environmentObject(GameLogic())
+            .environmentObject(GlobalSettings.shared)
+    }
 }
 #endif
 

@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 30/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 30/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -83,8 +83,8 @@ struct LeaderBoardView: View {
                     // Load existing players when the view appears.
                     players = load() ?? []
                     
-                            startBackgroundMusic()
-                        
+                    startBackgroundMusic()
+                    
                 }
             }
         }
@@ -116,14 +116,14 @@ struct LeaderBoardView: View {
                             .frame(width: collumnWidthSize * scalingFactor)
                             .font(Font.system(size: tableContentFontSize * scalingFactor))
                             .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
-                      
+                        
                         Spacer()
                         
                         Text("\(player.score)")
                             .font(Font.system(size: tableContentFontSize * scalingFactor))
                             .frame(width: collumnWidthSize * scalingFactor)
                             .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
-
+                        
                         Spacer()
                         
                         displayAchievement(for: player, tableContentFontSize: tableContentFontSize, scalingFactor: scalingFactor)
@@ -207,7 +207,7 @@ struct LeaderBoardView: View {
             }
         }
     }
-
+    
 }
 
 // MARK: - Previews

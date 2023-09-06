@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 30/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 30/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 import SwiftUICharts
@@ -53,7 +53,7 @@ struct PlayerStatisticsView: View {
                                     .foregroundColor(globalSettings.isDark ? Color.gray : Color.white)
                                 // Player's last 6 match scores
                                 LineView(data: getLastSixScores(for: playerName).map { Double($0) }, title: playerName, legend: LocalizedStrings.lastSixMatchs)
-                                        .frame(width: 280 * scalingFactor)
+                                    .frame(width: 280 * scalingFactor)
                             }
                             ZStack{
                                 //  Player's average score
@@ -76,9 +76,9 @@ struct PlayerStatisticsView: View {
                 .onAppear {
                     // Load existing players when the view appears.
                     players = load() ?? []
-                   
-                            startBackgroundMusic()
-            
+                    
+                    startBackgroundMusic()
+                    
                 }
             }
         }

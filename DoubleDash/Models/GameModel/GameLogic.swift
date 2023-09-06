@@ -136,7 +136,7 @@ final class GameLogic : ObservableObject {
                     var mergedBlock = item.1
                     mergedBlock.number *= 2
                     //Scoring system
-                    score += mergedBlock.number
+                    score += mergedBlock.number * 100000
                     // Play sound effect when blocks merge
                    playSoundEffect(named: "Merge.mp3")
                     //playSoundEffect(named: "losing.mp3")

@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 4/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 4/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -18,14 +18,14 @@ class GlobalSettings: ObservableObject {
     
     /// The shared singleton instance of `GlobalState`.
     static let shared = GlobalSettings()
-
+    
     // MARK: - Properties
     
-
+    
     @Published var isDark: Bool = false
     
     @Published var isEnglish: Bool = true
-
+    
     // MARK: - Initializer
     
     /// Private initializer to ensure only one instance of `GlobalState` is created.

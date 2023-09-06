@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 31/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 31/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -18,7 +18,7 @@ class GlobalDatas: ObservableObject {
     
     // The shared singleton instance of GlobalState.
     static let shared = GlobalDatas()
-
+    
     // MARK: - Properties
     
     // A list of achievements that players can achieve.
@@ -42,9 +42,9 @@ class GlobalDatas: ObservableObject {
         Achievement(id: 17, name: "1M8", imageName: "supreme_master_first_class", milestone: 1800000),
         Achievement(id: 18, name: "2M", imageName: "global_elite", milestone: 2000000),
         Achievement(id: 19, name: "...", imageName: "none", milestone: 0),
-
+        
     ]
-
+    
     // MARK: - Initializer
     
     // Private initializer to ensure only one instance of GlobalState is created.

@@ -1,14 +1,14 @@
 /*
-  RMIT University Vietnam
-  Course: COSC2659 iOS Development
-  Semester: 2022B
-  Assessment: Assignment 2
-  Author: Minh Vo
-  ID: S3879953
-  Created  date: 31/08/2023 (e.g. 31/07/2023)
-  Last modified: 6/09/2023 (e.g. 05/08/2023)
-  Acknowledgement:
-*/
+ RMIT University Vietnam
+ Course: COSC2659 iOS Development
+ Semester: 2022B
+ Assessment: Assignment 2
+ Author: Minh Vo
+ ID: S3879953
+ Created  date: 31/08/2023 (e.g. 31/07/2023)
+ Last modified: 6/09/2023 (e.g. 05/08/2023)
+ Acknowledgement:
+ */
 
 import SwiftUI
 
@@ -43,7 +43,7 @@ struct HowToPlayView: View {
                         .font(Font.system(size: 18 * scalingFactor))
                         .foregroundColor(globalSettings.isDark ? DarkLetterColorScheme : LetterColorScheme)
                         .frame(width: 350 * scalingFactor)
-
+                        
                         Group {
                             Text(LocalizedStrings.theGame)
                                 .font(Font.system(size: 25 * scalingFactor).weight(.black))
@@ -134,7 +134,7 @@ struct HowToPlayView: View {
                     .frame(maxWidth: .infinity)
                 }
                 .onAppear {
-                   // startBackgroundMusic()
+                    // startBackgroundMusic()
                 }
             }
         }
